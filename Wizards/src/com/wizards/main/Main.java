@@ -243,9 +243,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// Volume Button
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				if (volumeOn) {
-					btnVolumeState = btnVolumeMute;
+					btnVolumeState = btnVolumeMuteHov;
 				} else {
-					btnVolumeState = btnVolumeDef;
+					btnVolumeState = btnVolumeHov;
 				}
 				volumeOn = !volumeOn;
 			}
@@ -253,9 +253,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// Music Button
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				if (volumeOn) {
-					btnMusicState = btnMusicMute;
+					btnMusicState = btnMusicMuteHov;
 				} else {
-					btnMusicState = btnMusicDef;
+					btnMusicState = btnMusicHov;
 				}
 				musicOn = !musicOn;
 			}
