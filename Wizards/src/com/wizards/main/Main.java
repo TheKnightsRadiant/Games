@@ -29,6 +29,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnBuildHover = false;
 	public boolean btnCreditHover = false;
 	public boolean btnExitHover = false;
+	public boolean btnSettingsHover = false;
+	public boolean btnVolumeHover = false;
+	public boolean btnMusicHover = false;
 
 	static HelpScreen helpScreen = new HelpScreen();
 
@@ -329,7 +332,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
 				if (!btnBeginHover) {
+					if(volumeOn){
 					menuHoverSound.play();
+					}
 					btnBeginHover = true;
 				}
 			} else {
@@ -342,7 +347,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
 				if (!btnBuildHover) {
-					menuHoverSound.play();
+					if(volumeOn){
+						menuHoverSound.play();
+						}
 					btnBuildHover = true;
 				}
 			} else {
@@ -355,7 +362,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
 				if (!btnHelpHover) {
-					menuHoverSound.play();
+					if(volumeOn){
+						menuHoverSound.play();
+						}
 					btnHelpHover = true;
 				}
 			} else {
@@ -368,7 +377,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
 				if (!btnCreditHover) {
-					menuHoverSound.play();
+					if(volumeOn){
+						menuHoverSound.play();
+						}
 					btnCreditHover = true;
 				}
 			} else {
@@ -381,7 +392,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
 				if (!btnExitHover) {
-					menuHoverSound.play();
+					if(volumeOn){
+						menuHoverSound.play();
+						}
 					btnExitHover = true;
 				}
 			} else {
@@ -392,6 +405,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// TITLE SETTINGS BUTTONS
 			// Button Volume
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				
+				if (!btnVolumeHover) {
+					if(volumeOn){
+						menuHoverSound.play();
+						}
+					btnVolumeHover = true;
+				}
+				
 				if (volumeOn) {
 					btnVolumeState = btnVolumeHov;
 				} else {
@@ -403,6 +424,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				} else {
 					btnVolumeState = btnVolumeMute;
 				}
+				btnVolumeHover = false;
 			}
 
 			// Button Music
