@@ -112,9 +112,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		if (showTitleScreen) {
 			//Background
 			g.setColor(new Color(244, 231, 129));
-			g.fillRect(0, 0, WIDTH, HEIGHT);
+			g.fillRect(0, 0, WIDTH + 10, HEIGHT + 10);
 			
-			g.setColor(Color.BLACK);
 			g.drawImage(titleImage, 50, 50, null);
 			
 			//Button
@@ -123,6 +122,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.drawImage(btnHelpState, (WIDTH-150)/2, 335, null);
 			g.drawImage(btnCreditState, (WIDTH - 150) / 2, 390, null);
 			g.drawImage(btnExitState, (WIDTH - 150) / 2, 445, null);
+			
+			g.setColor(Color.BLACK);
+			g.fillRoundRect(730, 530, 40, 40, 5, 5);
+			g.fillRoundRect(680, 530, 40, 40, 5, 5);
+			g.fillRoundRect(630, 530, 40, 40, 5, 5);
 		}
 		
 		//PLAY SCREEN
@@ -153,6 +157,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	//MouseListeners
 	public void mousePressed(MouseEvent e) {
 		if (showTitleScreen) {
+			
+			//System.out.println(Double.toString(e.getX()) + ", " + Double.toString(e.getY()));
+			
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225 && e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginPress;
 			}
@@ -168,6 +175,16 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445 && e.getY() <= 445 + 50) {
 				btnExitState = btnExitPress;
 			}
+			if (e.getX() >= 730 && e.getX() <= 730 + 40 &&e.getY() >= 530 && e.getY() <= 530 + 40){
+				System.out.println("Settings");
+			}
+			if (e.getX() >= 680 && e.getX() <= 680 + 40 &&e.getY() >= 530 && e.getY() <= 530 + 40){
+				System.out.println("Volume");
+			}
+			if (e.getX() >= 630 && e.getX() <= 630 + 40 &&e.getY() >= 530 && e.getY() <= 530 + 40){
+				System.out.println("Music");
+			}
+			
 		}
 		
 		repaint();
