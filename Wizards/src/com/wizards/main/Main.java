@@ -19,6 +19,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showHelpScreen = false;
 	public boolean showPlayScreen = false;
 	
+	BufferedImage titleImage;
+	
 	BufferedImage btnBeginDef;
 	BufferedImage btnBeginPress;
 	BufferedImage btnBeginHov;
@@ -29,9 +31,16 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnHelpHov;
 	BufferedImage btnHelpState;
 	
+	BufferedImage btnBuildDef;
+	BufferedImage btnBuildPress;
+	BufferedImage btnBuildHov;
+	BufferedImage btnBuildState;
+	
 	
 	//CONSTRUCTOR
 	public Main() throws IOException {
+		titleImage = ImageIO.read(getClass().getResource("res/WizardTitle.png"));
+		
 		btnBeginDef = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginDefault.png"));
 		btnBeginHov = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginHovered.png"));
 		btnBeginPress = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginPressed.png"));
@@ -41,6 +50,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnHelpHov = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpHovered.png"));
 		btnHelpPress = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpPressed.png"));
 		btnHelpState = btnHelpDef;
+		
+		btnBuildDef = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildDefault.png"));
+		btnBuildHov = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildHovered.png"));
+		btnBuildPress = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildPressed.png"));
+		btnBuildState = btnBuildDef;
+		
 		
 	}
 	
@@ -76,11 +91,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.fillRect(0, 0, WIDTH, HEIGHT);
 			
 			g.setColor(Color.BLACK);
-			g.fillRect(50, 50, 700, 150);
+			g.drawImage(titleImage, 50, 50, null);
 			
 			//Button
 			g.drawImage(btnBeginState, (WIDTH - 150) / 2, 225, null);
-			g.drawImage(btnHelpState, (WIDTH-150)/2, 280, null);
+			g.drawImage(btnBuildDef, (WIDTH - 150) / 2, 280, null);
+			g.drawImage(btnHelpState, (WIDTH-150)/2, 335, null);
 		}
 		
 		//PLAY SCREEN
@@ -95,6 +111,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.fillRect(0, 0, WIDTH, HEIGHT);
 		}
 		
+		//BUILD SCREEN
+		if (showBuildScreen) {
+			g.setColor(Color.red);
+			g.fillRect(0, 0, WIDTH, HEIGHT);
+		}
+		
 	}
 
 	
@@ -105,6 +127,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnBeginState = btnBeginPress;
 			}
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50) {
+				btnBuildState = btnBuildPress;
+			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335 && e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpPress;
 			}
 			
@@ -120,9 +145,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50) {
 				showTitleScreen = false;
+				showBuildScreen = true;
+			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335 && e.getY() <= 335 + 50) {
+				showTitleScreen = false;
 				showHelpScreen = true;
 			}
 			btnBeginState = btnBeginDef;
+			btnBuildState = btnBuildDef;
 			btnHelpState = btnHelpDef;
 		}
 		
@@ -134,7 +164,13 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnBeginState = btnBeginHov;
 			else
 				btnBeginState = btnBeginDef;
+			
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50)
+				btnBuildState = btnBuildHov;
+			else
+				btnBuildState = btnBuildDef;
+			
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335 && e.getY() <= 335 + 50)
 				btnHelpState = btnHelpHov;
 			else
 				btnHelpState = btnHelpDef;
