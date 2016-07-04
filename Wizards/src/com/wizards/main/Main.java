@@ -20,7 +20,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
 	
-	HelpScreen helpScreen = new HelpScreen();
+	static HelpScreen helpScreen = new HelpScreen();
 	
 	BufferedImage titleImage;
 	
@@ -83,7 +83,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		window.setResizable(false);
 		window.setVisible(true);
 		
+		
 		game.addMouseListener(game);
+		game.addMouseListener(helpScreen);
 		game.addMouseMotionListener(game);
 		
 	}
