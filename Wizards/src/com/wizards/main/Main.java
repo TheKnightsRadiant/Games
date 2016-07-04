@@ -23,6 +23,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnBeginHov;
 	BufferedImage btnBeginState;
 	
+	BufferedImage btnHelpDef;
+	BufferedImage btnHelpPress;
+	BufferedImage btnHelpHov;
+	BufferedImage btnHelpState;
+	
 	
 	//CONSTRUCTOR
 	public Main() throws IOException {
@@ -30,6 +35,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnBeginHov = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginHovered.png"));
 		btnBeginPress = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginPressed.png"));
 		btnBeginState = btnBeginDef;
+		
+		btnHelpDef = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpDefault.png"));
+		btnHelpHov = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpHovered.png"));
+		btnHelpPress = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpPressed.png"));
+		btnHelpState = btnHelpDef;
+		
 	}
 	
 	
