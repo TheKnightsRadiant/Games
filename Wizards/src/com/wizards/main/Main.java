@@ -20,6 +20,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
 	
+	public boolean volumeOn = true;
+	public boolean musicOn = true;
+	
 	static HelpScreen helpScreen = new HelpScreen();;
 	
 	BufferedImage titleImage;
@@ -48,6 +51,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnExitPress;
 	BufferedImage btnExitHov;
 	BufferedImage btnExitState;
+	
+	BufferedImage btnVolumeDef;
+	BufferedImage btnVolumePress;
+	BufferedImage btnVolumeHov;
+	BufferedImage btnVolumeState;
 	
 	
 	//CONSTRUCTOR
@@ -78,6 +86,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnExitHov = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitHovered.png"));
 		btnExitPress = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitPressed.png"));
 		btnExitState = btnExitDef;
+		
+		btnVolumeDef = ImageIO.red
 		
 	}
 	
@@ -182,10 +192,18 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				System.out.println("Settings");
 			}
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 &&e.getY() >= 530 && e.getY() <= 530 + 40){
-				System.out.println("Volume");
+				if(volumeOn){
+					
+				} else {
+					
+				}
 			}
 			if (e.getX() >= 630 && e.getX() <= 630 + 40 &&e.getY() >= 530 && e.getY() <= 530 + 40){
-				System.out.println("Music");
+				if(musicOn){
+					
+				} else {
+					
+				}
 			}
 			
 		}
