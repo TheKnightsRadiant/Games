@@ -58,13 +58,15 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnSettingsState;
 
 	BufferedImage btnVolumeDef;
-	BufferedImage btnVolumePress;
 	BufferedImage btnVolumeHov;
+	BufferedImage btnVolumeMute;
+	BufferedImage btnVolumeMuteHov;
 	BufferedImage btnVolumeState;
 
 	BufferedImage btnMusicDef;
-	BufferedImage btnMusicPress;
 	BufferedImage btnMusicHov;
+	BufferedImage btnMusicMute;
+	BufferedImage btnMusicMuteHov;
 	BufferedImage btnMusicState;
 
 	// CONSTRUCTOR
@@ -96,20 +98,29 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnExitPress = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitPressed.png"));
 		btnExitState = btnExitDef;
 
-		btnSettingsDef = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeDefault.png"));
-		btnSettingsHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeHovered.png"));
-		btnSettingsPress = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumePressed.png"));
-		btnSettingsState = btnSettingsDef;
+		// btnSettingsDef =
+		// ImageIO.read(getClass().getResource("res/buttonsettings/ButtonSettingsDefault.png"));
+		// btnSettingsHov =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonSettingsHovered.png"));
+		// btnSettingsPress =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonSettingsPressed.png"));
+		// btnSettingsState = btnSettingsDef;
 
 		btnVolumeDef = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeDefault.png"));
 		btnVolumeHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeHovered.png"));
-		btnVolumePress = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumePressed.png"));
+		btnVolumeMute = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeMuted.png"));
+		btnVolumeMuteHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeMutedHovered.png"));
 		btnVolumeState = btnVolumeDef;
 
-		btnMusicDef = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeDefault.png"));
-		btnMusicHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeHovered.png"));
-		btnMusicPress = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumePressed.png"));
-		btnMusicState = btnMusicDef;
+		// btnMusicDef =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicDefault.png"));
+		// btnMusicHov =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicHovered.png"));
+		// btnMusicMute =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMuted.png"));
+		// btnMusicMuteHov =
+		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMutedHovered.png"));
+		// btnMusicState = btnMusicDef;
 
 	}
 
@@ -148,17 +159,18 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 			g.drawImage(titleImage, 50, 50, null);
 
-			// Button
+			// Title Buttons
 			g.drawImage(btnBeginState, (WIDTH - 150) / 2, 225, null);
 			g.drawImage(btnBuildState, (WIDTH - 150) / 2, 280, null);
 			g.drawImage(btnHelpState, (WIDTH - 150) / 2, 335, null);
 			g.drawImage(btnCreditState, (WIDTH - 150) / 2, 390, null);
 			g.drawImage(btnExitState, (WIDTH - 150) / 2, 445, null);
 
-			g.setColor(Color.BLACK);
-			g.drawImage(btnVolumeState, 730, 530, null);
-			g.fillRoundRect(680, 530, 40, 40, 5, 5);
-			g.fillRoundRect(630, 530, 40, 40, 5, 5);
+			// Setting Buttons
+			g.drawImage(btnSettingsState, 730, 530, null);
+			g.drawImage(btnVolumeState, 680, 530, null);
+			g.drawImage(btnMusicState, 630, 530, null);
+
 		}
 
 		// PLAY SCREEN
@@ -192,50 +204,61 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// System.out.println(Double.toString(e.getX()) + ", " +
 			// Double.toString(e.getY()));
 
+			// TITLESCREEN BUTTONS
+			// Button Begin
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
 					&& e.getY() <= 225 + 50)
 				btnBeginState = btnBeginPress;
 
+			// Button Build
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
-					&& e.getY() <= 280 + 50)
+					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildPress;
+			}
 
+			// Button Help
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
-					&& e.getY() <= 335 + 50)
+					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpPress;
+			}
 
+			// Button Credits
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
-					&& e.getY() <= 390 + 50)
+					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditPress;
+			}
 
+			// Button Exit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
-					&& e.getY() <= 445 + 50)
+					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitPress;
+			}
 
-			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+			// TITLE SETTING BUTTONS
+			// Button Settings
+			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				btnSettingsState = btnSettingsPress;
+			}
 
 			// Volume Button
-			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				if (volumeOn) {
-					btnVolumeState = btnVolumePress;
-					System.out.println("Off");
-
+					btnVolumeState = btnVolumeMute;
 				} else {
 					btnVolumeState = btnVolumeDef;
-					System.out.println("On");
 				}
-
 				volumeOn = !volumeOn;
 			}
 
-			// Volume Music
-			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
-				if (musicOn)
-					btnMusicState = btnMusicPress;
-				else
+			// Music Button
+			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				if (volumeOn) {
+					btnMusicState = btnMusicMute;
+				} else {
 					btnMusicState = btnMusicDef;
-
+				}
+				musicOn = !musicOn;
+			}
 		}
 
 		repaint();
@@ -243,26 +266,37 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 	public void mouseReleased(MouseEvent e) {
 		if (showTitleScreen) {
+
+			// TITLESCREEN BUTTONS
+			// Button Begin
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
 					&& e.getY() <= 225 + 50) {
 				showTitleScreen = false;
 				showPlayScreen = true;
 			}
+
+			// Button Build
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
 					&& e.getY() <= 280 + 50) {
 				showTitleScreen = false;
 				showBuildScreen = true;
 			}
+
+			// Button Help
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
 					&& e.getY() <= 335 + 50) {
 				showTitleScreen = false;
 				showHelpScreen = true;
 			}
+
+			// Button Credits
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
 					&& e.getY() <= 390 + 50) {
 				showTitleScreen = false;
 				showCreditScreen = true;
 			}
+
+			// Button Exit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
 					&& e.getY() <= 445 + 50) {
 				System.exit(0);
@@ -279,46 +313,76 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 	public void mouseMoved(MouseEvent e) {
 		if (showTitleScreen) {
+			// TITLE SCREEN BUTTONS
+			// Button Begin
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
-					&& e.getY() <= 225 + 50)
+					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
-			else
+			} else {
 				btnBeginState = btnBeginDef;
+			}
 
+			// Button Build
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
-					&& e.getY() <= 280 + 50)
+					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
-			else
+			} else {
 				btnBuildState = btnBuildDef;
+			}
 
+			// Button Help
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
-					&& e.getY() <= 335 + 50)
+					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
-			else
+			} else {
 				btnHelpState = btnHelpDef;
+			}
+
+			// Button Credit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
-					&& e.getY() <= 390 + 50)
+					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
-			else
+			} else {
 				btnCreditState = btnCreditDef;
+			}
+
+			// Button Exit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
-					&& e.getY() <= 445 + 50)
+					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
-			else
+			} else {
 				btnExitState = btnExitDef;
+			}
 
-			// Volume Button
-			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
-				btnVolumeState = btnVolumeHov;
-			else
-				btnVolumeState = btnVolumeDef;
+			// TITLE SETTINGS BUTTONS
+			// Button Volume
+			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				if (volumeOn) {
+					btnVolumeState = btnVolumeHov;
+				} else {
+					btnVolumeState = btnVolumeMuteHov;
+				}
+			} else {
+				if (volumeOn) {
+					btnVolumeState = btnVolumeDef;
+				} else {
+					btnVolumeState = btnVolumeMute;
+				}
+			}
 
-			// Music Button
+			// Button Music
 			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
-				btnMusicState = btnMusicHov;
-			else
+				if (musicOn) {
+					btnMusicState = btnMusicHov;
+				} else {
+					btnMusicState = btnMusicMuteHov;
+				}
+		} else {
+			if (volumeOn) {
 				btnMusicState = btnMusicDef;
-
+			} else {
+				btnMusicState = btnMusicMute;
+			}
 		}
 		repaint();
 	}
