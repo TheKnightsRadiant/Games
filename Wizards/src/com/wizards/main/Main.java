@@ -114,7 +114,3 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public void mouseClicked(MouseEvent e) {}
 	
 }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
