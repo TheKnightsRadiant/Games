@@ -17,6 +17,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showTitleScreen = true;
 	public boolean showBuildScreen = false;
 	public boolean showHelpScreen = false;
+	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
 	
 	BufferedImage titleImage;
@@ -35,6 +36,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnBuildPress;
 	BufferedImage btnBuildHov;
 	BufferedImage btnBuildState;
+	
+	BufferedImage btnCreditDef;
+	BufferedImage btnCreditPress;
+	BufferedImage btnCreditHov;
+	BufferedImage btnCreditState;
 	
 	
 	//CONSTRUCTOR
@@ -56,7 +62,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnBuildPress = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildPressed.png"));
 		btnBuildState = btnBuildDef;
 		
-		
+		btnCreditDef = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsDefault.png"));
+		btnCreditHov = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsHovered.png"));
+		btnCreditPress = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsPressed.png"));
+		btnCreditState = btnCreditDef;
 	}
 	
 	
@@ -97,6 +106,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.drawImage(btnBeginState, (WIDTH - 150) / 2, 225, null);
 			g.drawImage(btnBuildState, (WIDTH - 150) / 2, 280, null);
 			g.drawImage(btnHelpState, (WIDTH-150)/2, 335, null);
+			g.drawImage(btnCreditState, (WIDTH - 150) / 2, 390, null);
 		}
 		
 		//PLAY SCREEN
@@ -117,6 +127,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.fillRect(0, 0, WIDTH, HEIGHT);
 		}
 		
+		//CREDIT SCREEN
+		if (showCreditScreen) {
+			g.setColor(Color.black);
+			g.fillRect(0, 0, WIDTH, HEIGHT);
+		}
 	}
 
 	
@@ -131,6 +146,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335 && e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpPress;
+			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390 && e.getY() <= 390 + 50) {
+				btnCreditState = btnCreditPress;
 			}
 			
 		}
@@ -151,9 +169,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				showTitleScreen = false;
 				showHelpScreen = true;
 			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390 && e.getY() <= 390 + 50) {
+				showTitleScreen = false;
+				showCreditScreen = true;
+			}
 			btnBeginState = btnBeginDef;
 			btnBuildState = btnBuildDef;
 			btnHelpState = btnHelpDef;
+			btnCreditState = btnCreditDef;
 		}
 		
 		repaint();
@@ -174,6 +197,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnHelpState = btnHelpHov;
 			else
 				btnHelpState = btnHelpDef;
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390 && e.getY() <= 390 + 50)
+				btnCreditState = btnCreditHov;
+			else
+				btnCreditState = btnCreditDef;
 		}
 		
 		repaint();
