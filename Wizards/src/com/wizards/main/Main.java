@@ -35,7 +35,6 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 	static HelpScreen helpScreen = new HelpScreen();
 
-
 	BufferedImage titleImage;
 
 	BufferedImage btnBeginDef;
@@ -81,6 +80,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnMusicState;
 
 	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
+	
+	File audioFile = new File("res/music/Arcadia.mp3");
 
 	// CONSTRUCTOR
 	public Main() throws IOException {
@@ -111,13 +112,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnExitPress = ImageIO.read(getClass().getResource("res/images/buttonexit/ButtonExitPressed.png"));
 		btnExitState = btnExitDef;
 
-		// btnSettingsDef =
-		// ImageIO.read(getClass().getResource("res/buttonsettings/ButtonSettingsDefault.png"));
-		// btnSettingsHov =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonSettingsHovered.png"));
-		// btnSettingsPress =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonSettingsPressed.png"));
-		// btnSettingsState = btnSettingsDef;
+		btnSettingsDef = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsDefault.png"));
+		btnSettingsHov = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsHovered.png"));
+		btnSettingsPress = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressed.png"));
+		btnSettingsState = btnSettingsDef;
 
 		btnVolumeDef = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeDefault.png"));
 		btnVolumeHov = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeHovered.png"));
@@ -332,8 +330,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
 				if (!btnBeginHover) {
-					if(volumeOn){
-					menuHoverSound.play();
+					if (volumeOn) {
+						menuHoverSound.play();
 					}
 					btnBeginHover = true;
 				}
@@ -347,9 +345,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
 				if (!btnBuildHover) {
-					if(volumeOn){
+					if (volumeOn) {
 						menuHoverSound.play();
-						}
+					}
 					btnBuildHover = true;
 				}
 			} else {
@@ -362,9 +360,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
 				if (!btnHelpHover) {
-					if(volumeOn){
+					if (volumeOn) {
 						menuHoverSound.play();
-						}
+					}
 					btnHelpHover = true;
 				}
 			} else {
@@ -377,9 +375,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
 				if (!btnCreditHover) {
-					if(volumeOn){
+					if (volumeOn) {
 						menuHoverSound.play();
-						}
+					}
 					btnCreditHover = true;
 				}
 			} else {
@@ -392,9 +390,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
 				if (!btnExitHover) {
-					if(volumeOn){
+					if (volumeOn) {
 						menuHoverSound.play();
-						}
+					}
 					btnExitHover = true;
 				}
 			} else {
@@ -403,16 +401,31 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 
 			// TITLE SETTINGS BUTTONS
+			// Button Settings
+			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+
+				btnSettingsState = btnSettingsHov;
+				if (!btnSettingsHover) {
+					if (volumeOn) {
+						menuHoverSound.play();
+					}
+					btnSettingsHover = true;
+				}
+			} else {
+				btnSettingsState = btnSettingsDef;
+				btnSettingsHover = false;
+			}
+
 			// Button Volume
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-				
+
 				if (!btnVolumeHover) {
-					if(volumeOn){
+					if (volumeOn) {
 						menuHoverSound.play();
-						}
+					}
 					btnVolumeHover = true;
 				}
-				
+
 				if (volumeOn) {
 					btnVolumeState = btnVolumeHov;
 				} else {
