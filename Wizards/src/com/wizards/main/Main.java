@@ -16,6 +16,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	
 	public boolean showTitleScreen = true;
 	public boolean showBuildScreen = false;
+	public boolean showHelpScreen = false;
 	public boolean showPlayScreen = false;
 	
 	BufferedImage btnBeginDef;
@@ -88,13 +89,25 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.fillRect(0, 0, WIDTH, HEIGHT);
 		}
 		
+		//HELP SCREEN
+		if (showHelpScreen) {
+			g.setColor(Color.blue);
+			g.fillRect(0, 0, WIDTH, HEIGHT);
+		}
+		
 	}
 
 	
 	//MouseListeners
 	public void mousePressed(MouseEvent e) {
 		if (showTitleScreen) {
-			btnBeginState = btnBeginPress;
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225 && e.getY() <= 225 + 50) {
+				btnBeginState = btnBeginPress;
+			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50) {
+				btnHelpState = btnHelpPress;
+			}
+			
 		}
 		
 		repaint();
@@ -105,7 +118,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				showTitleScreen = false;
 				showPlayScreen = true;
 			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50) {
+				showTitleScreen = false;
+				showHelpScreen = true;
+			}
 			btnBeginState = btnBeginDef;
+			btnHelpState = btnHelpDef;
 		}
 		
 		repaint();
@@ -116,6 +134,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnBeginState = btnBeginHov;
 			else
 				btnBeginState = btnBeginDef;
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280 && e.getY() <= 280 + 50)
+				btnHelpState = btnHelpHov;
+			else
+				btnHelpState = btnHelpDef;
 		}
 		
 		repaint();
