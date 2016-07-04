@@ -34,7 +34,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnMusicHover = false;
 
 	static HelpScreen helpScreen = new HelpScreen();
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> origin/master
 	BufferedImage titleImage;
 
 	BufferedImage btnBeginDef;
