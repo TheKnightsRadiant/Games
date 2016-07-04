@@ -5,13 +5,6 @@ import java.awt.event.*;
 import java.awt.image.*;
 import java.io.*;
 
-<<<<<<< HEAD
-	public static void main(String[] args) {
-		TitleScreen titleScreen = new TitleScreen();
-		titleScreen.setVisible(true);
-	}
-}
-=======
 import javax.imageio.*;
 import javax.swing.*;
 
@@ -121,4 +114,4 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public void mouseClicked(MouseEvent e) {}
 	
 }
->>>>>>> TyGuy
+
