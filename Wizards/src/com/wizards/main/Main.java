@@ -114,6 +114,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.setColor(new Color(244, 231, 129));
 			g.fillRect(0, 0, WIDTH + 10, HEIGHT + 10);
 			
+<<<<<<< HEAD
+=======
+			//Title Image
+>>>>>>> origin/master
 			g.drawImage(titleImage, 50, 50, null);
 			
 			//Button
