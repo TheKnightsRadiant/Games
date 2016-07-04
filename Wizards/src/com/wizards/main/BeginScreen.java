@@ -1,5 +1,5 @@
 package com.wizards.main;
 
-public class PlayScreen {
+public class BeginScreen {
 
 }
