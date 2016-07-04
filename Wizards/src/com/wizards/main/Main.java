@@ -26,9 +26,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	
 	//CONSTRUCTOR
 	public Main() throws IOException {
-		btnBeginDef = ImageIO.read(getClass().getResource("ButtonBeginDefault.png"));
-		btnBeginHov = ImageIO.read(getClass().getResource("ButtonBeginHovered.png"));
-		btnBeginPress = ImageIO.read(getClass().getResource("ButtonBeginPressed.png"));
+		btnBeginDef = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginDefault.png"));
+		btnBeginHov = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginHovered.png"));
+		btnBeginPress = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginPressed.png"));
 		btnBeginState = btnBeginDef;
 	}
 	
