@@ -1,4 +1,6 @@
 package com.wizards.main;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +13,13 @@ public class TitleScreen extends JFrame implements ActionListener {
 		getContentPane().setLayout(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JLabel title = new JLabel("Wizards");
+		title.setFont(new Font("Baskerville Old Face", Font.ITALIC, 57));
+		title.setForeground(Color.RED);
+		title.setBounds(535, 70, 200, 50);
+		
+		getContentPane().add(title);
 	}
 
 	public void actionPerformed(ActionEvent e) {		
