@@ -20,7 +20,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
 	
-	static HelpScreen helpScreen = new HelpScreen();
+	static HelpScreen helpScreen = new HelpScreen();;
 	
 	BufferedImage titleImage;
 	
@@ -43,6 +43,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnCreditPress;
 	BufferedImage btnCreditHov;
 	BufferedImage btnCreditState;
+	
+	BufferedImage btnExitDef;
+	BufferedImage btnExitPress;
+	BufferedImage btnExitHov;
+	BufferedImage btnExitState;
 	
 	
 	//CONSTRUCTOR
@@ -68,6 +73,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnCreditHov = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsHovered.png"));
 		btnCreditPress = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsPressed.png"));
 		btnCreditState = btnCreditDef;
+		
+		btnExitDef = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitDefault.png"));
+		btnExitHov = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitHovered.png"));
+		btnExitPress = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitPressed.png"));
+		btnExitState = btnExitDef;
+		
 	}
 	
 	
@@ -111,6 +122,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			g.drawImage(btnBuildState, (WIDTH - 150) / 2, 280, null);
 			g.drawImage(btnHelpState, (WIDTH-150)/2, 335, null);
 			g.drawImage(btnCreditState, (WIDTH - 150) / 2, 390, null);
+			g.drawImage(btnExitState, (WIDTH - 150) / 2, 445, null);
 		}
 		
 		//PLAY SCREEN
@@ -153,6 +165,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390 && e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditPress;
 			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445 && e.getY() <= 445 + 50) {
+				btnExitState = btnExitPress;
+			}
 		}
 		
 		repaint();
@@ -175,10 +190,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				showTitleScreen = false;
 				showCreditScreen = true;
 			}
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445 && e.getY() <= 445 + 50) {
+				System.exit(0);
+			}
 			btnBeginState = btnBeginDef;
 			btnBuildState = btnBuildDef;
 			btnHelpState = btnHelpDef;
 			btnCreditState = btnCreditDef;
+			btnExitState = btnExitDef;
 		}
 		
 		repaint();
@@ -203,6 +222,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnCreditState = btnCreditHov;
 			else
 				btnCreditState = btnCreditDef;
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445 && e.getY() <= 445 + 50)
+				btnExitState = btnExitHov;
+			else
+				btnExitState = btnExitDef;
 		}
 		
 		repaint();

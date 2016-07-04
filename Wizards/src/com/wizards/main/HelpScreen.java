@@ -13,7 +13,7 @@ public class HelpScreen extends MouseAdapter {
 	}
 
 	public void mousePressed(MouseEvent e){
-		System.out.println("sa");
+			System.out.println("sa");
 	}
 	
 	public void mouseReleased(MouseEvent e){
