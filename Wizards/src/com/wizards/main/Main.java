@@ -79,6 +79,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			
 			//Button
 			g.drawImage(btnBeginState, (WIDTH - 150) / 2, 225, null);
+			g.drawImage(btnHelpState, (WIDTH-150)/2, 280, null);
 		}
 		
 		//PLAY SCREEN
