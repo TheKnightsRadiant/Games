@@ -20,6 +20,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
 	
+	HelpScreen helpScreen = new HelpScreen();
+	
 	BufferedImage titleImage;
 	
 	BufferedImage btnBeginDef;
@@ -117,8 +119,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		
 		//HELP SCREEN
 		if (showHelpScreen) {
-			g.setColor(Color.blue);
-			g.fillRect(0, 0, WIDTH, HEIGHT);
+			helpScreen.paint(g);
 		}
 		
 		//BUILD SCREEN
@@ -150,7 +151,6 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390 && e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditPress;
 			}
-			
 		}
 		
 		repaint();
