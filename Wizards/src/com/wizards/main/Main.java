@@ -23,7 +23,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean volumeOn = true;
 	public boolean musicOn = true;
 
-	static HelpScreen helpScreen = new HelpScreen();;
+	static HelpScreen helpScreen = new HelpScreen();
 
 	BufferedImage titleImage;
 
