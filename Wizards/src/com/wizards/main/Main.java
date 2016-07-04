@@ -30,7 +30,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnCreditHover = false;
 	public boolean btnExitHover = false;
 
-	static HelpScreen helpScreen = new HelpScreen();;
+	static HelpScreen helpScreen = new HelpScreen();
+
 
 	BufferedImage titleImage;
 
