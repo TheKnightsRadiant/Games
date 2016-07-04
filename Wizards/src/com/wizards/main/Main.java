@@ -1,5 +1,6 @@
 package com.wizards.main;
 
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -22,6 +23,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 	public boolean volumeOn = true;
 	public boolean musicOn = true;
+
+	public boolean btnBeginHover = false;
+	public boolean btnHelpHover = false;
+	public boolean btnBuildHover = false;
+	public boolean btnCreditHover = false;
+	public boolean btnExitHover = false;
 
 	static HelpScreen helpScreen = new HelpScreen();;
 
@@ -69,33 +76,35 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnMusicMuteHov;
 	BufferedImage btnMusicState;
 
+	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
+
 	// CONSTRUCTOR
 	public Main() throws IOException {
-		titleImage = ImageIO.read(getClass().getResource("res/WizardTitle.png"));
+		titleImage = ImageIO.read(getClass().getResource("res/images/WizardTitle.png"));
 
-		btnBeginDef = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginDefault.png"));
-		btnBeginHov = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginHovered.png"));
-		btnBeginPress = ImageIO.read(getClass().getResource("res/buttonbegin/ButtonBeginPressed.png"));
+		btnBeginDef = ImageIO.read(getClass().getResource("res/images/buttonbegin/ButtonBeginDefault.png"));
+		btnBeginHov = ImageIO.read(getClass().getResource("res/images/buttonbegin/ButtonBeginHovered.png"));
+		btnBeginPress = ImageIO.read(getClass().getResource("res/images/buttonbegin/ButtonBeginPressed.png"));
 		btnBeginState = btnBeginDef;
 
-		btnHelpDef = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpDefault.png"));
-		btnHelpHov = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpHovered.png"));
-		btnHelpPress = ImageIO.read(getClass().getResource("res/buttonhelp/ButtonHelpPressed.png"));
+		btnHelpDef = ImageIO.read(getClass().getResource("res/images/buttonhelp/ButtonHelpDefault.png"));
+		btnHelpHov = ImageIO.read(getClass().getResource("res/images/buttonhelp/ButtonHelpHovered.png"));
+		btnHelpPress = ImageIO.read(getClass().getResource("res/images/buttonhelp/ButtonHelpPressed.png"));
 		btnHelpState = btnHelpDef;
 
-		btnBuildDef = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildDefault.png"));
-		btnBuildHov = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildHovered.png"));
-		btnBuildPress = ImageIO.read(getClass().getResource("res/buttonbuild/ButtonBuildPressed.png"));
+		btnBuildDef = ImageIO.read(getClass().getResource("res/images/buttonbuild/ButtonBuildDefault.png"));
+		btnBuildHov = ImageIO.read(getClass().getResource("res/images/buttonbuild/ButtonBuildHovered.png"));
+		btnBuildPress = ImageIO.read(getClass().getResource("res/images/buttonbuild/ButtonBuildPressed.png"));
 		btnBuildState = btnBuildDef;
 
-		btnCreditDef = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsDefault.png"));
-		btnCreditHov = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsHovered.png"));
-		btnCreditPress = ImageIO.read(getClass().getResource("res/buttoncredits/ButtonCreditsPressed.png"));
+		btnCreditDef = ImageIO.read(getClass().getResource("res/images/buttoncredits/ButtonCreditsDefault.png"));
+		btnCreditHov = ImageIO.read(getClass().getResource("res/images/buttoncredits/ButtonCreditsHovered.png"));
+		btnCreditPress = ImageIO.read(getClass().getResource("res/images/buttoncredits/ButtonCreditsPressed.png"));
 		btnCreditState = btnCreditDef;
 
-		btnExitDef = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitDefault.png"));
-		btnExitHov = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitHovered.png"));
-		btnExitPress = ImageIO.read(getClass().getResource("res/buttonexit/ButtonExitPressed.png"));
+		btnExitDef = ImageIO.read(getClass().getResource("res/images/buttonexit/ButtonExitDefault.png"));
+		btnExitHov = ImageIO.read(getClass().getResource("res/images/buttonexit/ButtonExitHovered.png"));
+		btnExitPress = ImageIO.read(getClass().getResource("res/images/buttonexit/ButtonExitPressed.png"));
 		btnExitState = btnExitDef;
 
 		// btnSettingsDef =
@@ -106,10 +115,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonSettingsPressed.png"));
 		// btnSettingsState = btnSettingsDef;
 
-		btnVolumeDef = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeDefault.png"));
-		btnVolumeHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeHovered.png"));
-		btnVolumeMute = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeMuted.png"));
-		btnVolumeMuteHov = ImageIO.read(getClass().getResource("res/buttonvolume/ButtonVolumeMutedHovered.png"));
+		btnVolumeDef = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeDefault.png"));
+		btnVolumeHov = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeHovered.png"));
+		btnVolumeMute = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeMuted.png"));
+		btnVolumeMuteHov = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeMutedHovered.png"));
 		btnVolumeState = btnVolumeDef;
 
 		// btnMusicDef =
@@ -318,40 +327,65 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
 					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
+				if (!btnBeginHover) {
+					menuHoverSound.play();
+					btnBeginHover = true;
+				}
 			} else {
 				btnBeginState = btnBeginDef;
+				btnBeginHover = false;
 			}
 
 			// Button Build
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
 					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
+				if (!btnBuildHover) {
+					menuHoverSound.play();
+					btnBuildHover = true;
+				}
 			} else {
 				btnBuildState = btnBuildDef;
+				btnBuildHover = false;
 			}
 
 			// Button Help
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
 					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
+				if (!btnHelpHover) {
+					menuHoverSound.play();
+					btnHelpHover = true;
+				}
 			} else {
 				btnHelpState = btnHelpDef;
+				btnHelpHover = false;
 			}
 
 			// Button Credit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
 					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
+				if (!btnCreditHover) {
+					menuHoverSound.play();
+					btnCreditHover = true;
+				}
 			} else {
 				btnCreditState = btnCreditDef;
+				btnCreditHover = false;
 			}
 
 			// Button Exit
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
 					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
+				if (!btnExitHover) {
+					menuHoverSound.play();
+					btnExitHover = true;
+				}
 			} else {
 				btnExitState = btnExitDef;
+				btnExitHover = false;
 			}
 
 			// TITLE SETTINGS BUTTONS
