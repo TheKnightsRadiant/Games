@@ -153,8 +153,19 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
 		
-		
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+		AudioHandler.startMusic();
 
+>>>>>>> origin/master
+=======
+		AudioHandler.startMusic();
+
+>>>>>>> origin/master
 	}
 
 	public Dimension getPreferredSize() {
