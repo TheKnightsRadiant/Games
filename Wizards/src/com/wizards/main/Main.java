@@ -25,6 +25,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean showHelpScreen = false;
 	public boolean showCreditScreen = false;
 	public boolean showPlayScreen = false;
+	public boolean showSettingsScreen = false;
 
 	public boolean volumeOn = true;
 	public boolean musicOn = true;
@@ -37,6 +38,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnSettingsHover = false;
 	public boolean btnVolumeHover = false;
 	public boolean btnMusicHover = false;
+	public boolean btnBackHover = false;
 	public boolean btnPrevHover = false;
 	public boolean btnNextHover = false;
 
@@ -80,13 +82,13 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnVolumeMuteHov;
 	BufferedImage btnVolumeState;
 
+	// Help Screen
 	BufferedImage btnMusicDef;
 	BufferedImage btnMusicHov;
 	BufferedImage btnMusicMute;
 	BufferedImage btnMusicMuteHov;
 	BufferedImage btnMusicState;
 
-	// Help Screen
 	BufferedImage btnNextDef;
 	BufferedImage btnNextHov;
 	BufferedImage btnNextPress;
@@ -96,6 +98,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnPrevHov;
 	BufferedImage btnPrevPress;
 	BufferedImage btnPrevState;
+
+	// Multiple Screens
+	BufferedImage btnBackDef;
+	BufferedImage btnBackPress;
+	BufferedImage btnBackHov;
+	BufferedImage btnBackState;
 
 	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
 
@@ -139,17 +147,13 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnVolumeMuteHov = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeMutedHovered.png"));
 		btnVolumeState = btnVolumeDef;
 
-		// btnMusicDef =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicDefault.png"));
-		// btnMusicHov =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicHovered.png"));
-		// btnMusicMute =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMuted.png"));
-		// btnMusicMuteHov =
-		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMutedHovered.png"));
-		// btnMusicState = btnMusicDef;
-
 		// Help Screen
+		btnMusicDef = ImageIO.read(getClass().getResource("res/images/buttonmusic/ButtonMusicDefault.png"));
+		btnMusicHov = ImageIO.read(getClass().getResource("res/images/buttonmusic/ButtonMusicHovered.png"));
+		btnMusicMute = ImageIO.read(getClass().getResource("res/images/buttonmusic/ButtonMusicMuted.png"));
+		btnMusicMuteHov = ImageIO.read(getClass().getResource("res/images/buttonmusic/ButtonMusicMutedHovered.png"));
+		btnMusicState = btnMusicDef;
+
 		btnNextDef = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextDefault.png"));
 		btnNextHov = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextHovered.png"));
 		btnNextPress = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextPressed.png"));
@@ -159,6 +163,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/ButtonPrevHovered.png"));
 		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/ButtonPrevPressed.png"));
 		btnPrevState = btnPrevPress;
+
+		// Multiple Screens
+		btnBackDef = ImageIO.read(getClass().getResource("res/images/buttonback/ButtonBackDefault.png"));
+		btnBackHov = ImageIO.read(getClass().getResource("res/images/buttonback/ButtonBackHovered.png"));
+		btnBackPress = ImageIO.read(getClass().getResource("res/images/buttonback/ButtonBackPressed.png"));
+		btnBackState = btnBackDef;
 
 	}
 
@@ -223,6 +233,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// Buttons
 			g.drawImage(btnNextState, 650, 50, null);
 			g.drawImage(btnPrevState, 550, 50, null);
+			g.drawImage(btnBackState, 20, 40, null);
 		}
 
 		// BUILD SCREEN
@@ -294,8 +305,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 
 			// Button Music
-			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-				if (volumeOn) {
+			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				if (musicOn) {
 					btnMusicState = btnMusicMuteHov;
 				} else {
 					btnMusicState = btnMusicHov;
@@ -305,6 +316,11 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 			// HELP BUTTONS
 		} else if (showHelpScreen) {
+
+			// Button Previous
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				btnBackState = btnBackPress;
+			}
 
 			// Button Previous
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
@@ -373,9 +389,23 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					btnExitState = btnExitHov;
 					System.exit(0);
 				}
+				
+				//Button Settings
+				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+					showTitleScreen = false;
+					showSettingsScreen = true;
+					btnSettingsState = btnSettingsDef;
+				}
 
 			}
 		} else if (showHelpScreen) {
+
+			// Button Back
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				showHelpScreen = false;
+				showTitleScreen = true;
+				btnBackState = btnBackDef;
+			}
 
 			// Button Previous
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
@@ -515,13 +545,44 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 
 			// Button Music
-			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+
+				if (!btnMusicHover) {
+					if (volumeOn) {
+						menuHoverSound.play();
+					}
+					btnMusicHover = true;
+				}
+
 				if (musicOn) {
 					btnMusicState = btnMusicHov;
 				} else {
 					btnMusicState = btnMusicMuteHov;
 				}
+			} else {
+				if (musicOn) {
+					btnMusicState = btnMusicDef;
+				} else {
+					btnMusicState = btnMusicMute;
+				}
+				btnMusicHover = false;
+			}
+
 		} else if (showHelpScreen) {
+
+			// Button Back
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				btnBackState = btnBackHov;
+				if (!btnBackHover) {
+					if (volumeOn) {
+						menuHoverSound.play();
+					}
+					btnBackHover = true;
+				}
+			} else {
+				btnBackState = btnBackDef;
+				btnBackHover = false;
+			}
 
 			// Button Previous
 			if (helpScreen.pageNumber > 1) {
