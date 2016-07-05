@@ -305,12 +305,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 			if(e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
 				if(helpScreen.pageNumber > 1){
+					btnPrevState = btnPrevPress;
 					helpScreen.pageNumber--;
 				}
 			}
 			
 			if(e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
 				if(helpScreen.pageNumber < 3){
+					btnNextState = btnNextPress;
 					helpScreen.pageNumber++;
 				}
 			}
