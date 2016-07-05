@@ -156,7 +156,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnPrevDef = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevDefault.png"));
 		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevHovered.png"));
 		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevPressed.png"));
-		btnPrevState = btnPrevDef;
+		btnPrevState = btnPrevPress;
 
 	}
 
@@ -308,14 +308,18 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 				if (helpScreen.pageNumber > 1) {
 					btnPrevState = btnPrevPress;
+					btnNextState = btnNextDef;
 					helpScreen.pageNumber--;
+				} else {
+
 				}
 			}
 
 			// Button Next
 			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
-				if (helpScreen.pageNumber < 3) {
+				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextPress;
+					btnPrevState = btnPrevDef;
 					helpScreen.pageNumber++;
 				}
 			}
@@ -334,6 +338,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 						&& e.getY() <= 225 + 50) {
 					showTitleScreen = false;
 					showPlayScreen = true;
+					btnBeginState = btnBeginHov;
 				}
 
 				// Button Build
@@ -341,6 +346,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 						&& e.getY() <= 280 + 50) {
 					showTitleScreen = false;
 					showBuildScreen = true;
+					btnBuildState = btnBuildHov;
 				}
 
 				// Button Help
@@ -348,6 +354,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 						&& e.getY() <= 335 + 50) {
 					showTitleScreen = false;
 					showHelpScreen = true;
+					btnHelpState = btnHelpHov;
 				}
 
 				// Button Credits
@@ -355,22 +362,28 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 						&& e.getY() <= 390 + 50) {
 					showTitleScreen = false;
 					showCreditScreen = true;
+					btnCreditState = btnCreditHov;
 				}
 
 				// Button Exit
 				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
 						&& e.getY() <= 445 + 50) {
+					btnExitState = btnExitHov;
 					System.exit(0);
 				}
-				btnBeginState = btnBeginDef;
-				btnBuildState = btnBuildDef;
-				btnHelpState = btnHelpDef;
-				btnCreditState = btnCreditDef;
-				btnExitState = btnExitDef;
+
 			}
 		} else if (showHelpScreen) {
-			btnNextState = btnNextDef;
-			btnPrevState = btnPrevDef;
+
+			// Button Previous
+			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				btnPrevState = btnPrevHov;
+			}
+
+			// Button Next
+			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				btnNextState = btnNextHov;
+			}
 		}
 
 		repaint();
@@ -505,10 +518,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		} else if (showHelpScreen) {
 
 			// Button Previous
-			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
-				btnPrevState = btnPrevHov;
+			if (helpScreen.pageNumber > 1) {
+				if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+					btnPrevState = btnPrevHov;
+				} else {
+					btnPrevState = btnPrevDef;
+				}
 			} else {
-				btnPrevState = btnPrevDef;
+				btnPrevState = btnPrevPress;
 			}
 
 			// Button Next
