@@ -239,7 +239,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	// MouseListeners
 	public void mousePressed(MouseEvent e) {
 
-		System.out.println(Double.toString(e.getX()) + ", " + Double.toString(e.getY()));
+		// System.out.println(Double.toString(e.getX()) + ", " +
+		// Double.toString(e.getY()));
 
 		if (showTitleScreen) {
 
@@ -290,7 +291,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				volumeOn = !volumeOn;
 			}
 
-			// Music Button
+			// Button Music
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				if (volumeOn) {
 					btnMusicState = btnMusicMuteHov;
@@ -303,15 +304,17 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// HELP BUTTONS
 		} else if (showHelpScreen) {
 
-			if(e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
-				if(helpScreen.pageNumber > 1){
+			// Button Previous
+			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				if (helpScreen.pageNumber > 1) {
 					btnPrevState = btnPrevPress;
 					helpScreen.pageNumber--;
 				}
 			}
-			
-			if(e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
-				if(helpScreen.pageNumber < 3){
+
+			// Button Next
+			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				if (helpScreen.pageNumber < 3) {
 					btnNextState = btnNextPress;
 					helpScreen.pageNumber++;
 				}
@@ -365,6 +368,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnCreditState = btnCreditDef;
 				btnExitState = btnExitDef;
 			}
+		} else if (showHelpScreen) {
+			btnNextState = btnNextDef;
+			btnPrevState = btnPrevDef;
 		}
 
 		repaint();
@@ -496,12 +502,22 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				} else {
 					btnMusicState = btnMusicMuteHov;
 				}
-		} else {
-			if (volumeOn) {
-				btnMusicState = btnMusicDef;
+		} else if (showHelpScreen) {
+
+			// Button Previous
+			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				btnPrevState = btnPrevHov;
 			} else {
-				btnMusicState = btnMusicMute;
+				btnPrevState = btnPrevDef;
 			}
+
+			// Button Next
+			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+				btnNextState = btnNextHov;
+			} else {
+				btnNextState = btnNextDef;
+			}
+
 		}
 		repaint();
 	}
