@@ -37,6 +37,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnSettingsHover = false;
 	public boolean btnVolumeHover = false;
 	public boolean btnMusicHover = false;
+	public boolean btnPrevHover = false;
+	public boolean btnNextHover = false;
 
 	static HelpScreen helpScreen = new HelpScreen();
 
@@ -148,14 +150,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// btnMusicState = btnMusicDef;
 
 		// Help Screen
-		btnNextDef = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextDefault.png"));
-		btnNextHov = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextHovered.png"));
-		btnNextPress = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextPressed.png"));
+		btnNextDef = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextDefault.png"));
+		btnNextHov = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextHovered.png"));
+		btnNextPress = ImageIO.read(getClass().getResource("res/images/buttonnext/ButtonNextPressed.png"));
 		btnNextState = btnNextDef;
 
-		btnPrevDef = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevDefault.png"));
-		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevHovered.png"));
-		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevPressed.png"));
+		btnPrevDef = ImageIO.read(getClass().getResource("res/images/buttonprev/ButtonPrevDefault.png"));
+		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/ButtonPrevHovered.png"));
+		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/ButtonPrevPressed.png"));
 		btnPrevState = btnPrevPress;
 
 	}
@@ -525,7 +527,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (helpScreen.pageNumber > 1) {
 				if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnPrevState = btnPrevHov;
+					if (!btnPrevHover) {
+						if (volumeOn) {
+							menuHoverSound.play();
+						}
+						btnPrevHover = true;
+					}
 				} else {
+					btnPrevHover = false;
 					btnPrevState = btnPrevDef;
 				}
 			} else {
@@ -536,7 +545,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (helpScreen.pageNumber < helpScreen.maxPages) {
 				if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnNextState = btnNextHov;
+					if (!btnNextHover) {
+						if (volumeOn) {
+							menuHoverSound.play();
+						}
+						btnNextHover = true;
+					}
 				} else {
+					btnNextHover = false;
 					btnNextState = btnNextDef;
 				}
 			} else {
