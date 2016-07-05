@@ -53,6 +53,7 @@ public class HelpScreen {
 		g.drawString("Page: " + pageNumber + "/" + maxPages, 590, 75);
 
 
+
 		// HELP CONTENTS
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 18));
 		switch (pageNumber) {
