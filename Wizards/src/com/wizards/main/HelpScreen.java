@@ -54,7 +54,7 @@ public class HelpScreen {
 		g.drawString("Help", 340, 75);
 		
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 12));
-		g.drawString("Page: " + pageNumber, 600, 75);
+		g.drawString("Page: " + pageNumber + "/3", 590, 75);
 
 
 		// HELP CONTENTS
