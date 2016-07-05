@@ -304,7 +304,15 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		} else if (showHelpScreen) {
 
 			if(e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
-				System.out.println("a");
+				if(helpScreen.pageNumber > 1){
+					helpScreen.pageNumber--;
+				}
+			}
+			
+			if(e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
+				if(helpScreen.pageNumber < 3){
+					helpScreen.pageNumber++;
+				}
 			}
 		}
 

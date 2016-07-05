@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class HelpScreen {
 
-	private int pageNumber = 1;
+	public int pageNumber = 1;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
