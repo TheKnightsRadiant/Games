@@ -409,7 +409,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				// Button Settings
 				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 					showSettingsScreen = !showSettingsScreen;
-					btnSettingsState = btnSettingsDef;
+					btnSettingsState = btnSettingsHov;
 				}
 
 			}
@@ -427,6 +427,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (helpScreen.pageNumber > 1) {
 					btnPrevState = btnPrevHov;
 				}
+				audioHandler.playPageTurn();
 			}
 
 			// Button Next
@@ -434,6 +435,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextHov;
 				}
+				audioHandler.playPageTurn();
 			}
 		} else if (showCreditScreen) {
 
