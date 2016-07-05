@@ -75,7 +75,7 @@ public class HelpScreen {
 		case 3:
 			this.drawString(g, "Game Modes:\n\nFree For All:\nIn this game mode, two to four players all battle each other. The last man\nstanding wins.\n\nTeam Deathmatch:\nIn this game mode, two teams of two battle each other. "
 					+ "As long as both\nmembers of a team are alive, players can use special combo abilities,\nwhich are more powerful than most normal wizard abilities. The last team\nwhich has at least one surviving member wins."
-					+ "\n\nHorde:\nIn this game mode, one player fights twenty sequentially spawning\nmagical creatures.\n\nEndless Horde:\nIn this game mode, one player fights as many creatures as they can\nuntil they die.", 50, 125);
+					+ "\n\nHorde:\nIn this game mode, one player fights twenty sequentially spawning\nmagical creatures.\n\nEndless Horde:\nIn this game mode, one player fights as many creatures as they can\nuntil they die.", 50, 100);
 			break;
 		default:
 			System.err.println("There was an error changing the pages.");
