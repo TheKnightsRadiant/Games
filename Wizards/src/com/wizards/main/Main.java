@@ -1,6 +1,5 @@
 package com.wizards.main;
 
-import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -135,7 +134,8 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		btnSettingsDef = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsDefault.png"));
 		btnSettingsHov = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsHovered.png"));
 		btnSettingsPress = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressed.png"));
-		btnSettingsPressHov = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressHovered.png"));
+		btnSettingsPressHov = ImageIO
+				.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressHovered.png"));
 		btnSettingsState = btnSettingsDef;
 
 		btnVolumeDef = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeDefault.png"));
@@ -224,15 +224,15 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		if (showSettingsScreen) {
 			g.setColor(new Color(200, 175, 75));
 			g.fillRect(550, 240, 230, 280);
-			
+
 			g.setColor(new Color(255, 250, 150));
 			g.fillRect(555, 245, 220, 30);
-			
+
 			g.setColor(new Color(192, 143, 38));
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, 18));
 			g.drawString("Settings", 625, 265);
 		}
-		
+
 		// PLAY SCREEN
 		if (showPlayScreen) {
 			g.setColor(Color.green);
@@ -424,8 +424,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					showSettingsScreen = !showSettingsScreen;
 					if (showSettingsScreen) {
 						btnSettingsState = btnSettingsPressHov;
-					}
-					else {
+					} else {
 						btnSettingsState = btnSettingsHov;
 					}
 				}
@@ -543,8 +542,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 				if (showSettingsScreen) {
 					btnSettingsState = btnSettingsPressHov;
-				}
-				else {
+				} else {
 					btnSettingsState = btnSettingsHov;
 				}
 				if (!btnSettingsHover) {
@@ -554,8 +552,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			} else {
 				if (showSettingsScreen) {
 					btnSettingsState = btnSettingsPress;
-				}
-				else {
+				} else {
 					btnSettingsState = btnSettingsDef;
 				}
 				btnSettingsHover = false;

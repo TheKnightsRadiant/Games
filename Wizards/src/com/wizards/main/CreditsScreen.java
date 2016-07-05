@@ -17,7 +17,7 @@ public class CreditsScreen {
 		// BACKGROUND
 		g.setColor(new Color(244, 231, 129));
 		g.fillRect(0, 0, 800, 600);
-
+		
 		//Credits
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 15));
@@ -31,6 +31,11 @@ public class CreditsScreen {
 		//Top Bar
 		g.setColor(new Color(255, 250, 150));
 		g.fillRect(0, 0, 800, 100);
+		
+		//CREDIT TITLE
+			g.setColor(new Color(192, 143, 38));
+			g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
+			g.drawString("Credits", 310, 75);
 	}
 
 }
