@@ -4,17 +4,14 @@ import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JApplet;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 
-public class Main extends JComponent implements MouseListener, MouseMotionListener {
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+public class Main extends JComponent implements ActionListener, MouseListener, MouseMotionListener {
 
 	// VARIABLES
 	public int WIDTH = 800;
@@ -42,8 +39,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	public boolean btnPrevHover = false;
 	public boolean btnNextHover = false;
 
-	static HelpScreen helpScreen = new HelpScreen();
-	static AudioHandler audioHandler = new AudioHandler();
+	HelpScreen helpScreen = new HelpScreen();
+	CreditsScreen creditScreen = new CreditsScreen();
 
 	BufferedImage titleImage;
 
@@ -186,6 +183,9 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
 
+		Timer t = new Timer(30, game);
+		t.start();
+
 	}
 
 	public Dimension getPreferredSize() {
@@ -243,9 +243,18 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 		// CREDIT SCREEN
 		if (showCreditScreen) {
-			g.setColor(Color.black);
-			g.fillRect(0, 0, WIDTH, HEIGHT);
+			creditScreen.paint(g);
+
+			// Buttons
+			g.drawImage(btnBackState, 20, 40, null);
 		}
+	}
+
+	// ActionListener
+	public void actionPerformed(ActionEvent e) {
+		creditScreen.y--;
+
+		repaint();
 	}
 
 	// MouseListeners
@@ -316,7 +325,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			// HELP BUTTONS
 		} else if (showHelpScreen) {
 
-			// Button Previous
+			// Button Back
 			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
 				btnBackState = btnBackPress;
 			}
@@ -339,6 +348,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					btnPrevState = btnPrevDef;
 					helpScreen.pageNumber++;
 				}
+			}
+		} else if (showCreditScreen) {
+
+			// Button Back
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				btnBackState = btnBackPress;
 			}
 		}
 
@@ -379,6 +394,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 						&& e.getY() <= 390 + 50) {
 					showTitleScreen = false;
 					showCreditScreen = true;
+					creditScreen.y = 620;
 					btnCreditState = btnCreditHov;
 				}
 
@@ -417,6 +433,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextHov;
 				}
+			}
+		} else if (showCreditScreen) {
+
+			// Button Back
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				showCreditScreen = false;
+				showTitleScreen = true;
+				btnBackState = btnBackDef;
 			}
 		}
 
@@ -597,6 +621,21 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				btnNextState = btnNextPress;
 			}
 
+		} else if (showCreditScreen) {
+
+			// Button Back
+			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				btnBackState = btnBackHov;
+				if (!btnBackHover) {
+					if (volumeOn) {
+						menuHoverSound.play();
+					}
+					btnBackHover = true;
+				}
+			} else {
+				btnBackState = btnBackDef;
+				btnBackHover = false;
+			}
 		}
 		repaint();
 	}
