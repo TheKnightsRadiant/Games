@@ -106,6 +106,12 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnBackState;
 
 	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
+	
+	public void playMenuHoverSound(){
+		if(volumeOn){
+			menuHoverSound.play();
+		}
+	}
 
 	// CONSTRUCTOR
 	public Main() throws IOException {
@@ -392,8 +398,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				
 				//Button Settings
 				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-					showTitleScreen = false;
-					showSettingsScreen = true;
+					showSettingsScreen = !showSettingsScreen;
 					btnSettingsState = btnSettingsDef;
 				}
 
@@ -434,9 +439,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
 				if (!btnBeginHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnBeginHover = true;
 				}
 			} else {
@@ -449,9 +452,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
 				if (!btnBuildHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnBuildHover = true;
 				}
 			} else {
@@ -464,9 +465,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
 				if (!btnHelpHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnHelpHover = true;
 				}
 			} else {
@@ -479,9 +478,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
 				if (!btnCreditHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnCreditHover = true;
 				}
 			} else {
@@ -494,9 +491,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
 				if (!btnExitHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnExitHover = true;
 				}
 			} else {
@@ -510,9 +505,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 				btnSettingsState = btnSettingsHov;
 				if (!btnSettingsHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnSettingsHover = true;
 				}
 			} else {
@@ -524,9 +517,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 
 				if (!btnVolumeHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnVolumeHover = true;
 				}
 
@@ -548,9 +539,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 
 				if (!btnMusicHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnMusicHover = true;
 				}
 
@@ -574,9 +563,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
 				btnBackState = btnBackHov;
 				if (!btnBackHover) {
-					if (volumeOn) {
-						menuHoverSound.play();
-					}
+					playMenuHoverSound();
 					btnBackHover = true;
 				}
 			} else {
@@ -589,9 +576,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnPrevState = btnPrevHov;
 					if (!btnPrevHover) {
-						if (volumeOn) {
-							menuHoverSound.play();
-						}
+						playMenuHoverSound();
 						btnPrevHover = true;
 					}
 				} else {
@@ -607,9 +592,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 				if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnNextState = btnNextHov;
 					if (!btnNextHover) {
-						if (volumeOn) {
-							menuHoverSound.play();
-						}
+						playMenuHoverSound();
 						btnNextHover = true;
 					}
 				} else {
