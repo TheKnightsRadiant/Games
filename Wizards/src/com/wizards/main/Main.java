@@ -222,8 +222,8 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 		// SETTINGS SCREEN
 		if (showSettingsScreen) {
-			g.setColor(Color.white);
-			g.fillRect(500, 240, 280, 280);
+			g.setColor(new Color(200, 175, 75));
+			g.fillRect(550, 240, 230, 280);
 		}
 		
 		// PLAY SCREEN
