@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class HelpScreen {
 
-	private int pageNumber = 1;
+	private int pageNumber = 2;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
@@ -64,7 +64,11 @@ public class HelpScreen {
 					700, 50, 125);
 			break;
 		case 2:
-			this.drawString(g, "Page 2", 50, 125);
+			this.drawStringMultiLine((Graphics2D) g, "Before starting a game, you can create up to four custom wizards to play with. To do this, choose BUILD from the main menu. Here, you will have several options. "
+					+ "First, you can name your wizard. You can also choose their attributes. Wizards who have more strength will do more damage with physical attacks. "
+					+ "More magic will cause their spells to be more powerful. Wizards who have more health will survive longer, but wizards with more mana will be able to cast more powerful spells. "
+					+ "You can also choose whether they are more talented with dark spells or light spells, water spells or fire spells, and ethereal spells or physical spells. "
+					+ "You can also customize the wizard's deck here.", 700, 50, 125);
 			break;
 		case 3:
 			this.drawString(g, "Page3", 50, 125);
