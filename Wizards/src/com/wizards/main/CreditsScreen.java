@@ -23,7 +23,10 @@ public class CreditsScreen {
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 15));
 		this.drawString(g, "Developers:     Tyler Eldred   -    Matthew Morse   -    Ian May\n"
 						 + "Artists:             Molly Veesart   -   Tyler Eldred\n"
-						 + "Music:              this is some of the music cause yeah", 50, y);
+						 + "Music:              huge\n"
+						 + "                        list\n"
+						 + "                        of\n"
+						 + "                        music", 50, y);
 		
 		//Top Bar
 		g.setColor(new Color(255, 250, 150));
