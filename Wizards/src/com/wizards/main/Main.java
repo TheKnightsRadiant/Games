@@ -1,13 +1,28 @@
 package com.wizards.main;
 
 import java.applet.AudioClip;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import java.io.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Timer;
 
-import javax.imageio.*;
-import javax.swing.*;
+import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JApplet;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
 
 public class Main extends JComponent implements MouseListener, MouseMotionListener {
 
@@ -80,8 +95,6 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnMusicState;
 
 	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
-	
-	File audioFile = new File("res/music/Arcadia.mp3");
 
 	// CONSTRUCTOR
 	public Main() throws IOException {
@@ -149,6 +162,35 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
+		
+		String audioFilePath = "C:/Users/Ian 2/Documents/GitHub/Games/Wizards/src/com/wizards/main/res/music/Wizards Track1.wav";
+		
+		File audioFile = new File(audioFilePath);
+		 
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+ 
+            AudioFormat format = audioStream.getFormat();
+ 
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+ 
+            Clip audioClip = (Clip) AudioSystem.getLine(info);
+ 
+ 
+            audioClip.open(audioStream);
+            
+            audioClip.loop(10);
+             
+        } catch (UnsupportedAudioFileException ex) {
+            System.out.println("The specified audio file is not supported.");
+            ex.printStackTrace();
+        } catch (LineUnavailableException ex) {
+            System.out.println("Audio line for playing back is unavailable.");
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            System.out.println("Error playing the audio file.");
+            ex.printStackTrace();
+        }
 
 	}
 
