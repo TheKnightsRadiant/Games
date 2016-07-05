@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class HelpScreen {
 
-	private int pageNumber = 2;
+	private int pageNumber = 1;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
@@ -37,6 +37,12 @@ public class HelpScreen {
 	public void paint(Graphics g) {
 		// BACKGROUND
 		g.setColor(new Color(244, 231, 129));
+		g.fillRect(0, 0, 800, 600);
+		
+		g.setColor(new Color(255, 250, 150));
+		g.fillRect(25, 100, 750, 475);
+		
+		//HELP TITLE
 		g.fillRect(0, 0, 810, 610);
 
 		g.setColor(new Color(255, 250, 150));
@@ -49,6 +55,7 @@ public class HelpScreen {
 		
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 12));
 		g.drawString("Page: " + pageNumber, 600, 75);
+
 
 		// HELP CONTENTS
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 18));
