@@ -148,7 +148,6 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		window.setVisible(true);
 
 		game.addMouseListener(game);
-		game.addMouseListener(helpScreen);
 		game.addMouseMotionListener(game);
 
 	}
