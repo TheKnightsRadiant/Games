@@ -238,16 +238,17 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 	// MouseListeners
 	public void mousePressed(MouseEvent e) {
-		if (showTitleScreen) {
 
-			// System.out.println(Double.toString(e.getX()) + ", " +
-			// Double.toString(e.getY()));
+		System.out.println(Double.toString(e.getX()) + ", " + Double.toString(e.getY()));
+
+		if (showTitleScreen) {
 
 			// TITLESCREEN BUTTONS
 			// Button Begin
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
-					&& e.getY() <= 225 + 50)
+					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginPress;
+			}
 
 			// Button Build
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
@@ -297,6 +298,13 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					btnMusicState = btnMusicHov;
 				}
 				musicOn = !musicOn;
+			}
+
+			// HELP BUTTONS
+		} else if (showHelpScreen) {
+
+			if(e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40){
+				System.out.println("a");
 			}
 		}
 
