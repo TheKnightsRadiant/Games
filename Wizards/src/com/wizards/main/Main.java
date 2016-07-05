@@ -83,13 +83,13 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnMusicMute;
 	BufferedImage btnMusicMuteHov;
 	BufferedImage btnMusicState;
-	
-	//Help Screen
+
+	// Help Screen
 	BufferedImage btnNextDef;
 	BufferedImage btnNextHov;
 	BufferedImage btnNextPress;
 	BufferedImage btnNextState;
-	
+
 	BufferedImage btnPrevDef;
 	BufferedImage btnPrevHov;
 	BufferedImage btnPrevPress;
@@ -146,8 +146,8 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// btnMusicMuteHov =
 		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMutedHovered.png"));
 		// btnMusicState = btnMusicDef;
-		
-		//Help Screen
+
+		// Help Screen
 		btnNextDef = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextDefault.png"));
 		btnNextHov = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextHovered.png"));
 		btnNextPress = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextPressed.png"));
@@ -157,7 +157,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevHovered.png"));
 		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevPressed.png"));
 		btnPrevState = btnPrevDef;
-		
+
 	}
 
 	// MAIN METHOD
@@ -174,7 +174,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
-		
+
 	}
 
 	public Dimension getPreferredSize() {
@@ -217,7 +217,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// HELP SCREEN
 		if (showHelpScreen) {
 			helpScreen.paint(g);
-			
+
 			// Buttons
 			g.drawImage(btnNextState, 650, 50, null);
 			g.drawImage(btnPrevState, 550, 50, null);
@@ -307,52 +307,55 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		if (showTitleScreen) {
 
 			// TITLESCREEN BUTTONS
-			// Button Begin
-			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
-					&& e.getY() <= 225 + 50) {
-				showTitleScreen = false;
-				showPlayScreen = true;
-			}
+			if (showTitleScreen) {
+				// Button Begin
+				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
+						&& e.getY() <= 225 + 50) {
+					showTitleScreen = false;
+					showPlayScreen = true;
+				}
 
-			// Button Build
-			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
-					&& e.getY() <= 280 + 50) {
-				showTitleScreen = false;
-				showBuildScreen = true;
-			}
+				// Button Build
+				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
+						&& e.getY() <= 280 + 50) {
+					showTitleScreen = false;
+					showBuildScreen = true;
+				}
 
-			// Button Help
-			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
-					&& e.getY() <= 335 + 50) {
-				showTitleScreen = false;
-				showHelpScreen = true;
-			}
+				// Button Help
+				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
+						&& e.getY() <= 335 + 50) {
+					showTitleScreen = false;
+					showHelpScreen = true;
+				}
 
-			// Button Credits
-			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
-					&& e.getY() <= 390 + 50) {
-				showTitleScreen = false;
-				showCreditScreen = true;
-			}
+				// Button Credits
+				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
+						&& e.getY() <= 390 + 50) {
+					showTitleScreen = false;
+					showCreditScreen = true;
+				}
 
-			// Button Exit
-			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
-					&& e.getY() <= 445 + 50) {
-				System.exit(0);
+				// Button Exit
+				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
+						&& e.getY() <= 445 + 50) {
+					System.exit(0);
+				}
+				btnBeginState = btnBeginDef;
+				btnBuildState = btnBuildDef;
+				btnHelpState = btnHelpDef;
+				btnCreditState = btnCreditDef;
+				btnExitState = btnExitDef;
 			}
-			btnBeginState = btnBeginDef;
-			btnBuildState = btnBuildDef;
-			btnHelpState = btnHelpDef;
-			btnCreditState = btnCreditDef;
-			btnExitState = btnExitDef;
 		}
 
 		repaint();
 	}
 
 	public void mouseMoved(MouseEvent e) {
+
+		// TITLE SCREEN BUTTONS
 		if (showTitleScreen) {
-			// TITLE SCREEN BUTTONS
 			// Button Begin
 			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
 					&& e.getY() <= 225 + 50) {
@@ -485,9 +488,16 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		repaint();
 	}
 
-	public void mouseEntered(MouseEvent e) {}
-	public void mouseExited(MouseEvent e) {}
-	public void mouseDragged(MouseEvent e) {}
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	public void mouseExited(MouseEvent e) {
+	}
+
+	public void mouseDragged(MouseEvent e) {
+	}
+
+	public void mouseClicked(MouseEvent e) {
+	}
 
 }
