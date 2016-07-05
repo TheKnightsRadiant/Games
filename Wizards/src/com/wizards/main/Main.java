@@ -311,7 +311,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 					btnNextState = btnNextDef;
 					helpScreen.pageNumber--;
 				} else {
-
+					btnPrevState = btnPrevPress;
 				}
 			}
 
@@ -377,12 +377,16 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 
 			// Button Previous
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
-				btnPrevState = btnPrevHov;
+				if (helpScreen.pageNumber > 1) {
+					btnPrevState = btnPrevHov;
+				}
 			}
 
 			// Button Next
 			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
-				btnNextState = btnNextHov;
+				if (helpScreen.pageNumber < helpScreen.maxPages) {
+					btnNextState = btnNextHov;
+				}
 			}
 		}
 
@@ -529,10 +533,14 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 			}
 
 			// Button Next
-			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
-				btnNextState = btnNextHov;
+			if (helpScreen.pageNumber < helpScreen.maxPages) {
+				if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
+					btnNextState = btnNextHov;
+				} else {
+					btnNextState = btnNextDef;
+				}
 			} else {
-				btnNextState = btnNextDef;
+				btnNextState = btnNextPress;
 			}
 
 		}

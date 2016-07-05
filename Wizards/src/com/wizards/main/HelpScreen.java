@@ -5,6 +5,7 @@ import java.awt.*;
 public class HelpScreen {
 
 	public int pageNumber = 1;
+	public int maxPages = 3;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
