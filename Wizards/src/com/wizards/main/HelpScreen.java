@@ -37,10 +37,10 @@ public class HelpScreen {
 	public void paint(Graphics g) {
 		// BACKGROUND
 		g.setColor(new Color(244, 231, 129));
-		g.fillRect(0, 0, 800, 600);
+		g.fillRect(0, 0, 810, 610);
 
 		g.setColor(new Color(255, 250, 150));
-		g.fillRect(25, 100, 750, 475);
+		g.fillRect(25, 100, 760, 485);
 
 		// HELP TITLE
 		g.setColor(new Color(192, 143, 38));
