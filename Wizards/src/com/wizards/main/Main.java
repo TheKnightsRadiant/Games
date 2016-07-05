@@ -1,9 +1,7 @@
 package com.wizards.main;
 
 import java.applet.AudioClip;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -73,6 +71,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	BufferedImage btnSettingsDef;
 	BufferedImage btnSettingsPress;
 	BufferedImage btnSettingsHov;
+	BufferedImage btnSettingsPressHov;
 	BufferedImage btnSettingsState;
 
 	BufferedImage btnVolumeDef;
@@ -136,6 +135,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		btnSettingsDef = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsDefault.png"));
 		btnSettingsHov = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsHovered.png"));
 		btnSettingsPress = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressed.png"));
+		btnSettingsPressHov = ImageIO.read(getClass().getResource("res/images/buttonsettings/ButtonSettingsPressHovered.png"));
 		btnSettingsState = btnSettingsDef;
 
 		btnVolumeDef = ImageIO.read(getClass().getResource("res/images/buttonvolume/ButtonVolumeDefault.png"));
@@ -224,6 +224,13 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		if (showSettingsScreen) {
 			g.setColor(new Color(200, 175, 75));
 			g.fillRect(550, 240, 230, 280);
+			
+			g.setColor(new Color(255, 250, 150));
+			g.fillRect(555, 245, 220, 30);
+			
+			g.setColor(new Color(192, 143, 38));
+			g.setFont(new Font("ZapfDingbats", Font.BOLD, 18));
+			g.drawString("Settings", 625, 265);
 		}
 		
 		// PLAY SCREEN
@@ -401,7 +408,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 						&& e.getY() <= 390 + 50) {
 					showTitleScreen = false;
 					showCreditScreen = true;
-					creditScreen.y = 620;
+					creditScreen.y = 610;
 					btnCreditState = btnCreditHov;
 				}
 
@@ -415,7 +422,12 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				// Button Settings
 				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 					showSettingsScreen = !showSettingsScreen;
-					btnSettingsState = btnSettingsHov;
+					if (showSettingsScreen) {
+						btnSettingsState = btnSettingsPressHov;
+					}
+					else {
+						btnSettingsState = btnSettingsHov;
+					}
 				}
 
 			}
@@ -529,13 +541,23 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			// Button Settings
 			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 
-				btnSettingsState = btnSettingsHov;
+				if (showSettingsScreen) {
+					btnSettingsState = btnSettingsPressHov;
+				}
+				else {
+					btnSettingsState = btnSettingsHov;
+				}
 				if (!btnSettingsHover) {
 					audioHandler.playMenuHoverSound();
 					btnSettingsHover = true;
 				}
 			} else {
-				btnSettingsState = btnSettingsDef;
+				if (showSettingsScreen) {
+					btnSettingsState = btnSettingsPress;
+				}
+				else {
+					btnSettingsState = btnSettingsDef;
+				}
 				btnSettingsHover = false;
 			}
 

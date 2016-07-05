@@ -5,7 +5,7 @@ import java.awt.*;
 public class CreditsScreen {
 
 	//Variables
-	public int y = 620;
+	public int y = 610;
 	
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
