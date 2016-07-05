@@ -153,7 +153,7 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
 		
-		
+		AudioHandler.startMusic();
 
 	}
 
