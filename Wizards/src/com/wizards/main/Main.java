@@ -41,6 +41,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 	HelpScreen helpScreen = new HelpScreen();
 	CreditsScreen creditScreen = new CreditsScreen();
+	AudioHandler audioHandler = new AudioHandler();
 
 	BufferedImage titleImage;
 
@@ -628,7 +629,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				btnBackState = btnBackHov;
 				if (!btnBackHover) {
 					if (volumeOn) {
-						menuHoverSound.play();
+						audioHandler.playMenuHoverSound();
 					}
 					btnBackHover = true;
 				}
