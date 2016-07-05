@@ -24,7 +24,7 @@ public class HelpScreen {
 		
 		//HELP CONTENTS
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 15));
-		this.drawString(g, "This is the help page.\nMatt, please tell me what you want me to write here...\n\n--Tyler", 50, 125);
+		this.drawString(g, "This is the help page.\nMatt, please tell me what you want me to write in here...\n\nThanks,\n    -Tyler", 50, 125);
 	}
 	
 }
