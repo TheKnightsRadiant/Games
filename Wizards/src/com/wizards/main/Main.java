@@ -266,7 +266,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 	// ActionListener
 	public void actionPerformed(ActionEvent e) {
-		creditScreen.y--;
+		creditScreen.y -= 2;
 
 		repaint();
 	}
