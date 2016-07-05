@@ -83,6 +83,17 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 	BufferedImage btnMusicMute;
 	BufferedImage btnMusicMuteHov;
 	BufferedImage btnMusicState;
+	
+	//Help Screen
+	BufferedImage btnNextDef;
+	BufferedImage btnNextHov;
+	BufferedImage btnNextPress;
+	BufferedImage btnNextState;
+	
+	BufferedImage btnPrevDef;
+	BufferedImage btnPrevHov;
+	BufferedImage btnPrevPress;
+	BufferedImage btnPrevState;
 
 	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
 
@@ -135,7 +146,18 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// btnMusicMuteHov =
 		// ImageIO.read(getClass().getResource("res/buttonmusic/ButtonMusicMutedHovered.png"));
 		// btnMusicState = btnMusicDef;
+		
+		//Help Screen
+		btnNextDef = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextDefault.png"));
+		btnNextHov = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextHovered.png"));
+		btnNextPress = ImageIO.read(getClass().getResource("res/images/buttonnext/HelpScreenNextPressed.png"));
+		btnNextState = btnNextDef;
 
+		btnPrevDef = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevDefault.png"));
+		btnPrevHov = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevHovered.png"));
+		btnPrevPress = ImageIO.read(getClass().getResource("res/images/buttonprev/HelpScreenPrevPressed.png"));
+		btnPrevState = btnPrevDef;
+		
 	}
 
 	// MAIN METHOD
@@ -195,6 +217,10 @@ public class Main extends JComponent implements MouseListener, MouseMotionListen
 		// HELP SCREEN
 		if (showHelpScreen) {
 			helpScreen.paint(g);
+			
+			// Buttons
+			g.drawImage(btnNextState, 650, 50, null);
+			g.drawImage(btnPrevState, 550, 50, null);
 		}
 
 		// BUILD SCREEN

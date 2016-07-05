@@ -46,21 +46,23 @@ public class HelpScreen {
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
 		g.drawString("Help", 340, 75);
+		
+		g.setFont(new Font("ZapfDingbats", Font.BOLD, 12));
+		g.drawString("Page: " + pageNumber, 600, 75);
 
 		// HELP CONTENTS
-		g.setFont(new Font("ZapfDingbats", Font.BOLD, 24));
+		g.setFont(new Font("ZapfDingbats", Font.BOLD, 18));
 		switch (pageNumber) {
 		case 1:
 			this.drawStringMultiLine((Graphics2D) g,
 					"Wizards can be played with one to four players, with AIs substituting missing humans. "
-					+ "In any game mode, each player takes turns performing one of several possible actions. "
-					+ "A player could choose to cast a spell, which could have a variety of effects, from their hand. "
-					+ "They could also summon a creature, if any are in their hand. Creatures have stats of their own, and help wizards in the long-term game. "
-					+ "A wizard can also choose to perform a physical attack at any time, regardless of what is in their hand. "
-					+ "Players gain money by participating in games, and completing challenges. Money can be used to improve wizards and buy new spells and creatures.",
+					 + "In any game mode, each player takes turns performing one of several possible actions. "
+					 + "A player could choose to cast a spell, which could have a variety of effects, from their hand. "
+					 + "They could also summon a creature, if any are in their hand. Creatures have stats of their own, and help wizards in the long-term game. "
+					 + "A wizard can also choose to perform a physical attack at any time, regardless of what is in their hand. "
+					 + "Players gain money by participating in games, and completing challenges. Money can be used to improve wizards and buy new spells and creatures.",
 					700, 50, 125);
 			break;
-
 		case 2:
 			this.drawString(g, "Page 2", 50, 125);
 			break;
