@@ -39,14 +39,9 @@ public class HelpScreen {
 		g.setColor(new Color(244, 231, 129));
 		g.fillRect(0, 0, 800, 600);
 		
+		//BACKGROUND TO TEXT
 		g.setColor(new Color(255, 250, 150));
 		g.fillRect(25, 100, 750, 475);
-		
-		//HELP TITLE
-		g.fillRect(0, 0, 810, 610);
-
-		g.setColor(new Color(255, 250, 150));
-		g.fillRect(25, 100, 760, 485);
 
 		// HELP TITLE
 		g.setColor(new Color(192, 143, 38));
@@ -78,7 +73,9 @@ public class HelpScreen {
 					+ "You can also customize the wizard's deck here.", 700, 50, 125);
 			break;
 		case 3:
-			this.drawString(g, "Page3", 50, 125);
+			this.drawString(g, "Game Modes:\n\nFree For All:\nIn this game mode, two to four players all battle each other. The last man\nstanding wins.\n\nTeam Deathmatch:\nIn this game mode, two teams of two battle each other. "
+					+ "As long as both\nmembers of a team are alive, players can use special combo abilities,\nwhich are more powerful than most normal wizard abilities. The last team\nwhich has at least one surviving member wins."
+					+ "\n\nHorde:\nIn this game mode, one player fights twenty sequentially spawning\nmagical creatures.\n\nEndless Horde:\nIn this game mode, one player fights as many creatures as they can\nuntil they die.", 50, 125);
 			break;
 		default:
 			System.err.println("There was an error changing the pages.");
