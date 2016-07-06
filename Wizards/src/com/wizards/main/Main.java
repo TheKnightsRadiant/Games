@@ -11,8 +11,8 @@ import javax.swing.*;
 public class Main extends JComponent implements ActionListener, MouseListener, MouseMotionListener {
 
 	// VARIABLES
-	public int WIDTH = 800;
-	public int HEIGHT = 600;
+	public static int WIDTH = 800;
+	public static int HEIGHT = 600;
 
 	public boolean showTitleScreen = true;
 	public boolean showBuildScreen = false;
@@ -236,7 +236,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		// PLAY SCREEN
 		if (showPlayScreen) {
 			g.setColor(Color.green);
-			g.fillRect(0, 0, WIDTH, HEIGHT);
+			g.fillRect(0, 0, WIDTH + 10, HEIGHT + 10);
 		}
 
 		// HELP SCREEN
