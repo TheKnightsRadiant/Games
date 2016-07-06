@@ -6,9 +6,9 @@ import java.util.Random;
 import javax.swing.JApplet;
 
 public class AudioHandler {
-	AudioClip menuHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/MenuHover.wav"));
+	AudioClip buttonHoverSound = JApplet.newAudioClip(getClass().getResource("res/audio/ButtonHover.wav"));
 
-	AudioClip pageTurnSound = JApplet.newAudioClip(getClass().getResource("res/audio/pageturn/PageTurn.wav"));
+	AudioClip buttonClickSound = JApplet.newAudioClip(getClass().getResource("res/audio/ButtonClick.wav"));
 	
 	
 	Random FileChooser = new Random();
@@ -16,15 +16,15 @@ public class AudioHandler {
 	public AudioHandler() {
 	}
 
-	public void playMenuHoverSound() {
+	public void playButtonHoverSound() {
 		if (Main.volumeOn) {
-			menuHoverSound.play();
+			buttonHoverSound.play();
 		}
 	}
 
-	public void playPageTurn() {
+	public void playButtonClickSound() {
 		if (Main.volumeOn) {
-			pageTurnSound.play();
+			buttonClickSound.play();
 			}
 		}
 	}

@@ -316,7 +316,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				btnSettingsState = btnSettingsPress;
 			}
 
-			// Volume Button
+			// Button Volume
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 				if (volumeOn) {
 					btnVolumeState = btnVolumeMuteHov;
@@ -385,6 +385,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					showTitleScreen = false;
 					showPlayScreen = true;
 					btnBeginState = btnBeginHov;
+					audioHandler.playButtonClickSound();
 				}
 
 				// Button Build
@@ -393,6 +394,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					showTitleScreen = false;
 					showBuildScreen = true;
 					btnBuildState = btnBuildHov;
+					audioHandler.playButtonClickSound();
 				}
 
 				// Button Help
@@ -401,6 +403,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					showTitleScreen = false;
 					showHelpScreen = true;
 					btnHelpState = btnHelpHov;
+					audioHandler.playButtonClickSound();
 				}
 
 				// Button Credits
@@ -410,23 +413,36 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					showCreditScreen = true;
 					creditScreen.y = 610;
 					btnCreditState = btnCreditHov;
+					audioHandler.playButtonClickSound();
 				}
 
 				// Button Exit
 				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
 						&& e.getY() <= 445 + 50) {
 					btnExitState = btnExitHov;
+					audioHandler.playButtonClickSound();
 					System.exit(0);
 				}
 
 				// Button Settings
 				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 					showSettingsScreen = !showSettingsScreen;
+					audioHandler.playButtonClickSound();
 					if (showSettingsScreen) {
 						btnSettingsState = btnSettingsPressHov;
 					} else {
 						btnSettingsState = btnSettingsHov;
 					}
+				}
+
+				// Button Volume
+				if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+					audioHandler.playButtonClickSound();
+				}
+
+				// Button Music
+				if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+					audioHandler.playButtonClickSound();
 				}
 
 			}
@@ -437,15 +453,16 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				showHelpScreen = false;
 				showTitleScreen = true;
 				btnBackState = btnBackDef;
+				audioHandler.playButtonClickSound();
 			}
 
 			// Button Previous
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 				if (helpScreen.pageNumber > 1) {
 					helpScreen.pageNumber--;
-					audioHandler.playPageTurn();
+					audioHandler.playButtonClickSound();
 				}
-				if(helpScreen.pageNumber > 1){
+				if (helpScreen.pageNumber > 1) {
 					btnPrevState = btnPrevHov;
 				}
 			}
@@ -454,7 +471,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					helpScreen.pageNumber++;
-					audioHandler.playPageTurn();
+					audioHandler.playButtonClickSound();
 				}
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextHov;
@@ -467,6 +484,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				showCreditScreen = false;
 				showTitleScreen = true;
 				btnBackState = btnBackDef;
+				audioHandler.playButtonClickSound();
 			}
 		}
 
@@ -482,7 +500,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					&& e.getY() <= 225 + 50) {
 				btnBeginState = btnBeginHov;
 				if (!btnBeginHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnBeginHover = true;
 				}
 			} else {
@@ -495,7 +513,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					&& e.getY() <= 280 + 50) {
 				btnBuildState = btnBuildHov;
 				if (!btnBuildHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnBuildHover = true;
 				}
 			} else {
@@ -508,7 +526,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					&& e.getY() <= 335 + 50) {
 				btnHelpState = btnHelpHov;
 				if (!btnHelpHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnHelpHover = true;
 				}
 			} else {
@@ -521,7 +539,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					&& e.getY() <= 390 + 50) {
 				btnCreditState = btnCreditHov;
 				if (!btnCreditHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnCreditHover = true;
 				}
 			} else {
@@ -534,7 +552,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					&& e.getY() <= 445 + 50) {
 				btnExitState = btnExitHov;
 				if (!btnExitHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnExitHover = true;
 				}
 			} else {
@@ -552,7 +570,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 					btnSettingsState = btnSettingsHov;
 				}
 				if (!btnSettingsHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnSettingsHover = true;
 				}
 			} else {
@@ -568,7 +586,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 
 				if (!btnVolumeHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnVolumeHover = true;
 				}
 
@@ -590,7 +608,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
 
 				if (!btnMusicHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnMusicHover = true;
 				}
 
@@ -614,7 +632,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
 				btnBackState = btnBackHov;
 				if (!btnBackHover) {
-					audioHandler.playMenuHoverSound();
+					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
 				}
 			} else {
@@ -627,7 +645,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnPrevState = btnPrevHov;
 					if (!btnPrevHover) {
-						audioHandler.playMenuHoverSound();
+						audioHandler.playButtonHoverSound();
 						btnPrevHover = true;
 					}
 				} else {
@@ -643,7 +661,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 					btnNextState = btnNextHov;
 					if (!btnNextHover) {
-						audioHandler.playMenuHoverSound();
+						audioHandler.playButtonHoverSound();
 						;
 						btnNextHover = true;
 					}
@@ -662,7 +680,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				btnBackState = btnBackHov;
 				if (!btnBackHover) {
 					if (volumeOn) {
-						audioHandler.playMenuHoverSound();
+						audioHandler.playButtonHoverSound();
 					}
 					btnBackHover = true;
 				}
