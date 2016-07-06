@@ -383,7 +383,9 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				// Settings Unclick
 				if (!(e.getX() >= 550 && e.getX() <= 550 + 230 && e.getY() >= 240 && e.getY() <= 240 + 280)
 						&& showSettingsScreen
-						&& !(e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)) {
+						&& !(e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+						&& !(e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+						&& !(e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)) {
 					showSettingsScreen = false;
 					btnSettingsState = btnSettingsDef;
 				}
