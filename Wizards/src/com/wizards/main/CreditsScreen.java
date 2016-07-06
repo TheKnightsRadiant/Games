@@ -21,21 +21,25 @@ public class CreditsScreen {
 		//Credits
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 15));
-		this.drawString(g, "Developers:     Tyler Eldred   -    Matthew Morse   -    Ian May\n"
-						 + "Artists:             Molly Veesart   -   Tyler Eldred\n"
-						 + "Music:              huge\n"
-						 + "                        list\n"
-						 + "                        of\n"
-						 + "                        music", 50, y);
-		
-		//Top Bar
+		this.drawString(g, "Developers:     Matthew Morse   -    Tyler Eldred   -    Ian May\n\n"
+						 + "Artists:               Molly Veesart   -   Tyler Eldred\n\n"
+						 + "Music:                huge\n"
+						 + "                            list\n"
+						 + "                            of\n"
+						 + "                            music\n\n" 
+						 + "Programing:\n" 
+						 + "     -Graphics:     Tyler Eldred    -    Ian May\n" 
+						 + "     -Sound:          Ian May\n" 
+						 + "     -Mehcanics:  Tyler Eldred    -    Matthew Morse     -    Ian May", 50, y);
+
+		// Top Bar
 		g.setColor(new Color(255, 250, 150));
 		g.fillRect(0, 0, 800 + 10, 100);
-		
-		//CREDIT TITLE
-			g.setColor(new Color(192, 143, 38));
-			g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
-			g.drawString("Credits", 310, 75);
+
+		// CREDIT TITLE
+		g.setColor(new Color(192, 143, 38));
+		g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
+		g.drawString("Credits", 310, 75);
 	}
 
 }
