@@ -39,6 +39,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	HelpScreen helpScreen = new HelpScreen();
 	CreditsScreen creditScreen = new CreditsScreen();
 	AudioHandler audioHandler = new AudioHandler();
+	BeginMenuScreen beginMenuScreen = new BeginMenuScreen();
 
 	BufferedImage titleImage;
 
@@ -235,8 +236,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 		// PLAY SCREEN
 		if (showPlayScreen) {
-			g.setColor(Color.green);
-			g.fillRect(0, 0, WIDTH + 10, HEIGHT + 10);
+			beginMenuScreen.paint(g);
 		}
 
 		// HELP SCREEN
@@ -374,6 +374,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		repaint();
 	}
 
+	
 	public void mouseReleased(MouseEvent e) {
 		if (showTitleScreen) {
 
