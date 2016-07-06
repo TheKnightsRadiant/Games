@@ -349,7 +349,6 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (helpScreen.pageNumber > 1) {
 					btnPrevState = btnPrevPress;
 					btnNextState = btnNextDef;
-					helpScreen.pageNumber--;
 				} else {
 					btnPrevState = btnPrevPress;
 				}
@@ -360,7 +359,8 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextPress;
 					btnPrevState = btnPrevDef;
-					helpScreen.pageNumber++;
+				} else {
+					btnNextState = btnNextPress;
 				}
 			}
 		} else if (showCreditScreen) {
@@ -442,17 +442,23 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 			// Button Previous
 			if (e.getX() >= 550 && e.getX() <= 550 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 				if (helpScreen.pageNumber > 1) {
+					helpScreen.pageNumber--;
+					audioHandler.playPageTurn();
+				}
+				if(helpScreen.pageNumber > 1){
 					btnPrevState = btnPrevHov;
 				}
-				audioHandler.playPageTurn();
 			}
 
 			// Button Next
 			if (e.getX() >= 650 && e.getX() <= 650 + 40 && e.getY() >= 50 && e.getY() <= 50 + 40) {
 				if (helpScreen.pageNumber < helpScreen.maxPages) {
+					helpScreen.pageNumber++;
+					audioHandler.playPageTurn();
+				}
+				if (helpScreen.pageNumber < helpScreen.maxPages) {
 					btnNextState = btnNextHov;
 				}
-				audioHandler.playPageTurn();
 			}
 		} else if (showCreditScreen) {
 
