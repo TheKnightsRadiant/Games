@@ -30,7 +30,7 @@ public class CreditsScreen {
 						 + "Programing:\n" 
 						 + "     -Graphics:     Tyler Eldred    -    Ian May\n" 
 						 + "     -Sound:          Ian May\n" 
-						 + "     -Mehcanics:  Tyler Eldred    -    Matthew Morse     -    Ian May", 50, y);
+						 + "     -Mechanics:  Tyler Eldred    -    Matthew Morse     -    Ian May", 50, y);
 
 		// Top Bar
 		g.setColor(new Color(255, 250, 150));
