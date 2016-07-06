@@ -274,8 +274,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	// MouseListeners
 	public void mousePressed(MouseEvent e) {
 
-		// System.out.println(Double.toString(e.getX()) + ", " +
-		// Double.toString(e.getY()));
+		System.out.println(Double.toString(e.getX()) + ", " + Double.toString(e.getY()));
 
 		if (showTitleScreen) {
 
@@ -374,12 +373,18 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 		repaint();
 	}
 
-	
 	public void mouseReleased(MouseEvent e) {
 		if (showTitleScreen) {
 
 			// TITLESCREEN BUTTONS
 			if (showTitleScreen) {
+
+				// Settings Unclick
+				if (!(e.getX() >= 550 && e.getX() <= 550 + 230 && e.getY() >= 240 && e.getY() <= 240 + 280)
+						&& showSettingsScreen) {
+					showSettingsScreen = false;
+				}
+
 				// Button Begin
 				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
 						&& e.getY() <= 225 + 50) {
