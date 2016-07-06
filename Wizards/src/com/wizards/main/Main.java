@@ -461,6 +461,9 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 			// Button Back
 			if (e.getX() >= 20 && e.getX() <= 20 + 150 && e.getY() >= 40 && e.getY() <= 40 + 50) {
+				btnPrevState = btnPrevPress;
+				btnNextState = btnNextDef;
+				helpScreen.pageNumber = 1;
 				showHelpScreen = false;
 				showTitleScreen = true;
 				btnBackState = btnBackDef;

@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 public class BeginMenuScreen {
 
+	
+	//TYLER - I would do this with and integer called gamemode and use a switch and case
 	public boolean teamDeathmatch = false;
 	public boolean endlessHorde = false;
 	public boolean freeForAll = false;
