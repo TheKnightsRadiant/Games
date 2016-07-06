@@ -274,7 +274,8 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	// MouseListeners
 	public void mousePressed(MouseEvent e) {
 
-		System.out.println(Double.toString(e.getX()) + ", " + Double.toString(e.getY()));
+		// System.out.println(Double.toString(e.getX()) + ", " +
+		// Double.toString(e.getY()));
 
 		if (showTitleScreen) {
 
@@ -381,8 +382,10 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 				// Settings Unclick
 				if (!(e.getX() >= 550 && e.getX() <= 550 + 230 && e.getY() >= 240 && e.getY() <= 240 + 280)
-						&& showSettingsScreen) {
+						&& showSettingsScreen
+						&& !(e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)) {
 					showSettingsScreen = false;
+					btnSettingsState = btnSettingsDef;
 				}
 
 				// Button Begin
