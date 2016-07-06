@@ -57,7 +57,7 @@ public class HelpScreen {
 		switch (pageNumber) {
 		case 1:
 			this.drawStringMultiLine((Graphics2D) g,
-					"Wizards can be played with one to four players, with AIs substituting missing humans. "
+					"Wizards is a card game that can be played with one to four players, with AIs substituting missing humans. "
 							+ "In any game mode, each player takes turns performing one of several possible actions. "
 							+ "A player could choose to cast a spell, which could have a variety of effects, from their hand. "
 							+ "They could also summon a creature, if any are in their hand. Creatures have stats of their own, and help wizards in the long-term game. "
