@@ -204,7 +204,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 			// Title Image
 
-			g.drawImage(titleImage, 50, 50, null);
+			g.drawImage(titleImage, 10, 10, null);
 
 			// Title Buttons
 			g.drawImage(btnBeginState, (WIDTH - 150) / 2, 225, null);
