@@ -184,6 +184,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
+		
 
 		Timer t = new Timer(30, game);
 		t.start();
