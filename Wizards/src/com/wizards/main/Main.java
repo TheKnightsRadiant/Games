@@ -22,7 +22,7 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	public boolean showSettingsScreen = false;
 
 	public static boolean volumeOn = true;
-	public boolean musicOn = true;
+	public static boolean musicOn = true;
 
 	public boolean btnBeginHover = false;
 	public boolean btnHelpHover = false;
@@ -184,7 +184,6 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 
 		game.addMouseListener(game);
 		game.addMouseMotionListener(game);
-		
 
 		Timer t = new Timer(30, game);
 		t.start();
@@ -376,86 +375,84 @@ public class Main extends JComponent implements ActionListener, MouseListener, M
 	}
 
 	public void mouseReleased(MouseEvent e) {
+
+		// TITLESCREEN BUTTONS
 		if (showTitleScreen) {
 
-			// TITLESCREEN BUTTONS
-			if (showTitleScreen) {
+			// Settings Unclick
+			if (!(e.getX() >= 550 && e.getX() <= 550 + 230 && e.getY() >= 240 && e.getY() <= 240 + 280)
+					&& showSettingsScreen
+					&& !(e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+					&& !(e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
+					&& !(e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)) {
+				showSettingsScreen = false;
+				btnSettingsState = btnSettingsDef;
+			}
 
-				// Settings Unclick
-				if (!(e.getX() >= 550 && e.getX() <= 550 + 230 && e.getY() >= 240 && e.getY() <= 240 + 280)
-						&& showSettingsScreen
-						&& !(e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
-						&& !(e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)
-						&& !(e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40)) {
-					showSettingsScreen = false;
-					btnSettingsState = btnSettingsDef;
-				}
+			// Button Begin
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
+					&& e.getY() <= 225 + 50) {
+				showTitleScreen = false;
+				showPlayScreen = true;
+				btnBeginState = btnBeginHov;
+				audioHandler.playButtonClickSound();
+			}
 
-				// Button Begin
-				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 225
-						&& e.getY() <= 225 + 50) {
-					showTitleScreen = false;
-					showPlayScreen = true;
-					btnBeginState = btnBeginHov;
-					audioHandler.playButtonClickSound();
-				}
+			// Button Build
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
+					&& e.getY() <= 280 + 50) {
+				showTitleScreen = false;
+				showBuildScreen = true;
+				btnBuildState = btnBuildHov;
+				audioHandler.playButtonClickSound();
+			}
 
-				// Button Build
-				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 280
-						&& e.getY() <= 280 + 50) {
-					showTitleScreen = false;
-					showBuildScreen = true;
-					btnBuildState = btnBuildHov;
-					audioHandler.playButtonClickSound();
-				}
+			// Button Help
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
+					&& e.getY() <= 335 + 50) {
+				showTitleScreen = false;
+				showHelpScreen = true;
+				btnHelpState = btnHelpHov;
+				audioHandler.playButtonClickSound();
+			}
 
-				// Button Help
-				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 335
-						&& e.getY() <= 335 + 50) {
-					showTitleScreen = false;
-					showHelpScreen = true;
-					btnHelpState = btnHelpHov;
-					audioHandler.playButtonClickSound();
-				}
+			// Button Credits
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
+					&& e.getY() <= 390 + 50) {
+				showTitleScreen = false;
+				showCreditScreen = true;
+				creditScreen.y = 610;
+				btnCreditState = btnCreditHov;
+				audioHandler.playButtonClickSound();
+			}
 
-				// Button Credits
-				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 390
-						&& e.getY() <= 390 + 50) {
-					showTitleScreen = false;
-					showCreditScreen = true;
-					creditScreen.y = 610;
-					btnCreditState = btnCreditHov;
-					audioHandler.playButtonClickSound();
-				}
+			// Button Exit
+			if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
+					&& e.getY() <= 445 + 50) {
+				btnExitState = btnExitHov;
+				audioHandler.playButtonClickSound();
+				System.exit(0);
+			}
 
-				// Button Exit
-				if (e.getX() >= (WIDTH - 150) / 2 && e.getX() <= (WIDTH - 150) / 2 + 150 && e.getY() >= 445
-						&& e.getY() <= 445 + 50) {
-					btnExitState = btnExitHov;
-					audioHandler.playButtonClickSound();
-					System.exit(0);
+			// Button Settings
+			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				showSettingsScreen = !showSettingsScreen;
+				audioHandler.playButtonClickSound();
+				if (showSettingsScreen) {
+					btnSettingsState = btnSettingsPressHov;
+				} else {
+					btnSettingsState = btnSettingsHov;
 				}
+			}
 
-				// Button Settings
-				if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-					showSettingsScreen = !showSettingsScreen;
-					audioHandler.playButtonClickSound();
-					if (showSettingsScreen) {
-						btnSettingsState = btnSettingsPressHov;
-					} else {
-						btnSettingsState = btnSettingsHov;
-					}
-				}
+			// Button Volume
+			if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				audioHandler.playButtonClickSound();
+			}
 
-				// Button Volume
-				if (e.getX() >= 680 && e.getX() <= 680 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-					audioHandler.playButtonClickSound();
-				}
-
-				// Button Music
-				if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
-					audioHandler.playButtonClickSound();
-				}
+			// Button Music
+			if (e.getX() >= 630 && e.getX() <= 630 + 40 && e.getY() >= 530 && e.getY() <= 530 + 40) {
+				audioHandler.playButtonClickSound();
 
 			}
 		} else if (showHelpScreen) {
