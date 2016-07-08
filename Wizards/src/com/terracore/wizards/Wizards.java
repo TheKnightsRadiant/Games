@@ -29,12 +29,12 @@ public class Wizards extends Canvas implements Runnable {
 	public static boolean volumeOn = true;
 	public static boolean musicOn = true;
 
-	TitleScreen titleScreen = new TitleScreen();
-	BeginScreen beginScreen = new BeginScreen();
-	PlayScreen playScreen = new PlayScreen();
-	BuildScreen buildScreen = new BuildScreen();
-	HelpScreen helpScreen = new HelpScreen();
-	CreditsScreen creditsScreen = new CreditsScreen();
+	private TitleScreen titleScreen = new TitleScreen();
+	private BeginScreen beginScreen = new BeginScreen();
+	private PlayScreen playScreen = new PlayScreen();
+	private BuildScreen buildScreen = new BuildScreen();
+	private HelpScreen helpScreen = new HelpScreen();
+	private CreditsScreen creditsScreen = new CreditsScreen();
 
 	static MouseHandler mouseHandler = new MouseHandler();
 
@@ -102,8 +102,11 @@ public class Wizards extends Canvas implements Runnable {
 			return;
 		}
 		running = false;
+		System.err.println("Exiting Game");
+		// stop threads
+		Wizards.stop();
 		System.exit(0);
-		///////// STOP THREADSSSSS
+
 	}
 
 	@Override
@@ -147,7 +150,6 @@ public class Wizards extends Canvas implements Runnable {
 				TPS = 0;
 			}
 		}
-
 		stop();
 	}
 
@@ -161,9 +163,7 @@ public class Wizards extends Canvas implements Runnable {
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				System.err.println("Exiting Game");
-				// stop threads
-				game.stop();
+				Wizards.stop();
 			}
 		});
 
