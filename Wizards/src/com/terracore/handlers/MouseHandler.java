@@ -11,17 +11,19 @@ import com.terracore.wizards.Wizards;
 
 public class MouseHandler implements MouseListener, MouseMotionListener {
 
-	public boolean btnBeginHover = false;
-	public boolean btnHelpHover = false;
-	public boolean btnBuildHover = false;
-	public boolean btnCreditHover = false;
-	public boolean btnExitHover = false;
-	public boolean btnSettingsHover = false;
-	public boolean btnVolumeHover = false;
-	public boolean btnMusicHover = false;
-	public boolean btnBackHover = false;
-	public boolean btnPrevHover = false;
-	public boolean btnNextHover = false;
+	String currentButton;
+
+	private boolean btnBeginHover = false;
+	private boolean btnHelpHover = false;
+	private boolean btnBuildHover = false;
+	private boolean btnCreditHover = false;
+	private boolean btnExitHover = false;
+	private boolean btnSettingsHover = false;
+	private boolean btnVolumeHover = false;
+	private boolean btnMusicHover = false;
+	private boolean btnBackHover = false;
+	private boolean btnPrevHover = false;
+	private boolean btnNextHover = false;
 
 	AudioHandler audioHandler = new AudioHandler();
 
@@ -34,62 +36,54 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 225 / 600 && e.getY() <= Wizards.HEIGHT * 225 / 600 + 50) {
 				TitleScreen.btnBeginState = TitleScreen.btnBeginPress;
+				currentButton = "Begin";
 			}
 
 			// Button Build
 			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 280 / 600 && e.getY() <= Wizards.HEIGHT * 280 / 600 + 50) {
 				TitleScreen.btnBuildState = TitleScreen.btnBuildPress;
+				currentButton = "Build";
 			}
 
 			// Button Help
 			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 335 / 600 && e.getY() <= Wizards.HEIGHT * 335 / 600 + 50) {
 				TitleScreen.btnHelpState = TitleScreen.btnHelpPress;
+				currentButton = "Help";
 			}
 
 			// Button Credits
 			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 390 / 600 && e.getY() <= Wizards.HEIGHT * 390 / 600 + 50) {
 				TitleScreen.btnCreditState = TitleScreen.btnCreditPress;
+				currentButton = "Credits";
 			}
 
 			// Button Exit
 			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 445 / 600 && e.getY() <= Wizards.HEIGHT * 445 / 600 + 50) {
 				TitleScreen.btnExitState = TitleScreen.btnExitPress;
+				currentButton = "Exit";
 			}
 
 			// TITLE SETTING BUTTONS
 			// Button Settings
 			if (e.getX() >= 730 && e.getX() <= 730 + 40 && e.getY() >= 510 && e.getY() <= 510 + 40) {
 				TitleScreen.btnSettingsState = TitleScreen.btnSettingsPress;
+				currentButton = "Settings";
 			}
 
 			// Button Volume
 			if (e.getX() >= Wizards.WIDTH * 680 / 800 && e.getX() <= Wizards.WIDTH * 680 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 510 / 600 && e.getY() <= Wizards.HEIGHT * 510 / 600 + 40) {
-				if (Wizards.volumeOn) {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeMuteHov;
-				} else {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeHov;
-				}
-				Wizards.volumeOn = !Wizards.volumeOn;
-
-				// System.err.println("Volume is: " + Wizards.volumeOn);
+				currentButton = "Volume";
 			}
 
 			// Button Music
 			if (e.getX() >= Wizards.WIDTH * 630 / 800 && e.getX() <= Wizards.WIDTH * 630 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 510 / 600 && e.getY() <= Wizards.HEIGHT * 510 / 600 + 40) {
-				if (Wizards.musicOn) {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicMuteHov;
-				} else {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicHov;
-				}
-				Wizards.musicOn = !Wizards.musicOn;
-
-				// System.err.println("Music is: " + Wizards.musicOn);
+				currentButton = "Music";
 			}
 
 			// HELP BUTTONS
@@ -99,6 +93,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
 					&& e.getY() >= Wizards.HEIGHT * 40 / 600 && e.getY() <= Wizards.HEIGHT * 40 / 600 + 50) {
 				HelpScreen.btnBackState = HelpScreen.btnBackPress;
+				currentButton = "Back";
 			}
 
 			// Button Previous
@@ -109,6 +104,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				} else {
 					HelpScreen.btnPrevState = HelpScreen.btnPrevPress;
 				}
+				currentButton = "Previous";
 			}
 
 			// Button Next
@@ -119,12 +115,14 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				} else {
 					HelpScreen.btnNextState = HelpScreen.btnNextPress;
 				}
+				currentButton = "Next";
 			}
 		} else if (Wizards.showCreditsScreen) {
 			// Button Back
 			if (e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
 					&& e.getY() >= Wizards.HEIGHT * 40 / 600 && e.getY() <= Wizards.HEIGHT * 40 / 600 + 50) {
 				CreditsScreen.btnBackState = CreditsScreen.btnBackPress;
+				currentButton = "Back";
 			}
 		}
 	}
@@ -152,51 +150,52 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Button Begin
-			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
-					&& e.getY() >= Wizards.HEIGHT * 225 / 600 && e.getY() <= Wizards.HEIGHT * 225 / 600 + 50) {
+			if (currentButton == "Begin" && e.getX() >= (Wizards.WIDTH - 150) / 2
+					&& e.getX() <= (Wizards.WIDTH - 150) / 2 + 150 && e.getY() >= Wizards.HEIGHT * 225 / 600
+					&& e.getY() <= Wizards.HEIGHT * 225 / 600 + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showBeginScreen = true;
-				TitleScreen.btnBeginState = TitleScreen.btnBeginHov;
+				TitleScreen.btnBeginState = TitleScreen.btnBeginDef;
 				audioHandler.playButtonClickSound();
 			}
 
 			// Button Build
-			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
+			if (currentButton == "Build" && e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 280 / 600 && e.getY() <= Wizards.HEIGHT * 280 / 600 + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showBuildScreen = true;
-				TitleScreen.btnBuildState = TitleScreen.btnBuildHov;
+				TitleScreen.btnBuildState = TitleScreen.btnBuildDef;
 				audioHandler.playButtonClickSound();
 			}
 
 			// Button Help
-			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
+			if (currentButton == "Help" && e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 335 / 600 && e.getY() <= Wizards.HEIGHT * 335 / 600 + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showHelpScreen = true;
-				TitleScreen.btnHelpState = TitleScreen.btnHelpHov;
+				TitleScreen.btnHelpState = TitleScreen.btnHelpDef;
 				audioHandler.playButtonClickSound();
 			}
 
 			// Button Credits
-			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
+			if (currentButton == "Credits" && e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 390 / 600 && e.getY() <= Wizards.HEIGHT * 390 / 600 + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showCreditsScreen = true;
-				TitleScreen.btnCreditState = TitleScreen.btnCreditHov;
+				TitleScreen.btnCreditState = TitleScreen.btnCreditDef;
 				audioHandler.playButtonClickSound();
 			}
 
 			// Button Exit
-			if (e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
+			if (currentButton == "Exit" && e.getX() >= (Wizards.WIDTH - 150) / 2 && e.getX() <= (Wizards.WIDTH - 150) / 2 + 150
 					&& e.getY() >= Wizards.HEIGHT * 445 / 600 && e.getY() <= Wizards.HEIGHT * 445 / 600 + 50) {
-				TitleScreen.btnExitState = TitleScreen.btnExitHov;
+				TitleScreen.btnExitState = TitleScreen.btnExitDef;
 				audioHandler.playButtonClickSound();
 				Wizards.stop();
 			}
 
 			// Button Settings
-			if (e.getX() >= Wizards.WIDTH * 730 / 800 && e.getX() <= Wizards.WIDTH * 730 / 800 + 40
+			if (currentButton == "Settings" && e.getX() >= Wizards.WIDTH * 730 / 800 && e.getX() <= Wizards.WIDTH * 730 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 510 / 600 && e.getY() <= Wizards.HEIGHT * 510 / 600 + 40) {
 				Wizards.showSettingsScreen = !Wizards.showSettingsScreen;
 				audioHandler.playButtonClickSound();
@@ -208,21 +207,33 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Button Volume
-			if (e.getX() >= Wizards.WIDTH * 680 / 800 && e.getX() <= Wizards.WIDTH * 680 / 800 + 40
+			if (currentButton == "Volume" && e.getX() >= Wizards.WIDTH * 680 / 800 && e.getX() <= Wizards.WIDTH * 680 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 510 / 600 && e.getY() <= Wizards.HEIGHT * 510 / 600 + 40) {
+				if (Wizards.volumeOn) {
+					TitleScreen.btnVolumeState = TitleScreen.btnVolumeMuteHov;
+				} else {
+					TitleScreen.btnVolumeState = TitleScreen.btnVolumeHov;
+				}
+				Wizards.volumeOn = !Wizards.volumeOn;
 				audioHandler.playButtonClickSound();
 			}
 
 			// Button Music
-			if (e.getX() >= Wizards.WIDTH * 630 / 800 && e.getX() <= Wizards.WIDTH * 630 / 800 + 40
+			if (currentButton == "Music" && e.getX() >= Wizards.WIDTH * 630 / 800 && e.getX() <= Wizards.WIDTH * 630 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 510 / 600 && e.getY() <= Wizards.HEIGHT * 510 / 600 + 40) {
+				if (Wizards.musicOn) {
+					TitleScreen.btnMusicState = TitleScreen.btnMusicMuteHov;
+				} else {
+					TitleScreen.btnMusicState = TitleScreen.btnMusicHov;
+				}
+				Wizards.musicOn = !Wizards.musicOn;
 				audioHandler.playButtonClickSound();
 
 			}
 		} else if (Wizards.showHelpScreen) {
 
 			// Button Back
-			if (e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
+			if (currentButton == "Back" && e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
 					&& e.getY() >= Wizards.HEIGHT * 40 / 600 && e.getY() <= Wizards.HEIGHT * 40 / 600 + 50) {
 				HelpScreen.btnPrevState = HelpScreen.btnPrevPress;
 				HelpScreen.btnNextState = HelpScreen.btnNextDef;
@@ -234,7 +245,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Button Previous
-			if (e.getX() >= Wizards.WIDTH * 550 / 800 && e.getX() <= Wizards.WIDTH * 550 / 800 + 40
+			if (currentButton == "Previous" && e.getX() >= Wizards.WIDTH * 550 / 800 && e.getX() <= Wizards.WIDTH * 550 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 50 / 600 && e.getY() <= Wizards.HEIGHT * 50 / 600 + 40) {
 				if (HelpScreen.pageNumber > 1) {
 					HelpScreen.btnNextState = HelpScreen.btnNextDef;
@@ -247,7 +258,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Button Next
-			if (e.getX() >= Wizards.WIDTH * 650 / 800 && e.getX() <= Wizards.WIDTH * 650 / 800 + 40
+			if (currentButton == "Next" && e.getX() >= Wizards.WIDTH * 650 / 800 && e.getX() <= Wizards.WIDTH * 650 / 800 + 40
 					&& e.getY() >= Wizards.HEIGHT * 50 / 600 && e.getY() <= Wizards.HEIGHT * 50 / 600 + 40) {
 				if (HelpScreen.pageNumber < HelpScreen.maxPages) {
 					HelpScreen.btnPrevState = HelpScreen.btnPrevDef;
@@ -260,7 +271,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 		} else if (Wizards.showCreditsScreen) {
 			// Button Back
-			if (e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
+			if (currentButton == "Back" && e.getX() >= Wizards.WIDTH * 20 / 800 && e.getX() <= Wizards.WIDTH * 20 / 800 + 150
 					&& e.getY() >= Wizards.HEIGHT * 40 / 600 && e.getY() <= Wizards.HEIGHT * 40 / 600 + 50) {
 				Wizards.showCreditsScreen = false;
 				Wizards.showTitleScreen = true;
