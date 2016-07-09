@@ -44,14 +44,14 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Button Build
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.HEIGHT * 280 / 600 && e.getY() <= Wizards.HEIGHT * 280 / 600 + 50) {
+					&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
 				TitleScreen.btnBuildState = TitleScreen.btnBuildPress;
 				currentButton = "Build";
 			}
 
 			// Button Help
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.HEIGHT * 335 / 600 && e.getY() <= Wizards.HEIGHT * 335 / 600 + 50) {
+					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
 				TitleScreen.btnHelpState = TitleScreen.btnHelpPress;
 				currentButton = "Help";
 			}
@@ -190,8 +190,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Button Build
 			if (currentButton == "Build" && e.getX() >= Wizards.centerToWidth(150)
-					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.HEIGHT * 280 / 600
-					&& e.getY() <= Wizards.HEIGHT * 280 / 600 + 50) {
+					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(280)
+					&& e.getY() <= Wizards.compareToHeight(280) + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showBuildScreen = true;
 				TitleScreen.btnBuildState = TitleScreen.btnBuildDef;
@@ -200,8 +200,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Button Help
 			if (currentButton == "Help" && e.getX() >= Wizards.centerToWidth(150)
-					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.HEIGHT * 335 / 600
-					&& e.getY() <= Wizards.HEIGHT * 335 / 600 + 50) {
+					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToWidth(335) / 600
+					&& e.getY() <= Wizards.compareToWidth(335) + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showHelpScreen = true;
 				TitleScreen.btnHelpState = TitleScreen.btnHelpDef;
@@ -371,7 +371,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Button Build
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.HEIGHT * 280 / 600 && e.getY() <= Wizards.HEIGHT * 280 / 600 + 50) {
+					&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
 				TitleScreen.btnBuildState = TitleScreen.btnBuildHov;
 				if (!btnBuildHover) {
 					audioHandler.playButtonHoverSound();
@@ -384,7 +384,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Button Help
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.HEIGHT * 335 / 600 && e.getY() <= Wizards.HEIGHT * 335 / 600 + 50) {
+					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
 				TitleScreen.btnHelpState = TitleScreen.btnHelpHov;
 				if (!btnHelpHover) {
 					audioHandler.playButtonHoverSound();
