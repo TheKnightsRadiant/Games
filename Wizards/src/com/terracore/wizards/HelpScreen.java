@@ -9,9 +9,9 @@ import com.terracore.handlers.Texture;
 
 public class HelpScreen {
 
-	private int fontSizeTitle;
-	private int fontSizePage;
-	private int fontSizeText;
+	private int fontSizeTitle = 50;
+	private int fontSizePage = 12;
+	private int fontSizeText = 17;
 
 	private int textLineWidth;
 	private int textX;
@@ -54,13 +54,13 @@ public class HelpScreen {
 
 	public HelpScreen() {
 
-		fontSizeTitle = 50 * Wizards.WIDTH / 800;
-		fontSizePage = 12 * Wizards.WIDTH / 800;
-		fontSizeText = 17 * Wizards.WIDTH / 800;
+		fontSizeTitle = Wizards.compareToWidth(fontSizeTitle);
+		fontSizePage = Wizards.compareToWidth(fontSizePage);
+		fontSizeText = Wizards.compareToWidth(fontSizeText);
 
-		textLineWidth = Wizards.WIDTH * 700 / 800;
-		textX = Wizards.WIDTH * 50 / 800;
-		textY = Wizards.WIDTH * 125 / 800;
+		textLineWidth = Wizards.compareToWidth(700);
+		textX = Wizards.compareToWidth(50);
+		textY = Wizards.compareToHeight(125);
 
 		btnBackDef = new Texture("buttonback/ButtonBackDefault");
 		btnBackPress = new Texture("buttonback/ButtonBackPressed");
@@ -84,20 +84,20 @@ public class HelpScreen {
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
 
 		g.setColor(new Color(255, 250, 150));
-		g.fillRect(Wizards.HEIGHT * 25 / 600, Wizards.WIDTH * 100 / 800, Wizards.WIDTH * 750 / 800,
-				Wizards.HEIGHT * 450 / 600);
+		g.fillRect(Wizards.compareToHeight(25), Wizards.compareToWidth(100), Wizards.compareToWidth(750),
+				Wizards.compareToHeight(450));
 
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeTitle));
-		g.drawString("Help", Wizards.WIDTH * 300 / 800, Wizards.HEIGHT * 75 / 600);
+		g.drawString("Help", Wizards.compareToWidth(300), Wizards.compareToHeight(75));
 
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizePage));
-		g.drawString("Page: " + pageNumber + "/" + maxPages, Wizards.WIDTH * 590 / 800, Wizards.HEIGHT * 75 / 600);
+		g.drawString("Page: " + pageNumber + "/" + maxPages, Wizards.compareToWidth(593), Wizards.compareToHeight(75));
 
 		// Buttons
-		btnBackState.render(g, Wizards.WIDTH * 20 / 800, Wizards.HEIGHT * 40 / 600);
-		btnPrevState.render(g, Wizards.WIDTH * 550 / 800, Wizards.HEIGHT * 50 / 600);
-		btnNextState.render(g, Wizards.WIDTH * 650 / 800, Wizards.HEIGHT * 50 / 600);
+		btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
+		btnPrevState.render(g, Wizards.compareToWidth(550), Wizards.compareToHeight(50));
+		btnNextState.render(g, Wizards.compareToWidth(650), Wizards.compareToHeight(50));
 
 		// Help Contents
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeText));
@@ -126,7 +126,7 @@ public class HelpScreen {
 					"Game Modes\n\nFree For All:\n   In this game mode, two to four players all battle each other. The last man\nstanding wins.\n\nTeam Deathmatch:\n   In this game mode, two teams of two battle each other. "
 							+ "As long as both\nmembers of a team are alive, players can use special combo abilities,\nwhich are more powerful than most normal wizard abilities. The last team\nwhich has at least one surviving member wins."
 							+ "\n\nHorde:\n   In this game mode, one player fights twenty sequentially spawning\nmagical creatures.\n\nEndless Horde:\n   In this game mode, one player fights as many creatures as they can\nuntil they die.",
-					textX, textY - (Wizards.WIDTH * 25 / 800));
+					textX, textY - Wizards.compareToWidth(25));
 			break;
 		default:
 			System.err.println("There was an error changing the pages.");

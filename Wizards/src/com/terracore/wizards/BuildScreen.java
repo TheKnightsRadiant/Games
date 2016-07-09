@@ -25,10 +25,10 @@ public class BuildScreen {
 
 		// Top Bar
 		g.setColor(new Color(244, 231, 129));
-		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT * 100 / 600);
+		g.fillRect(0, 0, Wizards.WIDTH, Wizards.compareToHeight(100));
 
 		// Buttons
-		btnBackState.render(g, Wizards.WIDTH * 20 / 800, Wizards.HEIGHT * 40 / 600);
+		btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
 	}
 
 }

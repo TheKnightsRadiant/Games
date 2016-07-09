@@ -8,7 +8,7 @@ import com.terracore.handlers.Texture;
 
 public class TitleScreen {
 	
-	private int fontSizeTitle = 18;
+	private int fontSizeSettingsTitle = 18;
 
 	private Texture TitleImage;
 
@@ -24,7 +24,7 @@ public class TitleScreen {
 
 	public TitleScreen() {
 		
-		fontSizeTitle = fontSizeTitle * Wizards.WIDTH / 800;
+		fontSizeSettingsTitle = Wizards.compareToWidth(fontSizeSettingsTitle);
 
 		// Create Textures
 		TitleImage = new Texture("WizardTitle");
@@ -79,34 +79,34 @@ public class TitleScreen {
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
 
 		// Title Screen Image
-		TitleImage.render(g, (Wizards.WIDTH - 800) / 2, Wizards.HEIGHT * 10 / 600);
+		TitleImage.render(g, Wizards.centerToWidth(800), Wizards.compareToHeight(10));
 
 		// Title Screen Buttons
-		btnBeginState.render(g, (Wizards.WIDTH - 150) / 2, Wizards.HEIGHT * 225 / 600);
-		btnBuildState.render(g, (Wizards.WIDTH - 150) / 2, Wizards.HEIGHT * 280 / 600);
-		btnHelpState.render(g, (Wizards.WIDTH - 150) / 2, Wizards.HEIGHT * 335 / 600);
-		btnCreditState.render(g, (Wizards.WIDTH - 150) / 2, Wizards.HEIGHT * 390 / 600);
-		btnExitState.render(g, (Wizards.WIDTH - 150) / 2, Wizards.HEIGHT * 445 / 600);
+		btnBeginState.render(g, Wizards.centerToWidth(150), Wizards.compareToHeight(225));
+		btnBuildState.render(g, Wizards.centerToWidth(150), Wizards.compareToHeight(280));
+		btnHelpState.render(g, Wizards.centerToWidth(150), Wizards.compareToHeight(335));
+		btnCreditState.render(g, Wizards.centerToWidth(150), Wizards.compareToHeight(390));
+		btnExitState.render(g, Wizards.centerToWidth(150), Wizards.compareToHeight(445));
 
 		// Title Screen Settings Buttons
-		btnSettingsState.render(g, Wizards.WIDTH * 730 / 800, Wizards.HEIGHT * 510 / 600);
-		btnVolumeState.render(g, Wizards.WIDTH * 680 / 800, Wizards.HEIGHT * 510 / 600);
-		btnMusicState.render(g, Wizards.WIDTH * 630 / 800, Wizards.HEIGHT * 510 / 600);
+		btnSettingsState.render(g, Wizards.compareToWidth(730), Wizards.compareToHeight(510));
+		btnVolumeState.render(g, Wizards.compareToWidth(680), Wizards.compareToHeight(510));
+		btnMusicState.render(g, Wizards.compareToWidth(630), Wizards.compareToHeight(510));
 
 		if (Wizards.showSettingsScreen) {
 
 			// Background & Title
 			g.setColor(new Color(200, 175, 75));
-			g.fillRect(Wizards.WIDTH * 550 / 800, Wizards.HEIGHT * 220 / 600, Wizards.WIDTH * 230 / 800,
-					Wizards.HEIGHT * 280 / 600);
+			g.fillRect(Wizards.compareToWidth(550), Wizards.compareToHeight(220), Wizards.compareToWidth(230),
+					Wizards.compareToHeight(280));
 
 			g.setColor(new Color(255, 250, 150));
-			g.fillRect(Wizards.WIDTH * 555 / 800, Wizards.HEIGHT * 225 / 600, Wizards.WIDTH * 220 / 800,
-					Wizards.HEIGHT * 30 / 600);
+			g.fillRect(Wizards.compareToWidth(555), Wizards.compareToHeight(225), Wizards.compareToWidth(220),
+					Wizards.compareToHeight(30));
 
 			g.setColor(new Color(192, 143, 38));
-			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeTitle));
-			g.drawString("Settings", Wizards.WIDTH * 625 / 800, Wizards.HEIGHT * 245 / 600);
+			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsTitle));
+			g.drawString("Settings", Wizards.compareToWidth(625), Wizards.compareToHeight(245));
 		}
 	}
 

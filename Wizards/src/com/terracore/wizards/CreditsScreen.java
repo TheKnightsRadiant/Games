@@ -24,8 +24,8 @@ public class CreditsScreen {
 
 	public CreditsScreen() {
 
-		fontSizeTitle = fontSizeTitle * Wizards.WIDTH / 800;
-		fontSizeText = fontSizeText * Wizards.WIDTH / 800;
+		fontSizeTitle = Wizards.compareToWidth(fontSizeTitle);
+		fontSizeText = Wizards.compareToWidth(fontSizeText);
 
 		btnBackDef = new Texture("buttonback/ButtonBackDefault");
 		btnBackPress = new Texture("buttonback/ButtonBackPressed");
@@ -35,7 +35,7 @@ public class CreditsScreen {
 	}
 
 	public void paint(Graphics g) {
-		
+
 		y--;
 		// Background
 		g.setColor(new Color(255, 250, 150));
@@ -44,26 +44,19 @@ public class CreditsScreen {
 		// Credits
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeText));
-		this.drawString(g,
-				"Developers:     Matthew Morse   -    Tyler Eldred   -    Ian May\n\n"
-						+ "Artists:               Molly Veesart   -   Tyler Eldred\n\n" + "Music:                huge\n"
-						+ "                            list\n" + "                            of\n"
-						+ "                            music\n\n" + "Programing:\n"
-						+ "     -Graphics:     Tyler Eldred    -    Ian May\n" + "     -Sound:          Ian May\n"
-						+ "     -Mechanics:  Tyler Eldred    -    Matthew Morse     -    Ian May",
-				100 * Wizards.WIDTH / 800, y);
+		this.drawString(g, "INSERT CREDITS HERE (LATER)", Wizards.compareToWidth(100), y);
 
 		// Top Bar
 		g.setColor(new Color(244, 231, 129));
-		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT * 100 / 600);
+		g.fillRect(0, 0, Wizards.WIDTH, Wizards.compareToHeight(100));
 
 		// CREDIT TITLE
 		g.setColor(new Color(192, 143, 38));
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeTitle));
-		g.drawString("Credits", Wizards.WIDTH * 310 / 800, Wizards.HEIGHT * 75 / 600);
+		g.drawString("Credits", Wizards.compareToWidth(310), Wizards.compareToHeight(75));
 
 		// Buttons
-		btnBackState.render(g, Wizards.WIDTH * 20 / 800, Wizards.HEIGHT * 40 / 600);
+		btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
 	}
 
 }

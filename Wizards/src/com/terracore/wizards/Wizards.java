@@ -38,10 +38,6 @@ public class Wizards extends Canvas implements Runnable {
 
 	static MouseHandler mouseHandler = new MouseHandler();
 
-	public Wizards() {
-
-	}
-
 	private void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -107,6 +103,26 @@ public class Wizards extends Canvas implements Runnable {
 		Wizards.stop();
 		System.exit(0);
 
+	}
+
+	public static int compareToWidth(int value) {
+		value = WIDTH * value / 800;
+		return value;
+	}
+
+	public static int compareToHeight(int value) {
+		value = HEIGHT * value / 600;
+		return value;
+	}
+
+	public static int centerToWidth(int value) {
+		value = (WIDTH - value) / 2;
+		return value;
+	}
+
+	public static int centerToHeight(int value) {
+		value = (HEIGHT - value) / 2;
+		return value;
 	}
 
 	@Override
