@@ -13,8 +13,8 @@ import com.terracore.handlers.MouseHandler;
 public class Wizards extends Canvas implements Runnable {
 
 	public static final String TITLE = "Wizards";
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = WIDTH / 4 * 3;
+	public static int WIDTH = 800;
+	public static int HEIGHT = WIDTH / 4 * 3;
 
 	private static boolean running;
 
@@ -37,6 +37,8 @@ public class Wizards extends Canvas implements Runnable {
 	private CreditsScreen creditsScreen = new CreditsScreen();
 
 	static MouseHandler mouseHandler = new MouseHandler();
+	
+	static JFrame frame = new JFrame(TITLE);
 
 	private void render() {
 		BufferStrategy bs = getBufferStrategy();
@@ -124,6 +126,13 @@ public class Wizards extends Canvas implements Runnable {
 		value = (HEIGHT - value) / 2;
 		return value;
 	}
+	
+	public static void changeSize(int WIDTH){
+		Wizards.WIDTH = WIDTH;
+		Wizards.HEIGHT = WIDTH / 4 * 3;
+		frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
+		frame.setLocationRelativeTo(null);
+	}
 
 	@Override
 	public void run() {
@@ -171,7 +180,6 @@ public class Wizards extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		Wizards game = new Wizards();
-		JFrame frame = new JFrame(TITLE);
 		frame.add(game);
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setResizable(false);

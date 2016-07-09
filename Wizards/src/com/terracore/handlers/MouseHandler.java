@@ -28,6 +28,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	private boolean btnPrevHover = false;
 	private boolean btnNextHover = false;
 
+	private int currentResolution = 800;
+
 	AudioHandler audioHandler = new AudioHandler();
 
 	@Override
@@ -76,6 +78,31 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
 				TitleScreen.btnSettingsState = TitleScreen.btnSettingsPress;
 				currentButton = "Settings";
+			}
+
+			// SETTINGSSCREEN
+			if (Wizards.showSettingsScreen) {
+
+				// Resolution
+
+				if (e.getX() >= Wizards.compareToWidth(655)
+						&& e.getX() <= Wizards.compareToWidth(655) + Wizards.compareToWidth(110)
+						&& e.getY() >= Wizards.compareToHeight(260)
+						&& e.getY() <= Wizards.compareToHeight(260) + Wizards.compareToHeight(20)) {
+					if (currentResolution == 700) {
+						currentResolution = 800;
+					} else if (currentResolution == 800) {
+						currentResolution = 900;
+					} else if (currentResolution == 900) {
+						currentResolution = 1000;
+					} else if (currentResolution == 1000) {
+						currentResolution = 700;
+					}
+
+					Wizards.changeSize(currentResolution);
+
+				}
+
 			}
 
 			// Button Volume

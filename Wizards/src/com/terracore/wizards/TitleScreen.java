@@ -7,8 +7,11 @@ import java.awt.Graphics;
 import com.terracore.handlers.Texture;
 
 public class TitleScreen {
-	
+
 	private int fontSizeSettingsTitle = 18;
+	private int fontSizeSettingsText = 15;
+
+	public static String currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
 
 	private Texture TitleImage;
 
@@ -23,8 +26,9 @@ public class TitleScreen {
 	public static Texture btnMusicDef, btnMusicMute, btnMusicHov, btnMusicMuteHov, btnMusicState;
 
 	public TitleScreen() {
-		
+
 		fontSizeSettingsTitle = Wizards.compareToWidth(fontSizeSettingsTitle);
+		fontSizeSettingsText = Wizards.compareToWidth(fontSizeSettingsText);
 
 		// Create Textures
 		TitleImage = new Texture("WizardTitle");
@@ -95,18 +99,35 @@ public class TitleScreen {
 
 		if (Wizards.showSettingsScreen) {
 
-			// Background & Title
+			// Background
 			g.setColor(new Color(200, 175, 75));
 			g.fillRect(Wizards.compareToWidth(550), Wizards.compareToHeight(220), Wizards.compareToWidth(230),
 					Wizards.compareToHeight(280));
 
+			// Top Bar
 			g.setColor(new Color(255, 250, 150));
 			g.fillRect(Wizards.compareToWidth(555), Wizards.compareToHeight(225), Wizards.compareToWidth(220),
 					Wizards.compareToHeight(30));
-
+			// Title
 			g.setColor(new Color(192, 143, 38));
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsTitle));
 			g.drawString("Settings", Wizards.compareToWidth(625), Wizards.compareToHeight(245));
+
+			// Resolution
+			g.setColor(new Color(255, 250, 150));
+			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
+			g.drawString("Resolution:", Wizards.compareToWidth(565), Wizards.compareToHeight(275));
+
+			g.setColor(new Color(255, 250, 150));
+			g.fillRoundRect(Wizards.compareToWidth(655), Wizards.compareToHeight(260), Wizards.compareToWidth(110),
+					Wizards.compareToHeight(20), 5, 5);
+
+			currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
+
+			g.setColor(new Color(192, 143, 38));
+			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
+			g.drawString(currentResolutionText, Wizards.compareToWidth(660), Wizards.compareToHeight(275));
+
 		}
 	}
 
