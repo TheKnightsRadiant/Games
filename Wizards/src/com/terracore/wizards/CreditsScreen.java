@@ -8,7 +8,7 @@ import com.terracore.handlers.Texture;
 
 public class CreditsScreen {
 
-	public static int startY = 600 * Wizards.HEIGHT / 600;
+	public static int startY = Wizards.compareToHeight(600);
 	public static int y = startY;
 
 	private int fontSizeTitle = 50;

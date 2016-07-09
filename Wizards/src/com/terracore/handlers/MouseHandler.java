@@ -244,6 +244,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "Credits" && e.getX() >= Wizards.centerToWidth(150)
 					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(390)
 					&& e.getY() <= Wizards.compareToHeight(390) + 50) {
+				CreditsScreen.startY =  Wizards.compareToHeight(600);
+				CreditsScreen.y = CreditsScreen.startY;
 				Wizards.showTitleScreen = false;
 				Wizards.showCreditsScreen = true;
 				TitleScreen.btnCreditState = TitleScreen.btnCreditDef;
@@ -353,7 +355,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Wizards.showCreditsScreen = false;
 				Wizards.showTitleScreen = true;
 				CreditsScreen.btnBackState = CreditsScreen.btnBackDef;
-				CreditsScreen.y = CreditsScreen.startY;
 				audioHandler.playButtonClickSound();
 			}
 
