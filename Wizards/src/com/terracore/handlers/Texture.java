@@ -23,7 +23,7 @@ public class Texture {
 		} else {
 			try {
 				System.out.println("Loading texture: " + fileName);
-				manager = new TextureHandler(ImageIO.read(new File("./resources/images/" + fileName + ".png")));
+				manager = new TextureHandler(ImageIO.read(new File("resources/images/" + fileName + ".png")));
 				textMap.put(fileName, manager);
 			} catch (IOException e) {
 				e.printStackTrace();
