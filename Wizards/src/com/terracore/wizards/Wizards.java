@@ -17,6 +17,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static int HEIGHT = WIDTH / 4 * 3;
 
 	private static boolean running;
+	public static boolean preLoad = true;
 
 	public static boolean showTitleScreen = true;
 	public static boolean showBeginScreen = false;
@@ -37,7 +38,7 @@ public class Wizards extends Canvas implements Runnable {
 	private CreditsScreen creditsScreen = new CreditsScreen();
 
 	static MouseHandler mouseHandler = new MouseHandler();
-	
+
 	static JFrame frame = new JFrame(TITLE);
 
 	private void render() {
@@ -93,6 +94,7 @@ public class Wizards extends Canvas implements Runnable {
 			return;
 		running = true;
 		new Thread(this, "Thread-WizardsMain").start();
+		System.err.println("Starting Game");
 	}
 
 	public static void stop() {
@@ -126,8 +128,8 @@ public class Wizards extends Canvas implements Runnable {
 		value = (HEIGHT - value) / 2;
 		return value;
 	}
-	
-	public static void changeSize(int WIDTH){
+
+	public static void changeSize(int WIDTH) {
 		Wizards.WIDTH = WIDTH;
 		Wizards.HEIGHT = WIDTH / 4 * 3;
 		frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
@@ -181,7 +183,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static void main(String[] args) {
 		Wizards game = new Wizards();
 		frame.add(game);
-		frame.setSize(WIDTH, HEIGHT);
+		frame.setSize(0, 0);
 		frame.setResizable(false);
 		frame.setFocusable(true);
 		frame.addWindowListener(new WindowAdapter() {
@@ -191,7 +193,7 @@ public class Wizards extends Canvas implements Runnable {
 			}
 		});
 
-		frame.setLocationRelativeTo(null);
+		frame.setLocation(-100,-100);
 		frame.setVisible(true);
 		frame.requestFocus();
 

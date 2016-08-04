@@ -97,7 +97,7 @@ public class TitleScreen {
 		btnVolumeState.render(g, Wizards.compareToWidth(680), Wizards.compareToHeight(510));
 		btnMusicState.render(g, Wizards.compareToWidth(630), Wizards.compareToHeight(510));
 
-		if (Wizards.showSettingsScreen) {
+		if (Wizards.showSettingsScreen || Wizards.preLoad) {
 
 			// Background
 			g.setColor(new Color(200, 175, 75));
@@ -128,7 +128,14 @@ public class TitleScreen {
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
 			g.drawString(currentResolutionText, Wizards.compareToWidth(660), Wizards.compareToHeight(275));
 
+			// Making it not lag... somehow
+			if (Wizards.preLoad) {
+				g.setColor(new Color(255, 255, 255));
+				g.drawRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
+				Wizards.preLoad = false;
+				Wizards.frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
+				Wizards.frame.setLocationRelativeTo(null);
+			}
 		}
 	}
-
 }
