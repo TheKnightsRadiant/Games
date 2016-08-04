@@ -3,8 +3,10 @@ package com.terracore.wizards;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.nio.channels.ShutdownChannelGroupException;
 
 import com.terracore.handlers.Texture;
+import com.terracore.storages.Colorer;
 
 public class TitleScreen {
 
@@ -79,7 +81,7 @@ public class TitleScreen {
 
 	public void paint(Graphics g) {
 		// Background
-		g.setColor(new Color(244, 231, 129));
+		g.setColor(Colorer.Tan0);
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
 
 		// Title Screen Image
@@ -100,41 +102,45 @@ public class TitleScreen {
 		if (Wizards.showSettingsScreen || Wizards.preLoad) {
 
 			// Background
-			g.setColor(new Color(200, 175, 75));
+			g.setColor(Colorer.LightBrown);
 			g.fillRect(Wizards.compareToWidth(550), Wizards.compareToHeight(220), Wizards.compareToWidth(230),
 					Wizards.compareToHeight(280));
 
 			// Top Bar
-			g.setColor(new Color(255, 250, 150));
+			g.setColor(Colorer.Tan1);
 			g.fillRect(Wizards.compareToWidth(555), Wizards.compareToHeight(225), Wizards.compareToWidth(220),
 					Wizards.compareToHeight(30));
 			// Title
-			g.setColor(new Color(192, 143, 38));
+			g.setColor(Colorer.MediumBrown);
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsTitle));
 			g.drawString("Settings", Wizards.compareToWidth(625), Wizards.compareToHeight(245));
 
 			// Resolution
-			g.setColor(new Color(255, 250, 150));
+			g.setColor(Colorer.Tan1);
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
 			g.drawString("Resolution:", Wizards.compareToWidth(565), Wizards.compareToHeight(275));
 
-			g.setColor(new Color(255, 250, 150));
+			g.setColor(Colorer.Tan1);
 			g.fillRoundRect(Wizards.compareToWidth(655), Wizards.compareToHeight(260), Wizards.compareToWidth(110),
 					Wizards.compareToHeight(20), 5, 5);
 
 			currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
 
-			g.setColor(new Color(192, 143, 38));
+			g.setColor(Colorer.MediumBrown);
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
 			g.drawString(currentResolutionText, Wizards.compareToWidth(660), Wizards.compareToHeight(275));
 
 			// Making it not lag... somehow
 			if (Wizards.preLoad) {
-				g.setColor(new Color(255, 255, 255));
-				g.drawRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
-				Wizards.preLoad = false;
+				// Wizards.preLoad = false;
+				g.setColor(Colorer.Tan0);
+				g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
+				g.setColor(Colorer.MediumBrown);
+				g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
+				g.drawString("Loading...", Wizards.centerToWidth(200), Wizards.centerToHeight());
+					g.drawString("Loading...", Wizards.centerToWidth(200), Wizards.centerToHeight());
+
 				Wizards.frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
-				Wizards.frame.setLocationRelativeTo(null);
 			}
 		}
 	}

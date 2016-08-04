@@ -1,6 +1,7 @@
 package com.terracore.wizards;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -119,6 +120,14 @@ public class Wizards extends Canvas implements Runnable {
 		return value;
 	}
 
+	public static int centerToWidth() {
+		return WIDTH / 2;
+	}
+
+	public static int centerToHeight() {
+		return HEIGHT / 2;
+	}
+
 	public static int centerToWidth(int value) {
 		value = (WIDTH - value) / 2;
 		return value;
@@ -156,9 +165,10 @@ public class Wizards extends Canvas implements Runnable {
 				unprocessed--;
 				TPS++;
 				canRender = true;
-			} else
+			} else {
 				canRender = false;
-
+			}
+			
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
@@ -168,6 +178,10 @@ public class Wizards extends Canvas implements Runnable {
 			if (canRender) {
 				render();
 				FPS++;
+				
+				if(Wizards.preLoad && FPS == 60){
+					Wizards.preLoad = false;
+				}
 			}
 
 			if (System.currentTimeMillis() - 1000 > timer) {
@@ -183,7 +197,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static void main(String[] args) {
 		Wizards game = new Wizards();
 		frame.add(game);
-		frame.setSize(0, 0);
+		Wizards.frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
 		frame.setResizable(false);
 		frame.setFocusable(true);
 		frame.addWindowListener(new WindowAdapter() {
@@ -193,7 +207,7 @@ public class Wizards extends Canvas implements Runnable {
 			}
 		});
 
-		frame.setLocation(-100,-100);
+		Wizards.frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.requestFocus();
 
