@@ -19,6 +19,7 @@ public class Wizards extends Canvas implements Runnable {
 
 	private static boolean running;
 	public static boolean preLoad = true;
+	public static int preLoadCounter = 80;
 
 	public static boolean showTitleScreen = true;
 	public static boolean showBeginScreen = false;
@@ -179,7 +180,7 @@ public class Wizards extends Canvas implements Runnable {
 				render();
 				FPS++;
 				
-				if(Wizards.preLoad && FPS == 60){
+				if(Wizards.preLoad && FPS >= targetFPS){
 					Wizards.preLoad = false;
 				}
 			}

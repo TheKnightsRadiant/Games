@@ -137,8 +137,19 @@ public class TitleScreen {
 				g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
 				g.setColor(Colorer.MediumBrown);
 				g.setFont(new Font("ZapfDingbats", Font.BOLD, 50));
-				g.drawString("Loading...", Wizards.centerToWidth(200), Wizards.centerToHeight());
+				if (Wizards.preLoadCounter < 80 && Wizards.preLoadCounter >= 60) {
+					g.drawString("Loading", Wizards.centerToWidth(200), Wizards.centerToHeight());
+				} else if (Wizards.preLoadCounter < 60 && Wizards.preLoadCounter >= 40) {
+					g.drawString("Loading.", Wizards.centerToWidth(200), Wizards.centerToHeight());
+				} else if (Wizards.preLoadCounter < 40 && Wizards.preLoadCounter >= 20) {
+					g.drawString("Loading..", Wizards.centerToWidth(200), Wizards.centerToHeight());
+				} else if (Wizards.preLoadCounter < 20 && Wizards.preLoadCounter >= 0) {
 					g.drawString("Loading...", Wizards.centerToWidth(200), Wizards.centerToHeight());
+					if (Wizards.preLoadCounter == 0) {
+						Wizards.preLoadCounter = 80;
+					}
+				}
+				Wizards.preLoadCounter--;
 
 				Wizards.frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
 			}
