@@ -11,9 +11,10 @@ public class CreditsScreen {
 	public static int startY = Wizards.compareToHeight(600);
 	public static int y = startY;
 
-	private int fontSizeTitle = 50;
-	private int fontSizeText = 15;
-
+	private int fontSizeTitleDef = 50;
+	private int fontSizeTextDef = 17;
+	private int fontSizeTitle = fontSizeTitleDef;
+	private int fontSizeText = fontSizeTextDef;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
@@ -23,8 +24,8 @@ public class CreditsScreen {
 
 	public void paint(Graphics g) {
 
-		fontSizeTitle = Wizards.compareToWidth(fontSizeTitle);
-		fontSizeText = Wizards.compareToWidth(fontSizeText);
+		fontSizeTitle = Wizards.compareToWidth(fontSizeTitleDef);
+		fontSizeText = Wizards.compareToWidth(fontSizeTextDef);
 		
 		y--;
 		// Background

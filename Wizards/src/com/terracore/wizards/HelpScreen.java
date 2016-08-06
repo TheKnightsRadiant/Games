@@ -8,10 +8,13 @@ import java.awt.Graphics;
 import com.terracore.storages.Textures;
 
 public class HelpScreen {
-
-	private int fontSizeTitle = 50;
-	private int fontSizePage = 12;
-	private int fontSizeText = 17;
+	
+	private int fontSizeTitleDef = 50;
+	private int fontSizePageDef = 12;
+	private int fontSizeTextDef = 17;
+	private int fontSizeTitle = fontSizeTitleDef;
+	private int fontSizePage = fontSizePageDef;
+	private int fontSizeText = fontSizeTextDef;
 
 	private int textLineWidth;
 	private int textX;
@@ -50,9 +53,9 @@ public class HelpScreen {
 
 	public void paint(Graphics g) {
 
-		fontSizeTitle = Wizards.compareToWidth(fontSizeTitle);
-		fontSizePage = Wizards.compareToWidth(fontSizePage);
-		fontSizeText = Wizards.compareToWidth(fontSizeText);
+		fontSizeTitle = Wizards.compareToWidth(fontSizeTitleDef);
+		fontSizePage = Wizards.compareToWidth(fontSizePageDef);
+		fontSizeText = Wizards.compareToWidth(fontSizeTextDef);
 		
 		textLineWidth = Wizards.compareToWidth(700);
 		textX = Wizards.compareToWidth(50);

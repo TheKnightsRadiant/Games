@@ -7,17 +7,14 @@ import com.terracore.storages.Textures;
 
 public class TitleScreen {
 
-	private int fontSizeSettingsTitle = 18;
-	private int fontSizeSettingsText = 15;
+	private int fontSizeSettingsTitleDef = 18;
+	private int fontSizeSettingsTextDef = 15;
+	private int fontSizeSettingsTitle = fontSizeSettingsTitleDef;
+	private int fontSizeSettingsText = fontSizeSettingsTextDef;
 
 	public static String currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
 
 	public void paint(Graphics g) {
-		
-		fontSizeSettingsTitle = Wizards.compareToWidth(fontSizeSettingsTitle);
-		fontSizeSettingsText = Wizards.compareToWidth(fontSizeSettingsText);
-		
-		currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
 		
 		// Background
 		g.setColor(Colorer.Tan0);
@@ -40,6 +37,11 @@ public class TitleScreen {
 
 		if (Wizards.showSettingsScreen) {
 
+			fontSizeSettingsTitle = Wizards.compareToWidth(fontSizeSettingsTitleDef);
+			fontSizeSettingsText = Wizards.compareToWidth(fontSizeSettingsTextDef);
+			
+			currentResolutionText = Wizards.WIDTH + "X" + Wizards.HEIGHT;
+			
 			// Background
 			g.setColor(Colorer.LightBrown);
 			g.fillRect(Wizards.compareToWidth(550), Wizards.compareToHeight(220), Wizards.compareToWidth(230),

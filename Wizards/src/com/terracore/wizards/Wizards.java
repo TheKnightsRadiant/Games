@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import com.terracore.handlers.AudioHandler;
 import com.terracore.handlers.MouseHandler;
 
 public class Wizards extends Canvas implements Runnable {
@@ -41,6 +42,7 @@ public class Wizards extends Canvas implements Runnable {
 	private CreditsScreen creditsScreen = new CreditsScreen();
 	private LoadingScreen loadingScreen = new LoadingScreen();
 
+	private AudioHandler audioHandler = new AudioHandler();
 	static MouseHandler mouseHandler = new MouseHandler();
 
 	static JFrame frame = new JFrame(TITLE);
@@ -132,6 +134,7 @@ public class Wizards extends Canvas implements Runnable {
 
 	private void start() {
 		if (!running) {
+			audioHandler.playTrack1();
 			loading = true;
 			running = true;
 			new Thread(this, "Thread-WizardsMain").start();
@@ -144,11 +147,17 @@ public class Wizards extends Canvas implements Runnable {
 			return;
 		}
 		running = false;
-		System.err.println("Exiting Game");
+	}
+	
+	public static void exit() {
+		if (!running) {
+			return;
+		}
+		running = false;
+		System.err.println("\nExiting Game");
 		// stop threads
 		Wizards.stop();
 		System.exit(0);
-
 	}
 
 	public static int compareToWidth(int value) {
@@ -225,7 +234,7 @@ public class Wizards extends Canvas implements Runnable {
 					showLoadingScreen = false;
 					showTitleScreen = true;
 					loading = false;
-					System.err.println("Starting Game");
+					System.err.println("\nStarting Game\n");
 				}
 			}
 
@@ -248,7 +257,7 @@ public class Wizards extends Canvas implements Runnable {
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				Wizards.stop();
+				Wizards.exit();
 			}
 		});
 

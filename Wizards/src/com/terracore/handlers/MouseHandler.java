@@ -26,7 +26,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 	private int currentResolution = 800;
 
-	AudioHandler audioHandler = new AudioHandler();
+	private AudioHandler audioHandler = new AudioHandler();
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -254,7 +254,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(445) + 50) {
 				Textures.btnExitState = Textures.btnExitDef;
 				audioHandler.playButtonClickSound();
-				Wizards.stop();
+				Wizards.exit();
 			}
 
 			// Button Settings
