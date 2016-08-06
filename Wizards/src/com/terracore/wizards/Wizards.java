@@ -1,7 +1,6 @@
 package com.terracore.wizards;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -17,17 +16,19 @@ public class Wizards extends Canvas implements Runnable {
 	public static int WIDTH = 800;
 	public static int HEIGHT = WIDTH / 4 * 3;
 
+	public static boolean loading;
 	private static boolean running;
-	public static boolean preLoad = true;
-	public static int preLoadCounter = 80;
 
-	public static boolean showTitleScreen = true;
+	public static String currentScreen = "";
+	public static boolean showTitleScreen = false;
 	public static boolean showBeginScreen = false;
 	public static boolean showPlayScreen = false;
 	public static boolean showBuildScreen = false;
 	public static boolean showHelpScreen = false;
 	public static boolean showCreditsScreen = false;
 	public static boolean showSettingsScreen = false;
+	public static boolean showLoadingScreen = true;
+	public static int loadCounter = 80;
 
 	public static boolean volumeOn = true;
 	public static boolean musicOn = true;
@@ -38,10 +39,31 @@ public class Wizards extends Canvas implements Runnable {
 	private BuildScreen buildScreen = new BuildScreen();
 	private HelpScreen helpScreen = new HelpScreen();
 	private CreditsScreen creditsScreen = new CreditsScreen();
+	private LoadingScreen loadingScreen = new LoadingScreen();
 
 	static MouseHandler mouseHandler = new MouseHandler();
 
 	static JFrame frame = new JFrame(TITLE);
+
+	private void preRender() {
+		BufferStrategy bs = getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+		Graphics g = bs.getDrawGraphics();
+		///////////////////////////////////////////
+
+		// LOADING SCREEN
+		if (showLoadingScreen) {
+			currentScreen = "Loading";
+			loadingScreen.paint(g);
+		}
+
+		///////////////////////////////////////////
+		g.dispose();
+		bs.show();
+	}
 
 	private void render() {
 		BufferStrategy bs = getBufferStrategy();
@@ -52,33 +74,50 @@ public class Wizards extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		///////////////////////////////////////////
 
+		// LOADING SCREEN
+		if (showLoadingScreen) {
+			currentScreen = "Loading";
+			loadingScreen.paint(g);
+		}
+
 		// TITLE SCREEN
 		if (showTitleScreen) {
+			if (showSettingsScreen) {
+				currentScreen = "Title (Settings)";
+			} else {
+				currentScreen = "Title";
+			}
+
 			titleScreen.paint(g);
 		}
 
 		// BEGIN SCREEN
 		if (showBeginScreen) {
+			currentScreen = "Begin";
 			beginScreen.paint(g);
 		}
 
 		// PLAY SCREEN
 		if (showPlayScreen) {
+			currentScreen = "Play";
 			playScreen.paint(g);
 		}
 
 		// BUILD SCREEN
 		if (showBuildScreen) {
+			currentScreen = "Build";
 			buildScreen.paint(g);
 		}
 
 		// HELP SCREEN
 		if (showHelpScreen) {
+			currentScreen = "Help (" + HelpScreen.pageNumber + ")";
 			helpScreen.paint(g);
 		}
 
 		// CREDITS SCREEN
 		if (showCreditsScreen) {
+			currentScreen = "Credits";
 			creditsScreen.paint(g);
 		}
 
@@ -92,11 +131,12 @@ public class Wizards extends Canvas implements Runnable {
 	}
 
 	private void start() {
-		if (running)
-			return;
-		running = true;
-		new Thread(this, "Thread-WizardsMain").start();
-		System.err.println("Starting Game");
+		if (!running) {
+			loading = true;
+			running = true;
+			new Thread(this, "Thread-WizardsMain").start();
+			System.err.println("Starting Thread");
+		}
 	}
 
 	public static void stop() {
@@ -155,6 +195,7 @@ public class Wizards extends Canvas implements Runnable {
 		double unprocessed = 0.0;
 		int FPS = 0;
 		int TPS = 0;
+		int runtime = 0;
 		boolean canRender = false;
 		while (running) {
 			long now = System.nanoTime();
@@ -169,36 +210,39 @@ public class Wizards extends Canvas implements Runnable {
 			} else {
 				canRender = false;
 			}
-			
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+
+			// Thread.sleep(1);
 
 			if (canRender) {
-				render();
+				if (loading) {
+					preRender();
+				} else {
+					render();
+				}
+
 				FPS++;
-				
-				if(Wizards.preLoad && FPS >= targetFPS){
-					Wizards.preLoad = false;
+				if (FPS >= targetFPS && LoadingScreen.isDone && loading) {
+					showLoadingScreen = false;
+					showTitleScreen = true;
+					loading = false;
+					System.err.println("Starting Game");
 				}
 			}
 
 			if (System.currentTimeMillis() - 1000 > timer) {
 				timer += 1000;
-				System.out.printf("FPS: %d | TPS: %d\n", FPS, TPS);
+				runtime++;
+				System.out.println(
+						"FPS: " + FPS + " | TPS: " + TPS + " | Run Time: " + runtime + " | Screen: " + currentScreen);
 				FPS = 0;
 				TPS = 0;
 			}
 		}
-		stop();
 	}
 
 	public static void main(String[] args) {
 		Wizards game = new Wizards();
 		frame.add(game);
-		Wizards.frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
 		frame.setResizable(false);
 		frame.setFocusable(true);
 		frame.addWindowListener(new WindowAdapter() {
@@ -208,7 +252,8 @@ public class Wizards extends Canvas implements Runnable {
 			}
 		});
 
-		Wizards.frame.setLocationRelativeTo(null);
+		frame.setSize(Wizards.WIDTH, Wizards.HEIGHT);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.requestFocus();
 

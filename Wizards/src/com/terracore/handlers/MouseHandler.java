@@ -3,13 +3,9 @@ package com.terracore.handlers;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.nio.channels.ShutdownChannelGroupException;
-
-import com.terracore.wizards.BeginScreen;
-import com.terracore.wizards.BuildScreen;
+import com.terracore.storages.Textures;
 import com.terracore.wizards.CreditsScreen;
 import com.terracore.wizards.HelpScreen;
-import com.terracore.wizards.TitleScreen;
 import com.terracore.wizards.Wizards;
 
 public class MouseHandler implements MouseListener, MouseMotionListener {
@@ -40,35 +36,35 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Begin
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(225) && e.getY() <= Wizards.compareToHeight(225) + 50) {
-				TitleScreen.btnBeginState = TitleScreen.btnBeginPress;
+				Textures.btnBeginState = Textures.btnBeginPress;
 				currentButton = "Begin";
 			}
 
 			// Button Build
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
-				TitleScreen.btnBuildState = TitleScreen.btnBuildPress;
+				Textures.btnBuildState = Textures.btnBuildPress;
 				currentButton = "Build";
 			}
-
+			
 			// Button Help
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
-				TitleScreen.btnHelpState = TitleScreen.btnHelpPress;
+				Textures.btnHelpState = Textures.btnHelpPress;
 				currentButton = "Help";
 			}
 
 			// Button Credits
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(390) && e.getY() <= Wizards.compareToHeight(390) + 50) {
-				TitleScreen.btnCreditState = TitleScreen.btnCreditPress;
+				Textures.btnCreditState = Textures.btnCreditPress;
 				currentButton = "Credits";
 			}
 
 			// Button Exit
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(445) && e.getY() <= Wizards.compareToHeight(445) + 50) {
-				TitleScreen.btnExitState = TitleScreen.btnExitPress;
+				Textures.btnExitState = Textures.btnExitPress;
 				currentButton = "Exit";
 			}
 
@@ -76,7 +72,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Settings
 			if (e.getX() >= Wizards.compareToWidth(730) && e.getX() <= Wizards.compareToWidth(730) + 40
 					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
-				TitleScreen.btnSettingsState = TitleScreen.btnSettingsPress;
+				Textures.btnSettingsState = Textures.btnSettingsPress;
 				currentButton = "Settings";
 			}
 
@@ -123,7 +119,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				HelpScreen.btnBackState = HelpScreen.btnBackPress;
+				Textures.btnBackState = Textures.btnBackPress;
 				currentButton = "Back";
 			}
 
@@ -131,9 +127,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= Wizards.compareToWidth(550) && e.getX() <= Wizards.compareToWidth(550) + 40
 					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
 				if (HelpScreen.pageNumber > 1) {
-					HelpScreen.btnPrevState = HelpScreen.btnPrevPress;
+					Textures.btnPrevState = Textures.btnPrevPress;
 				} else {
-					HelpScreen.btnPrevState = HelpScreen.btnPrevPress;
+					Textures.btnPrevState = Textures.btnPrevPress;
 				}
 				currentButton = "Previous";
 			}
@@ -142,9 +138,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= Wizards.compareToWidth(650) && e.getX() <= Wizards.compareToWidth(650) + 40
 					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
 				if (HelpScreen.pageNumber < HelpScreen.maxPages) {
-					HelpScreen.btnNextState = HelpScreen.btnNextPress;
+					Textures.btnNextState = Textures.btnNextPress;
 				} else {
-					HelpScreen.btnNextState = HelpScreen.btnNextPress;
+					Textures.btnNextState = Textures.btnNextPress;
 				}
 				currentButton = "Next";
 			}
@@ -155,7 +151,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				CreditsScreen.btnBackState = CreditsScreen.btnBackPress;
+				Textures.btnBackState = Textures.btnBackPress;
 				currentButton = "Back";
 			}
 
@@ -165,7 +161,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				BeginScreen.btnBackState = BeginScreen.btnBackPress;
+				Textures.btnBackState = Textures.btnBackPress;
 				currentButton = "Back";
 			}
 
@@ -175,7 +171,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				BuildScreen.btnBackState = BuildScreen.btnBackPress;
+				Textures.btnBackState = Textures.btnBackPress;
 				currentButton = "Back";
 			}
 		}
@@ -207,7 +203,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 							&& e.getY() >= Wizards.compareToHeight(510)
 							&& e.getY() <= Wizards.compareToHeight(510) + 40)) {
 				Wizards.showSettingsScreen = false;
-				TitleScreen.btnSettingsState = TitleScreen.btnSettingsDef;
+				Textures.btnSettingsState = Textures.btnSettingsDef;
 			}
 
 			// Button Begin
@@ -216,7 +212,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(225) + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showBeginScreen = true;
-				TitleScreen.btnBeginState = TitleScreen.btnBeginDef;
+				Textures.btnBeginState = Textures.btnBeginDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -226,7 +222,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(280) + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showBuildScreen = true;
-				TitleScreen.btnBuildState = TitleScreen.btnBuildDef;
+				Textures.btnBuildState = Textures.btnBuildDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -236,7 +232,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToWidth(335) + 50) {
 				Wizards.showTitleScreen = false;
 				Wizards.showHelpScreen = true;
-				TitleScreen.btnHelpState = TitleScreen.btnHelpDef;
+				Textures.btnHelpState = Textures.btnHelpDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -244,11 +240,11 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "Credits" && e.getX() >= Wizards.centerToWidth(150)
 					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(390)
 					&& e.getY() <= Wizards.compareToHeight(390) + 50) {
-				CreditsScreen.startY =  Wizards.compareToHeight(600);
+				CreditsScreen.startY = Wizards.compareToHeight(600);
 				CreditsScreen.y = CreditsScreen.startY;
 				Wizards.showTitleScreen = false;
 				Wizards.showCreditsScreen = true;
-				TitleScreen.btnCreditState = TitleScreen.btnCreditDef;
+				Textures.btnCreditState = Textures.btnCreditDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -256,7 +252,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "Exit" && e.getX() >= Wizards.centerToWidth(150)
 					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(445)
 					&& e.getY() <= Wizards.compareToHeight(445) + 50) {
-				TitleScreen.btnExitState = TitleScreen.btnExitDef;
+				Textures.btnExitState = Textures.btnExitDef;
 				audioHandler.playButtonClickSound();
 				Wizards.stop();
 			}
@@ -268,9 +264,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Wizards.showSettingsScreen = !Wizards.showSettingsScreen;
 				audioHandler.playButtonClickSound();
 				if (Wizards.showSettingsScreen) {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsPressHov;
+					Textures.btnSettingsState = Textures.btnSettingsPressHov;
 				} else {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsHov;
+					Textures.btnSettingsState = Textures.btnSettingsHov;
 				}
 			}
 
@@ -279,9 +275,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(680) + 40 && e.getY() >= Wizards.compareToHeight(510)
 					&& e.getY() <= Wizards.compareToHeight(510) + 40) {
 				if (Wizards.volumeOn) {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeMuteHov;
+					Textures.btnVolumeState = Textures.btnVolumeMuteHov;
 				} else {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeHov;
+					Textures.btnVolumeState = Textures.btnVolumeHov;
 				}
 				Wizards.volumeOn = !Wizards.volumeOn;
 				audioHandler.playButtonClickSound();
@@ -292,9 +288,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(630) + 40 && e.getY() >= Wizards.compareToHeight(510)
 					&& e.getY() <= Wizards.compareToHeight(510) + 40) {
 				if (Wizards.musicOn) {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicMuteHov;
+					Textures.btnMusicState = Textures.btnMusicMuteHov;
 				} else {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicHov;
+					Textures.btnMusicState = Textures.btnMusicHov;
 				}
 				Wizards.musicOn = !Wizards.musicOn;
 				audioHandler.playButtonClickSound();
@@ -308,12 +304,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "Back" && e.getX() >= Wizards.compareToWidth(20)
 					&& e.getX() <= Wizards.compareToWidth(20) + 150 && e.getY() >= Wizards.compareToHeight(40)
 					&& e.getY() <= Wizards.compareToHeight(40) + 50) {
-				HelpScreen.btnPrevState = HelpScreen.btnPrevPress;
-				HelpScreen.btnNextState = HelpScreen.btnNextDef;
+				Textures.btnPrevState = Textures.btnPrevPress;
+				Textures.btnNextState = Textures.btnNextDef;
 				HelpScreen.pageNumber = 1;
 				Wizards.showHelpScreen = false;
 				Wizards.showTitleScreen = true;
-				HelpScreen.btnBackState = HelpScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -322,12 +318,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(550) + 40 && e.getY() >= Wizards.compareToHeight(50)
 					&& e.getY() <= Wizards.compareToHeight(50) + 40) {
 				if (HelpScreen.pageNumber > 1) {
-					HelpScreen.btnNextState = HelpScreen.btnNextDef;
+					Textures.btnNextState = Textures.btnNextDef;
 					HelpScreen.pageNumber--;
 					audioHandler.playButtonClickSound();
 				}
 				if (HelpScreen.pageNumber > 1) {
-					HelpScreen.btnPrevState = HelpScreen.btnPrevHov;
+					Textures.btnPrevState = Textures.btnPrevHov;
 				}
 			}
 
@@ -336,12 +332,12 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(650) + 40 && e.getY() >= Wizards.compareToHeight(50)
 					&& e.getY() <= Wizards.compareToHeight(50) + 40) {
 				if (HelpScreen.pageNumber < HelpScreen.maxPages) {
-					HelpScreen.btnPrevState = HelpScreen.btnPrevDef;
+					Textures.btnPrevState = Textures.btnPrevDef;
 					HelpScreen.pageNumber++;
 					audioHandler.playButtonClickSound();
 				}
 				if (HelpScreen.pageNumber < HelpScreen.maxPages) {
-					HelpScreen.btnNextState = HelpScreen.btnNextHov;
+					Textures.btnNextState = Textures.btnNextHov;
 				}
 			}
 
@@ -354,7 +350,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(40) + 50) {
 				Wizards.showCreditsScreen = false;
 				Wizards.showTitleScreen = true;
-				CreditsScreen.btnBackState = CreditsScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -367,7 +363,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(40) + 50) {
 				Wizards.showBeginScreen = false;
 				Wizards.showTitleScreen = true;
-				BeginScreen.btnBackState = BeginScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				audioHandler.playButtonClickSound();
 			}
 
@@ -380,7 +376,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(40) + 50) {
 				Wizards.showBuildScreen = false;
 				Wizards.showTitleScreen = true;
-				BuildScreen.btnBackState = BuildScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				audioHandler.playButtonClickSound();
 			}
 		}
@@ -394,65 +390,65 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Begin
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(225) && e.getY() <= Wizards.compareToHeight(225) + 50) {
-				TitleScreen.btnBeginState = TitleScreen.btnBeginHov;
+				Textures.btnBeginState = Textures.btnBeginHov;
 				if (!btnBeginHover) {
 					audioHandler.playButtonHoverSound();
 					btnBeginHover = true;
 				}
 			} else {
-				TitleScreen.btnBeginState = TitleScreen.btnBeginDef;
+				Textures.btnBeginState = Textures.btnBeginDef;
 				btnBeginHover = false;
 			}
 
 			// Button Build
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
-				TitleScreen.btnBuildState = TitleScreen.btnBuildHov;
+				Textures.btnBuildState = Textures.btnBuildHov;
 				if (!btnBuildHover) {
 					audioHandler.playButtonHoverSound();
 					btnBuildHover = true;
 				}
 			} else {
-				TitleScreen.btnBuildState = TitleScreen.btnBuildDef;
+				Textures.btnBuildState = Textures.btnBuildDef;
 				btnBuildHover = false;
 			}
 
 			// Button Help
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
-				TitleScreen.btnHelpState = TitleScreen.btnHelpHov;
+				Textures.btnHelpState = Textures.btnHelpHov;
 				if (!btnHelpHover) {
 					audioHandler.playButtonHoverSound();
 					btnHelpHover = true;
 				}
 			} else {
-				TitleScreen.btnHelpState = TitleScreen.btnHelpDef;
+				Textures.btnHelpState = Textures.btnHelpDef;
 				btnHelpHover = false;
 			}
 
 			// Button Credit
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(390) && e.getY() <= Wizards.compareToHeight(390) + 50) {
-				TitleScreen.btnCreditState = TitleScreen.btnCreditHov;
+				Textures.btnCreditState = Textures.btnCreditHov;
 				if (!btnCreditHover) {
 					audioHandler.playButtonHoverSound();
 					btnCreditHover = true;
 				}
 			} else {
-				TitleScreen.btnCreditState = TitleScreen.btnCreditDef;
+				Textures.btnCreditState = Textures.btnCreditDef;
 				btnCreditHover = false;
 			}
 
 			// Button Exit
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToHeight(445) && e.getY() <= Wizards.compareToHeight(445) + 50) {
-				TitleScreen.btnExitState = TitleScreen.btnExitHov;
+				Textures.btnExitState = Textures.btnExitHov;
 				if (!btnExitHover) {
 					audioHandler.playButtonHoverSound();
 					btnExitHover = true;
 				}
 			} else {
-				TitleScreen.btnExitState = TitleScreen.btnExitDef;
+				Textures.btnExitState = Textures.btnExitDef;
 				btnExitHover = false;
 			}
 
@@ -462,9 +458,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
 
 				if (Wizards.showSettingsScreen) {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsPressHov;
+					Textures.btnSettingsState = Textures.btnSettingsPressHov;
 				} else {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsHov;
+					Textures.btnSettingsState = Textures.btnSettingsHov;
 				}
 				if (!btnSettingsHover) {
 					audioHandler.playButtonHoverSound();
@@ -472,9 +468,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				}
 			} else {
 				if (Wizards.showSettingsScreen) {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsPress;
+					Textures.btnSettingsState = Textures.btnSettingsPress;
 				} else {
-					TitleScreen.btnSettingsState = TitleScreen.btnSettingsDef;
+					Textures.btnSettingsState = Textures.btnSettingsDef;
 				}
 				btnSettingsHover = false;
 			}
@@ -489,15 +485,15 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				}
 
 				if (Wizards.volumeOn) {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeHov;
+					Textures.btnVolumeState = Textures.btnVolumeHov;
 				} else {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeMuteHov;
+					Textures.btnVolumeState = Textures.btnVolumeMuteHov;
 				}
 			} else {
 				if (Wizards.volumeOn) {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeDef;
+					Textures.btnVolumeState = Textures.btnVolumeDef;
 				} else {
-					TitleScreen.btnVolumeState = TitleScreen.btnVolumeMute;
+					Textures.btnVolumeState = Textures.btnVolumeMute;
 				}
 				btnVolumeHover = false;
 			}
@@ -512,32 +508,32 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				}
 
 				if (Wizards.musicOn) {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicHov;
+					Textures.btnMusicState = Textures.btnMusicHov;
 				} else {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicMuteHov;
+					Textures.btnMusicState = Textures.btnMusicMuteHov;
 				}
 			} else {
 				if (Wizards.musicOn) {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicDef;
+					Textures.btnMusicState = Textures.btnMusicDef;
 				} else {
-					TitleScreen.btnMusicState = TitleScreen.btnMusicMute;
+					Textures.btnMusicState = Textures.btnMusicMute;
 				}
 				btnMusicHover = false;
 			}
 
 			// HELPSCREEN BUTTONS
 		} else if (Wizards.showHelpScreen) {
-
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				HelpScreen.btnBackState = HelpScreen.btnBackHov;
+				Textures.btnBackState = Textures.btnBackHov;
+				
 				if (!btnBackHover) {
 					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
 				}
 			} else {
-				HelpScreen.btnBackState = HelpScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				btnBackHover = false;
 			}
 
@@ -545,14 +541,14 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (HelpScreen.pageNumber > 1) {
 				if (e.getX() >= Wizards.compareToWidth(550) && e.getX() <= Wizards.compareToWidth(550) + 40
 						&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
-					HelpScreen.btnPrevState = HelpScreen.btnPrevHov;
+					Textures.btnPrevState = Textures.btnPrevHov;
 					if (!btnPrevHover) {
 						audioHandler.playButtonHoverSound();
 						btnPrevHover = true;
 					}
 				} else {
 					btnPrevHover = false;
-					HelpScreen.btnPrevState = HelpScreen.btnPrevDef;
+					Textures.btnPrevState = Textures.btnPrevDef;
 				}
 			} else {
 				// Can probably be deleted?
@@ -563,14 +559,14 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (HelpScreen.pageNumber < HelpScreen.maxPages) {
 				if (e.getX() >= Wizards.compareToWidth(650) && e.getX() <= Wizards.compareToWidth(650) + 40
 						&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
-					HelpScreen.btnNextState = HelpScreen.btnNextHov;
+					Textures.btnNextState = Textures.btnNextHov;
 					if (!btnNextHover) {
 						audioHandler.playButtonHoverSound();
 						btnNextHover = true;
 					}
 				} else {
 					btnNextHover = false;
-					HelpScreen.btnNextState = HelpScreen.btnNextDef;
+					Textures.btnNextState = Textures.btnNextDef;
 				}
 			} else {
 				// Can probably be deleted?
@@ -583,13 +579,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				CreditsScreen.btnBackState = CreditsScreen.btnBackHov;
+				Textures.btnBackState = Textures.btnBackHov;
 				if (!btnBackHover) {
 					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
 				}
 			} else {
-				CreditsScreen.btnBackState = CreditsScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				btnBackHover = false;
 			}
 
@@ -599,13 +595,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				BeginScreen.btnBackState = BeginScreen.btnBackHov;
+				Textures.btnBackState = Textures.btnBackHov;
 				if (!btnBackHover) {
 					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
 				}
 			} else {
-				BeginScreen.btnBackState = BeginScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				btnBackHover = false;
 			}
 
@@ -615,13 +611,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			// Button Back
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				BuildScreen.btnBackState = BuildScreen.btnBackHov;
+				Textures.btnBackState = Textures.btnBackHov;
 				if (!btnBackHover) {
 					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
 				}
 			} else {
-				BuildScreen.btnBackState = BuildScreen.btnBackDef;
+				Textures.btnBackState = Textures.btnBackDef;
 				btnBackHover = false;
 			}
 		}

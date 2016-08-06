@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 
-import com.terracore.handlers.Texture;
+import com.terracore.storages.Textures;
 
 public class HelpScreen {
 
@@ -19,10 +19,6 @@ public class HelpScreen {
 
 	public static int pageNumber = 1;
 	public static int maxPages = 3;
-
-	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
-	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
-	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
 
 	void drawString(Graphics g, String text, int x, int y) {
 		for (String line : text.split("\n"))
@@ -52,33 +48,16 @@ public class HelpScreen {
 		}
 	}
 
-	public HelpScreen() {
+	public void paint(Graphics g) {
 
 		fontSizeTitle = Wizards.compareToWidth(fontSizeTitle);
 		fontSizePage = Wizards.compareToWidth(fontSizePage);
 		fontSizeText = Wizards.compareToWidth(fontSizeText);
-
+		
 		textLineWidth = Wizards.compareToWidth(700);
 		textX = Wizards.compareToWidth(50);
 		textY = Wizards.compareToHeight(125);
 
-		btnBackDef = new Texture("buttonback/ButtonBackDefault");
-		btnBackPress = new Texture("buttonback/ButtonBackPressed");
-		btnBackHov = new Texture("buttonback/ButtonBackHovered");
-		btnBackState = btnBackDef;
-
-		btnPrevDef = new Texture("buttonprevious/ButtonPreviousDefault");
-		btnPrevPress = new Texture("buttonprevious/ButtonPreviousPressed");
-		btnPrevHov = new Texture("buttonprevious/ButtonPreviousHovered");
-		btnPrevState = btnPrevPress;
-
-		btnNextDef = new Texture("buttonnext/ButtonNextDefault");
-		btnNextPress = new Texture("buttonnext/ButtonNextPressed");
-		btnNextHov = new Texture("buttonnext/ButtonNextHovered");
-		btnNextState = btnNextDef;
-	}
-
-	public void paint(Graphics g) {
 		// Background & Title
 		g.setColor(new Color(244, 231, 129));
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
@@ -95,9 +74,9 @@ public class HelpScreen {
 		g.drawString("Page: " + pageNumber + "/" + maxPages, Wizards.compareToWidth(593), Wizards.compareToHeight(75));
 
 		// Buttons
-		btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
-		btnPrevState.render(g, Wizards.compareToWidth(550), Wizards.compareToHeight(50));
-		btnNextState.render(g, Wizards.compareToWidth(650), Wizards.compareToHeight(50));
+		Textures.btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
+		Textures.btnPrevState.render(g, Wizards.compareToWidth(550), Wizards.compareToHeight(50));
+		Textures.btnNextState.render(g, Wizards.compareToWidth(650), Wizards.compareToHeight(50));
 
 		// Help Contents
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeText));
