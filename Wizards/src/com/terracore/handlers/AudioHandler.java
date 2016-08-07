@@ -50,7 +50,7 @@ public class AudioHandler {
 						.getAudioInputStream(new File("resources/audio/music/Wizards Title.wav"));
 				player = AudioSystem.getClip();
 				player.open(buttonHoverSound);
-				player.loop(2);;
+				player.loop(2);
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 				e.printStackTrace();
 			}
