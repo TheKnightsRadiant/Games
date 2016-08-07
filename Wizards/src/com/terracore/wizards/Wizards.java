@@ -148,7 +148,7 @@ public class Wizards extends Canvas implements Runnable {
 		}
 		running = false;
 	}
-	
+
 	public static void exit() {
 		if (!running) {
 			return;
