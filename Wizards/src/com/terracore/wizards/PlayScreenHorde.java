@@ -18,7 +18,6 @@ public class PlayScreenHorde {
 		
 		Textures.blankCreatureCard.render(g, Wizards.compareToWidth(580), Wizards.compareToHeight(320));
 		Textures.spellCardFireball.render(g, Wizards.compareToWidth(480), Wizards.compareToHeight(320));
-		Textures.blankCard.render(g, Wizards.compareToWidth(380), Wizards.compareToHeight(320));
 		
 		Textures.blankCreatureCard.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
 	

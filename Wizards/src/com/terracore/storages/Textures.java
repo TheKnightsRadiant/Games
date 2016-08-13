@@ -21,7 +21,7 @@ public class Textures {
 
 	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
 	
-	public static Texture blankCard, blankSpellCard, blankCreatureCard;
+	public static Texture blankSpellCard, blankCreatureCard;
 	
 	public static Texture spellCardFireball;
 
@@ -96,7 +96,6 @@ public class Textures {
 		chkBoxState3 = chkBox;
 		chkBoxState4 = chkBox;
 		
-		blankCard = new Texture("cards/BlankCard");
 		blankSpellCard = new Texture("cards/BlankSpellCard");
 		blankCreatureCard = new Texture("cards/BlankCreatureCard");
 		
