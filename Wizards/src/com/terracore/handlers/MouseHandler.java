@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import com.terracore.storages.Textures;
+import com.terracore.wizards.BeginScreen;
 import com.terracore.wizards.CreditsScreen;
 import com.terracore.wizards.HelpScreen;
 import com.terracore.wizards.Wizards;
@@ -23,6 +24,11 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	private boolean btnBackHover = false;
 	private boolean btnPrevHover = false;
 	private boolean btnNextHover = false;
+
+	private boolean chk1Hover = false;
+	private boolean chk2Hover = false;
+	private boolean chk3Hover = false;
+	private boolean chk4Hover = false;
 
 	private int currentResolution = 800;
 
@@ -46,7 +52,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Textures.btnBuildState = Textures.btnBuildPress;
 				currentButton = "Build";
 			}
-			
+
 			// Button Help
 			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
 					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
@@ -163,6 +169,34 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
 				Textures.btnBackState = Textures.btnBackPress;
 				currentButton = "Back";
+			}
+
+			// Check Box 1
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(140) + 20
+					&& e.getY() <= Wizards.compareToHeight(140) + 20 + 28) {
+				currentButton = "ChkBox1";
+			}
+
+			// Check Box 2
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(175) + 20
+					&& e.getY() <= Wizards.compareToHeight(175) + 20 + 28) {
+				currentButton = "ChkBox2";
+			}
+
+			// Check Box 3
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(210) + 20
+					&& e.getY() <= Wizards.compareToHeight(210) + 20 + 28) {
+				currentButton = "ChkBox3";
+			}
+
+			// Check Box 4
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(245) + 20
+					&& e.getY() <= Wizards.compareToHeight(245) + 20 + 28) {
+				currentButton = "ChkBox4";
 			}
 
 			// BUILDSCREEN BUTTONS
@@ -367,6 +401,58 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				audioHandler.playButtonClickSound();
 			}
 
+			// Check Box 1
+			if (currentButton == "ChkBox1" && e.getX() >= Wizards.compareToWidth(10)
+					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(140) + 20
+					&& e.getY() <= Wizards.compareToHeight(140) + 20 + 28) {
+				Textures.chkBoxState1 = Textures.chkBoxChk;
+				Textures.chkBoxState2 = Textures.chkBox;
+				Textures.chkBoxState3 = Textures.chkBox;
+				Textures.chkBoxState4 = Textures.chkBox;
+				audioHandler.playButtonClickSound();
+				
+				Wizards.PlayerNum = 1;
+			}
+
+			// Check Box 2
+			if (currentButton == "ChkBox2" && e.getX() >= Wizards.compareToWidth(10)
+					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(175) + 20
+					&& e.getY() <= Wizards.compareToHeight(175) + 20 + 28) {
+				Textures.chkBoxState1 = Textures.chkBox;
+				Textures.chkBoxState2 = Textures.chkBoxChk;
+				Textures.chkBoxState3 = Textures.chkBox;
+				Textures.chkBoxState4 = Textures.chkBox;
+				audioHandler.playButtonClickSound();
+				
+				Wizards.PlayerNum = 2;
+			}
+
+			// Check Box 3
+			if (currentButton == "ChkBox3" && e.getX() >= Wizards.compareToWidth(10)
+					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(210) + 20
+					&& e.getY() <= Wizards.compareToHeight(210) + 20 + 28) {
+				Textures.chkBoxState1 = Textures.chkBox;
+				Textures.chkBoxState2 = Textures.chkBox;
+				Textures.chkBoxState3 = Textures.chkBoxChk;
+				Textures.chkBoxState4 = Textures.chkBox;
+				audioHandler.playButtonClickSound();
+				
+				Wizards.PlayerNum = 3;
+			}
+
+			// Check Box 4
+			if (currentButton == "ChkBox4" && e.getX() >= Wizards.compareToWidth(10)
+					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(245) + 20
+					&& e.getY() <= Wizards.compareToHeight(245) + 20 + 28) {
+				Textures.chkBoxState1 = Textures.chkBox;
+				Textures.chkBoxState2 = Textures.chkBox;
+				Textures.chkBoxState3 = Textures.chkBox;
+				Textures.chkBoxState4 = Textures.chkBoxChk;
+				audioHandler.playButtonClickSound();
+				
+				Wizards.PlayerNum = 4;
+			}
+
 			// BUILDSCREEN BUTTONS
 		} else if (Wizards.showBuildScreen) {
 
@@ -527,7 +613,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
 				Textures.btnBackState = Textures.btnBackHov;
-				
+
 				if (!btnBackHover) {
 					audioHandler.playButtonHoverSound();
 					btnBackHover = true;
@@ -603,6 +689,102 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			} else {
 				Textures.btnBackState = Textures.btnBackDef;
 				btnBackHover = false;
+			}
+
+			// Check Box 1
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(140) + 20
+					&& e.getY() <= Wizards.compareToHeight(140) + 20 + 28) {
+
+				if (!chk1Hover) {
+					audioHandler.playButtonHoverSound();
+					chk1Hover = true;
+				}
+
+				if (Wizards.PlayerNum == 1) {
+					Textures.chkBoxState1 = Textures.chkBoxChkHov;
+				} else {
+					Textures.chkBoxState1 = Textures.chkBoxHov;
+				}
+			} else {
+				if (Wizards.PlayerNum == 1) {
+					Textures.chkBoxState1 = Textures.chkBoxChk;
+				} else {
+					Textures.chkBoxState1 = Textures.chkBox;
+				}
+				chk1Hover = false;
+			}
+
+			// Check Box 2
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(175) + 20
+					&& e.getY() <= Wizards.compareToHeight(175) + 20 + 28) {
+
+				if (!chk2Hover) {
+					audioHandler.playButtonHoverSound();
+					chk2Hover = true;
+				}
+				
+				if (Wizards.PlayerNum == 2) {
+					Textures.chkBoxState2 = Textures.chkBoxChkHov;
+				} else {
+					Textures.chkBoxState2 = Textures.chkBoxHov;
+				}
+			} else {
+				if (Wizards.PlayerNum == 2) {
+					Textures.chkBoxState2 = Textures.chkBoxChk;
+				} else {
+					Textures.chkBoxState2 = Textures.chkBox;
+				}
+				chk2Hover = false;
+			}
+
+			// Check Box 3
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(210) + 20
+					&& e.getY() <= Wizards.compareToHeight(210) + 20 + 28) {
+
+				if (!chk3Hover) {
+					audioHandler.playButtonHoverSound();
+					chk3Hover = true;
+				}
+				
+				if (Wizards.PlayerNum == 3) {
+					Textures.chkBoxState3 = Textures.chkBoxChkHov;
+				} else {
+					Textures.chkBoxState3 = Textures.chkBoxHov;
+				}
+			} else {
+				if (Wizards.PlayerNum == 3) {
+					Textures.chkBoxState3 = Textures.chkBoxChk;
+				} else {
+					Textures.chkBoxState3 = Textures.chkBox;
+				}
+				chk3Hover = false;
+			}
+
+			// Check Box 4
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+					&& e.getY() >= Wizards.compareToHeight(245) + 20
+					&& e.getY() <= Wizards.compareToHeight(245) + 20 + 28) {
+
+				if (!chk4Hover) {
+					audioHandler.playButtonHoverSound();
+					chk4Hover = true;
+				}
+				
+				if (Wizards.PlayerNum == 4) {
+					Textures.chkBoxState4 = Textures.chkBoxChkHov;
+				} else {
+					Textures.chkBoxState4 = Textures.chkBoxHov;
+				}
+			} else {
+				if (Wizards.PlayerNum == 4) {
+					Textures.chkBoxState4 = Textures.chkBoxChk;
+				} else {
+					Textures.chkBoxState4 = Textures.chkBox;
+				}
+				chk4Hover = false;
 			}
 
 			// BUILDSCREEN BUTTONS

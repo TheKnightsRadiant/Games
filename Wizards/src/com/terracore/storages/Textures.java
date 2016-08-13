@@ -4,9 +4,9 @@ import com.terracore.handlers.Texture;
 import com.terracore.wizards.LoadingScreen;
 
 public class Textures {
-	
+
 	public static Texture TitleImage;
-	
+
 	public static Texture btnBeginDef, btnBeginPress, btnBeginHov, btnBeginState;
 	public static Texture btnBuildDef, btnBuildPress, btnBuildHov, btnBuildState;
 	public static Texture btnHelpDef, btnHelpPress, btnHelpHov, btnHelpState;
@@ -16,11 +16,13 @@ public class Textures {
 	public static Texture btnSettingsDef, btnSettingsPress, btnSettingsHov, btnSettingsPressHov, btnSettingsState;
 	public static Texture btnVolumeDef, btnVolumeMute, btnVolumeHov, btnVolumeMuteHov, btnVolumeState;
 	public static Texture btnMusicDef, btnMusicMute, btnMusicHov, btnMusicMuteHov, btnMusicState;
-	
+
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
 	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
-	
+
+	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
+
 	public Textures() {
 		// Create Textures
 		TitleImage = new Texture("WizardTitle");
@@ -67,7 +69,7 @@ public class Textures {
 		btnMusicHov = new Texture("buttonmusic/ButtonMusicHovered");
 		btnMusicMuteHov = new Texture("buttonmusic/ButtonMusicMutedHovered");
 		btnMusicState = btnMusicDef;
-		
+
 		btnBackDef = new Texture("buttonback/ButtonBackDefault");
 		btnBackPress = new Texture("buttonback/ButtonBackPressed");
 		btnBackHov = new Texture("buttonback/ButtonBackHovered");
@@ -83,6 +85,15 @@ public class Textures {
 		btnNextHov = new Texture("buttonnext/ButtonNextHovered");
 		btnNextState = btnNextDef;
 		
+		chkBox = new Texture("checkbox/CheckBox");
+		chkBoxChk = new Texture("checkbox/CheckBoxChecked");
+		chkBoxHov = new Texture("checkbox/CheckBoxHovered");
+		chkBoxChkHov = new Texture("checkbox/CheckBoxCheckedHovered");
+		chkBoxState1 = chkBoxChk;
+		chkBoxState2 = chkBox;
+		chkBoxState3 = chkBox;
+		chkBoxState4 = chkBox;
+
 		LoadingScreen.isDone = true;
 	}
 }
