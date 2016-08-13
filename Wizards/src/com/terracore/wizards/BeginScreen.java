@@ -40,8 +40,8 @@ public class BeginScreen {
 		
 		g.drawString("Free For All", Wizards.compareToWidth(50), Wizards.compareToHeight(165));
 		g.drawString("Team Deathmatch", Wizards.compareToWidth(50), Wizards.compareToHeight(200));
-		g.drawString("Whored", Wizards.compareToWidth(50), Wizards.compareToHeight(235));
-		g.drawString("Endless Whored", Wizards.compareToWidth(50), Wizards.compareToHeight(270));
+		g.drawString("Horde", Wizards.compareToWidth(50), Wizards.compareToHeight(235));
+		g.drawString("Endless Horde", Wizards.compareToWidth(50), Wizards.compareToHeight(270));
 	}
 
 }

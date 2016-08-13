@@ -171,26 +171,33 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				currentButton = "Back";
 			}
 
+			// Button Begin
+			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+					&& e.getY() >= Wizards.compareToHeight(520) && e.getY() <= Wizards.compareToHeight(520) + 50) {
+				Textures.btnBeginState = Textures.btnBeginPress;
+				currentButton = "Begin";
+			}
+
 			// Check Box 1
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 150 + 28
 					&& e.getY() >= Wizards.compareToHeight(140) && e.getY() <= Wizards.compareToHeight(140) + 28) {
 				currentButton = "ChkBox1";
 			}
 
 			// Check Box 2
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 225 + 28
 					&& e.getY() >= Wizards.compareToHeight(175) && e.getY() <= Wizards.compareToHeight(175) + 28) {
 				currentButton = "ChkBox2";
 			}
 
 			// Check Box 3
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 85 + 28
 					&& e.getY() >= Wizards.compareToHeight(210) && e.getY() <= Wizards.compareToHeight(210) + 28) {
 				currentButton = "ChkBox3";
 			}
 
 			// Check Box 4
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 190 + 28
 					&& e.getY() >= Wizards.compareToHeight(245) && e.getY() <= Wizards.compareToHeight(245) + 28) {
 				currentButton = "ChkBox4";
 			}
@@ -397,10 +404,22 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				audioHandler.playButtonClickSound();
 			}
 
+			// Button Back
+			if (currentButton == "Begin" && e.getX() >= Wizards.centerToWidth(150)
+					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(520)
+					&& e.getY() <= Wizards.compareToHeight(520) + 50) {
+				Wizards.showBeginScreen = false;
+				if (Wizards.Gamemode == 3) {
+					Wizards.showPlayScreenHorde = true;
+				}
+				Textures.btnBeginState = Textures.btnBeginDef;
+				audioHandler.playButtonClickSound();
+			}
+
 			// Check Box 1
-			if (currentButton == "ChkBox1" && e.getX() >= Wizards.compareToWidth(10)
-					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(140)
-					&& e.getY() <= Wizards.compareToHeight(140) + 28) {
+			if (currentButton == "ChkBox1" && e.getX() >= Wizards.centerToWidth(150)
+					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(520)
+					&& e.getY() <= Wizards.compareToHeight(520) + 50) {
 				Textures.chkBoxState1 = Textures.chkBoxChkHov;
 				Textures.chkBoxState2 = Textures.chkBox;
 				Textures.chkBoxState3 = Textures.chkBox;
@@ -412,7 +431,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Check Box 2
 			if (currentButton == "ChkBox2" && e.getX() >= Wizards.compareToWidth(10)
-					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(175)
+					&& e.getX() <= Wizards.compareToWidth(10) + 225 + 28 && e.getY() >= Wizards.compareToHeight(175)
 					&& e.getY() <= Wizards.compareToHeight(175) + 28) {
 				Textures.chkBoxState1 = Textures.chkBox;
 				Textures.chkBoxState2 = Textures.chkBoxChkHov;
@@ -425,7 +444,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Check Box 3
 			if (currentButton == "ChkBox3" && e.getX() >= Wizards.compareToWidth(10)
-					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(210)
+					&& e.getX() <= Wizards.compareToWidth(10) + 85 + 28 && e.getY() >= Wizards.compareToHeight(210)
 					&& e.getY() <= Wizards.compareToHeight(210) + 28) {
 				Textures.chkBoxState1 = Textures.chkBox;
 				Textures.chkBoxState2 = Textures.chkBox;
@@ -438,7 +457,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 			// Check Box 4
 			if (currentButton == "ChkBox4" && e.getX() >= Wizards.compareToWidth(10)
-					&& e.getX() <= Wizards.compareToWidth(10) + 28 && e.getY() >= Wizards.compareToHeight(245)
+					&& e.getX() <= Wizards.compareToWidth(10) + 190 + 28 && e.getY() >= Wizards.compareToHeight(245)
 					&& e.getY() <= Wizards.compareToHeight(245) + 28) {
 				Textures.chkBoxState1 = Textures.chkBox;
 				Textures.chkBoxState2 = Textures.chkBox;
@@ -687,8 +706,21 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				btnBackHover = false;
 			}
 
+			// Button Begin
+			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+					&& e.getY() >= Wizards.compareToHeight(520) && e.getY() <= Wizards.compareToHeight(520) + 50) {
+				Textures.btnBeginState = Textures.btnBeginHov;
+				if (!btnBeginHover) {
+					audioHandler.playButtonHoverSound();
+					btnBeginHover = true;
+				}
+			} else {
+				Textures.btnBeginState = Textures.btnBeginDef;
+				btnBeginHover = false;
+			}
+
 			// Check Box 1
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 150 + 28
 					&& e.getY() >= Wizards.compareToHeight(140) && e.getY() <= Wizards.compareToHeight(140) + 28) {
 
 				if (!chk1Hover) {
@@ -711,7 +743,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Check Box 2
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 225 + 28
 					&& e.getY() >= Wizards.compareToHeight(175) && e.getY() <= Wizards.compareToHeight(175) + 28) {
 
 				if (!chk2Hover) {
@@ -734,7 +766,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Check Box 3
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 85 + 28
 					&& e.getY() >= Wizards.compareToHeight(210) && e.getY() <= Wizards.compareToHeight(210) + 28) {
 
 				if (!chk3Hover) {
@@ -757,7 +789,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Check Box 4
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 28
+			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 190 + 28
 					&& e.getY() >= Wizards.compareToHeight(245) && e.getY() <= Wizards.compareToHeight(245) + 28) {
 
 				if (!chk4Hover) {

@@ -25,7 +25,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static String currentScreen = "";
 	public static boolean showTitleScreen = false;
 	public static boolean showBeginScreen = false;
-	public static boolean showPlayScreen = false;
+	public static boolean showPlayScreenHorde = false;
 	public static boolean showBuildScreen = false;
 	public static boolean showHelpScreen = false;
 	public static boolean showCreditsScreen = false;
@@ -38,7 +38,7 @@ public class Wizards extends Canvas implements Runnable {
 
 	private TitleScreen titleScreen = new TitleScreen();
 	private BeginScreen beginScreen = new BeginScreen();
-	private PlayScreen playScreen = new PlayScreen();
+	private PlayScreenHorde playScreen = new PlayScreenHorde();
 	private BuildScreen buildScreen = new BuildScreen();
 	private HelpScreen helpScreen = new HelpScreen();
 	private CreditsScreen creditsScreen = new CreditsScreen();
@@ -102,7 +102,7 @@ public class Wizards extends Canvas implements Runnable {
 		}
 
 		// PLAY SCREEN
-		if (showPlayScreen) {
+		if (showPlayScreenHorde) {
 			currentScreen = "Play";
 			playScreen.paint(g);
 		}

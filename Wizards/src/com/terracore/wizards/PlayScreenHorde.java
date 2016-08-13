@@ -3,7 +3,7 @@ package com.terracore.wizards;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class PlayScreen {
+public class PlayScreenHorde {
 	
 	public void paint(Graphics g){
 		g.setColor(new Color(244, 231, 129));
