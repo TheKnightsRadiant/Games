@@ -61,7 +61,6 @@ public class TitleScreen {
 			g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeSettingsText));
 			g.drawString("Resolution:", Wizards.compareToWidth(565), Wizards.compareToHeight(275));
 
-			g.setColor(Colorer.Tan1);
 			g.fillRoundRect(Wizards.compareToWidth(655), Wizards.compareToHeight(260), Wizards.compareToWidth(110),
 					Wizards.compareToHeight(20), 5, 5);
 

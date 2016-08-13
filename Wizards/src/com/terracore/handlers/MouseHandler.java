@@ -407,7 +407,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Textures.chkBoxState4 = Textures.chkBox;
 				audioHandler.playButtonClickSound();
 
-				Wizards.PlayerNum = 1;
+				Wizards.Gamemode = 1;
 			}
 
 			// Check Box 2
@@ -420,7 +420,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Textures.chkBoxState4 = Textures.chkBox;
 				audioHandler.playButtonClickSound();
 
-				Wizards.PlayerNum = 2;
+				Wizards.Gamemode = 2;
 			}
 
 			// Check Box 3
@@ -433,7 +433,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Textures.chkBoxState4 = Textures.chkBox;
 				audioHandler.playButtonClickSound();
 
-				Wizards.PlayerNum = 3;
+				Wizards.Gamemode = 3;
 			}
 
 			// Check Box 4
@@ -446,7 +446,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				Textures.chkBoxState4 = Textures.chkBoxChkHov;
 				audioHandler.playButtonClickSound();
 
-				Wizards.PlayerNum = 4;
+				Wizards.Gamemode = 4;
 			}
 
 			// BUILDSCREEN BUTTONS
@@ -696,13 +696,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					chk1Hover = true;
 				}
 
-				if (Wizards.PlayerNum == 1) {
+				if (Wizards.Gamemode == 1) {
 					Textures.chkBoxState1 = Textures.chkBoxChkHov;
 				} else {
 					Textures.chkBoxState1 = Textures.chkBoxHov;
 				}
 			} else {
-				if (Wizards.PlayerNum == 1) {
+				if (Wizards.Gamemode == 1) {
 					Textures.chkBoxState1 = Textures.chkBoxChk;
 				} else {
 					Textures.chkBoxState1 = Textures.chkBox;
@@ -719,13 +719,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					chk2Hover = true;
 				}
 
-				if (Wizards.PlayerNum == 2) {
+				if (Wizards.Gamemode == 2) {
 					Textures.chkBoxState2 = Textures.chkBoxChkHov;
 				} else {
 					Textures.chkBoxState2 = Textures.chkBoxHov;
 				}
 			} else {
-				if (Wizards.PlayerNum == 2) {
+				if (Wizards.Gamemode == 2) {
 					Textures.chkBoxState2 = Textures.chkBoxChk;
 				} else {
 					Textures.chkBoxState2 = Textures.chkBox;
@@ -742,13 +742,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					chk3Hover = true;
 				}
 
-				if (Wizards.PlayerNum == 3) {
+				if (Wizards.Gamemode == 3) {
 					Textures.chkBoxState3 = Textures.chkBoxChkHov;
 				} else {
 					Textures.chkBoxState3 = Textures.chkBoxHov;
 				}
 			} else {
-				if (Wizards.PlayerNum == 3) {
+				if (Wizards.Gamemode == 3) {
 					Textures.chkBoxState3 = Textures.chkBoxChk;
 				} else {
 					Textures.chkBoxState3 = Textures.chkBox;
@@ -765,13 +765,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 					chk4Hover = true;
 				}
 
-				if (Wizards.PlayerNum == 4) {
+				if (Wizards.Gamemode == 4) {
 					Textures.chkBoxState4 = Textures.chkBoxChkHov;
 				} else {
 					Textures.chkBoxState4 = Textures.chkBoxHov;
 				}
 			} else {
-				if (Wizards.PlayerNum == 4) {
+				if (Wizards.Gamemode == 4) {
 					Textures.chkBoxState4 = Textures.chkBoxChk;
 				} else {
 					Textures.chkBoxState4 = Textures.chkBox;

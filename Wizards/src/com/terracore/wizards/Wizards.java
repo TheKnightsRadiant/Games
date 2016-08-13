@@ -17,7 +17,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static int WIDTH = 800;
 	public static int HEIGHT = WIDTH / 4 * 3;
 
-	public static int PlayerNum = 1;
+	public static int Gamemode = 1;
 	
 	public static boolean loading;
 	private static boolean running;
