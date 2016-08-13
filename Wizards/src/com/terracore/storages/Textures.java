@@ -22,6 +22,8 @@ public class Textures {
 	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
 	
 	public static Texture blankCard, blankSpellCard, blankCreatureCard;
+	
+	public static Texture spellCardFireball;
 
 	public Textures() {
 		// Create Textures
@@ -97,6 +99,8 @@ public class Textures {
 		blankCard = new Texture("cards/BlankCard");
 		blankSpellCard = new Texture("cards/BlankSpellCard");
 		blankCreatureCard = new Texture("cards/BlankCreatureCard");
+		
+		spellCardFireball = new Texture("cards/spells/SpellFireball");
 
 		LoadingScreen.isDone = true;
 	}
