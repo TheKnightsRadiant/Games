@@ -47,7 +47,7 @@ public class AudioHandler {
 		if (Wizards.musicOn) {
 			try {
 				AudioInputStream buttonHoverSound = AudioSystem
-						.getAudioInputStream(new File("resources/audio/music/Wizards Title.wav"));
+						.getAudioInputStream(new File("resources/audio/music/WizardsT1.wav"));
 				player = AudioSystem.getClip();
 				player.open(buttonHoverSound);
 				player.loop(Clip.LOOP_CONTINUOUSLY);;
