@@ -12,16 +12,16 @@ public class Textures {
 	public static Texture btnHelpDef, btnHelpPress, btnHelpHov, btnHelpState;
 	public static Texture btnCreditDef, btnCreditPress, btnCreditHov, btnCreditState;
 	public static Texture btnExitDef, btnExitPress, btnExitHov, btnExitState;
-
 	public static Texture btnSettingsDef, btnSettingsPress, btnSettingsHov, btnSettingsPressHov, btnSettingsState;
 	public static Texture btnVolumeDef, btnVolumeMute, btnVolumeHov, btnVolumeMuteHov, btnVolumeState;
 	public static Texture btnMusicDef, btnMusicMute, btnMusicHov, btnMusicMuteHov, btnMusicState;
-
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
 	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
 
 	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
+	
+	public static Texture blankCard, blankSpellCard, blankCreatureCard;
 
 	public Textures() {
 		// Create Textures
@@ -93,6 +93,10 @@ public class Textures {
 		chkBoxState2 = chkBox;
 		chkBoxState3 = chkBox;
 		chkBoxState4 = chkBox;
+		
+		blankCard = new Texture("cards/BlankCard");
+		blankSpellCard = new Texture("cards/BlankSpellCard");
+		blankCreatureCard = new Texture("cards/BlankCreatureCard");
 
 		LoadingScreen.isDone = true;
 	}
