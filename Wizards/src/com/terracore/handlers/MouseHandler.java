@@ -404,7 +404,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 				audioHandler.playButtonClickSound();
 			}
 
-			// Button Back
+			// Button Begin
 			if (currentButton == "Begin" && e.getX() >= Wizards.centerToWidth(150)
 					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(520)
 					&& e.getY() <= Wizards.compareToHeight(520) + 50) {
@@ -417,9 +417,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			}
 
 			// Check Box 1
-			if (currentButton == "ChkBox1" && e.getX() >= Wizards.centerToWidth(150)
-					&& e.getX() <= Wizards.centerToWidth(150) + 150 && e.getY() >= Wizards.compareToHeight(520)
-					&& e.getY() <= Wizards.compareToHeight(520) + 50) {
+			if (currentButton == "ChkBox1" && e.getX() >= Wizards.compareToWidth(10)
+					&& e.getX() <= Wizards.compareToWidth(10) + 150 + 28 && e.getY() >= Wizards.compareToHeight(140)
+					&& e.getY() <= Wizards.compareToHeight(140) + 28) {
 				Textures.chkBoxState1 = Textures.chkBoxChkHov;
 				Textures.chkBoxState2 = Textures.chkBox;
 				Textures.chkBoxState3 = Textures.chkBox;

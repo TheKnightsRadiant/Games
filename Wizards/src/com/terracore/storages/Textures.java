@@ -21,9 +21,13 @@ public class Textures {
 
 	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
 	
+	public static Texture cardSlot1, cardSlot2, cardSlot3, cardSlot4, cardSlot5;
+	
 	public static Texture blankSpellCard, blankCreatureCard;
 	
 	public static Texture spellCardFireball;
+	
+	public static Texture creatureCardFireTruck;
 
 	public Textures() {
 		// Create Textures
@@ -91,15 +95,17 @@ public class Textures {
 		chkBoxChk = new Texture("checkbox/CheckBoxChecked");
 		chkBoxHov = new Texture("checkbox/CheckBoxHovered");
 		chkBoxChkHov = new Texture("checkbox/CheckBoxCheckedHovered");
-		chkBoxState1 = chkBoxChk;
+		chkBoxState1 = chkBox;
 		chkBoxState2 = chkBox;
-		chkBoxState3 = chkBox;
+		chkBoxState3 = chkBoxChk;
 		chkBoxState4 = chkBox;
 		
 		blankSpellCard = new Texture("cards/BlankSpellCard");
 		blankCreatureCard = new Texture("cards/BlankCreatureCard");
 		
 		spellCardFireball = new Texture("cards/spells/SpellFireball");
+		
+		creatureCardFireTruck = new Texture("cards/creatures/CreatureFiretruck");
 
 		LoadingScreen.isDone = true;
 	}
