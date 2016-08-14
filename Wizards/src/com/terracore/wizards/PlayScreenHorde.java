@@ -9,8 +9,10 @@ import com.terracore.storages.Textures;
 
 public class PlayScreenHorde {
 	
+	//Move these ints to a separate class later
 	int HP = 100;
 	int MP = 50;
+	int MPRegen = 3;
 	
 	public void paint(Graphics g){
 		g.setColor(new Color(244, 231, 129));
@@ -34,9 +36,10 @@ public class PlayScreenHorde {
 		g.drawString("Your Hand:", Wizards.compareToWidth(210), Wizards.compareToHeight(345));
 		g.drawString("Actions:", Wizards.compareToWidth(35), Wizards.compareToHeight(345));
 		g.drawString("Notifications:", Wizards.compareToWidth(5), Wizards.compareToHeight(40));
-		//g.drawString("Creatures:", Wizards.compareToWidth(210));
+		g.drawString("Creatures:", Wizards.compareToWidth(210), Wizards.compareToHeight(40));
 		g.drawString("Enemies:", Wizards.compareToWidth(600), Wizards.compareToHeight(41));
 		g.drawString("HP: " + HP, Wizards.compareToWidth(212), Wizards.compareToHeight(375));
 		g.drawString("MP: " + MP, Wizards.compareToWidth(212), Wizards.compareToHeight(405));
+		g.drawString("MP Reg: " + MPRegen, Wizards.compareToWidth(210), Wizards.compareToHeight(435));
 	}
 }
