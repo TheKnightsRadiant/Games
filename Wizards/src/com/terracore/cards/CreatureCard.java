@@ -12,6 +12,7 @@ public class CreatureCard {
 	private int HRMaxNum;
 	private int HRMinHit;
 	private int MPCost;
+	private int CardLevel;
 	private String Effect;
 	private String Element;
 	private String Name;
@@ -23,13 +24,14 @@ public class CreatureCard {
 	Random r = new Random();
 
 	public CreatureCard(int CardID, int HP, int DMGMin, int DMGMax, int AG, int HRMaxNum, int HRMinHit, int MPCost,
-			String Effect, String Element, String Name, Texture Texture) {
+			int CardLevel, String Effect, String Element, String Name, Texture Texture) {
 		this.CardID = CardID;
 		this.DMGMin = DMGMin;
 		this.DMGMax = DMGMax;
 		this.HRMaxNum = HRMaxNum;
 		this.HRMinHit = HRMinHit;
 		this.MPCost = MPCost;
+		this.CardLevel = CardLevel;
 		this.Effect = Effect;
 		this.Element = Element;
 		this.Name = Name;
@@ -60,6 +62,10 @@ public class CreatureCard {
 
 	public int getMPCost() {
 		return MPCost;
+	}
+
+	public int getCardLevel() {
+		return CardLevel;
 	}
 
 	public String getEffect() {

@@ -8,15 +8,18 @@ import com.terracore.cards.SpellCard;
 public class Cards {
 
 	private static final int CreatureCardNum = 1;
-	private static final int SpellCardNum = 1;
+	private static final int SpellCardNum = 2;
 
 	static Random r = new Random();
 
-	static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, "Soak", "Water", "Firetruck",
+	static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, 4, "Soak", "Water", "Firetruck",
 			Textures.creatureCardFireTruck);
 
-	static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, "Fire", "Fire", "Fireball",
+	static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, 2, "Fire", "Fire", "Fireball",
 			Textures.spellCardFireball);
+
+	static SpellCard Lightning = new SpellCard(2, 15, 17, 10, 8, 10, 5, 7, 3, "Paralyze", "Dark", "Lightning",
+			Textures.spellCardLightning);
 
 	public static CreatureCard getCardCreature() {
 		switch (r.nextInt(CreatureCardNum)) {
@@ -28,13 +31,13 @@ public class Cards {
 			return null;
 		}
 	}
-	
+
 	public static SpellCard getCardSpell() {
 		switch (r.nextInt(SpellCardNum)) {
 		case (0):
 			return Fireball;
 		case (1):
-			return Fireball;
+			return Lightning;
 		default:
 			return null;
 		}
