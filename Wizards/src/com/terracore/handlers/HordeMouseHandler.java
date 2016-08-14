@@ -11,6 +11,8 @@ import com.terracore.wizards.Wizards;
 public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	public String currentButton = "null";
+	boolean cardIsSelected = false;
+	boolean cancel = false;
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
@@ -35,8 +37,11 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card4";
 			}
+			//if (e.getX() >= Wizards.compareToWidth(x) && e.getX() <= Wizards.compareToWidth(x) + x
+					//&& e.getY() >=Wizards.compareToHeight(y) && e.getY() <= Wizards.compareToHeight(y) + y) {
+				//cancel = true;
+			//}
 		}
-
 	}
 
 	@Override
@@ -66,6 +71,11 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
 			}
+			//if cancel == true && (e.getX() >= Wizards.compareToWidth(x) && e.getX() <= Wizards.compareToWidth(x) + x
+			//&& e.getY() >=Wizards.compareToHeight(y) && e.getY() <= Wizards.compareToHeight(y) + y) {
+			//overlayX = 2000;
+			//overlayY = 2000;
+			//}
 		}
 	}
 
