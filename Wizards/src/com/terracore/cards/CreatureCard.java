@@ -2,6 +2,8 @@ package com.terracore.cards;
 
 import java.util.Random;
 
+import com.terracore.handlers.Texture;
+
 public class CreatureCard {
 
 	private int cardID;
@@ -15,11 +17,12 @@ public class CreatureCard {
 	private int Attack;
 	private String Element;
 	private String Name;
+	private Texture Texture;
 
 	Random r = new Random();
 
 	public CreatureCard(int cardID, int HP, int DMGMin, int DMGMax, int AG, int HRMaxNum, int HRMinHit, int MPCost,
-			String Element, String Name) {
+			String Element, String Name, Texture Texture) {
 		this.cardID = cardID;
 		this.HP = HP;
 		this.DMGMin = DMGMin;
@@ -28,6 +31,7 @@ public class CreatureCard {
 		this.MPCost = MPCost;
 		this.Element = Element;
 		this.Name = Name;
+		this.Texture = Texture;
 	}
 
 	public int getCardID() {
@@ -68,5 +72,9 @@ public class CreatureCard {
 			return true;
 		}
 		return false;
+	}
+	
+	public Texture getTexture(){
+		return Texture;
 	}
 }

@@ -3,6 +3,8 @@ package com.terracore.wizards;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+
+import com.terracore.storages.Cards;
 import com.terracore.storages.Textures;
 
 public class PlayScreenHorde {
@@ -17,10 +19,23 @@ public class PlayScreenHorde {
 		g.setColor(new Color(244, 231, 129));
 		g.fillRect(0, 0, Wizards.WIDTH , Wizards.HEIGHT);
 		
-		Textures.blankCreatureCard.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));
-		Textures.spellCardFireball.render(g, Wizards.compareToWidth(485), Wizards.compareToHeight(320));
-		Textures.blankCreatureCard.render(g, Wizards.compareToWidth(330), Wizards.compareToHeight(320));
-		Textures.creatureCardFireTruck.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
+		while (Textures.cardSlot1 == null){
+			Textures.cardSlot1 = Cards.getCard().getTexture();
+		}
+		while (Textures.cardSlot2 == null){
+			Textures.cardSlot2 = Cards.getCard().getTexture();
+		}
+		while (Textures.cardSlot3 == null){
+			Textures.cardSlot3 = Cards.getCard().getTexture();
+		}
+		while (Textures.cardSlot4 == null){
+			Textures.cardSlot4 = Cards.getCard().getTexture();
+		}
+		
+		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));
+		Textures.cardSlot2.render(g, Wizards.compareToWidth(485), Wizards.compareToHeight(320));
+		Textures.cardSlot3.render(g, Wizards.compareToWidth(330), Wizards.compareToHeight(320));
+		Textures.cardSlot4.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
 		
 		Textures.creatureCardFireTruck.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
 		
