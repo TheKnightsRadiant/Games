@@ -14,9 +14,12 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 	public boolean cardIsSelected = false;
 	public boolean cancelOption = false;
 	public boolean cancel = false;
+	private boolean btnHelpHover = false;
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
+	
+	private AudioHandler audioHandler = new AudioHandler();
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -42,10 +45,10 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				currentButton = "card4";
 				cancelOption = true;
 			}
-			//if (e.getX() >= Wizards.compareToWidth(x) && e.getX() <= Wizards.compareToWidth(x) + x
-					//&& e.getY() >=Wizards.compareToHeight(y) && e.getY() <= Wizards.compareToHeight(y) + y) {
-				//cancel = true;
-			//}
+			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+					&& e.getY() >=Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50) {
+				cancel = true;
+			}
 		}
 	}
 
@@ -76,16 +79,31 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
 			}
-			//if cancel == true && (e.getX() >= Wizards.compareToWidth(x) && e.getX() <= Wizards.compareToWidth(x) + x
-			//&& e.getY() >=Wizards.compareToHeight(y) && e.getY() <= Wizards.compareToHeight(y) + y) {
-			//overlayX = 2000;
-			//overlayY = 2000;
-			//}
+			if (cancel == true && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+			&& e.getY() >=Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50)) {
+			overlayX = 2000;
+			overlayY = 2000;
+			cancelOption = false;
+			Textures.btnHelpState = Textures.btnHelpDef;
+			}
 		}
 	}
 
 	@Override
-	public void mouseMoved(MouseEvent arg0) {
+	public void mouseMoved(MouseEvent e) {
+		if (Wizards.showPlayScreenHorde) {
+			if (cancelOption == true && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+					&& e.getY() >=Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50)) {
+				Textures.btnHelpState = Textures.btnHelpHov;
+				if (!btnHelpHover) {
+					audioHandler.playButtonHoverSound();
+					btnHelpHover = true;
+				} 
+			} else {
+				Textures.btnHelpState = Textures.btnHelpDef;
+				btnHelpHover = false;
+			}
+		}
 	}
 
 	@Override

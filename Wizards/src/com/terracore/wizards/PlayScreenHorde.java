@@ -69,11 +69,18 @@ public class PlayScreenHorde {
 		Textures.cardSlot4.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
 
 		Textures.cardSlot5.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
+		
+		Textures.btnBeginState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
+		//Attack
+		Textures.btnBuildState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
+		//Use
+		Textures.btnHelpState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
+		//Cancel
 
 		g.setColor(new Color(28, 28, 22));
 		g.drawLine(0, 300, 800, 300);
 		// Horizontal Deck Line
-		// g.drawLine(200, 0, 200, 600);
+		g.drawLine(200, 0, 200, 300);
 		// Vertical Line
 		g.drawLine(580, 0, 580, 300);
 		// Vertical Line
@@ -81,8 +88,7 @@ public class PlayScreenHorde {
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, 31));
 
 		g.drawString("Your Hand:", Wizards.compareToWidth(10), Wizards.compareToHeight(345));
-		// g.drawString("Actions:", Wizards.compareToWidth(35),
-		// Wizards.compareToHeight(345));
+		g.drawString("Actions:", Wizards.compareToWidth(35), Wizards.compareToHeight(38));
 		// g.drawString("Notifications:", Wizards.compareToWidth(5),
 		// Wizards.compareToHeight(40));
 		g.drawString("Creatures:", Wizards.compareToWidth(210), Wizards.compareToHeight(40));
