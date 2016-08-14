@@ -13,6 +13,7 @@ public class PlayScreenHorde {
 	int HP = 100;
 	int MP = 50;
 	int MPRegen = 3;
+	String affinity = "Fire";
 	
 	public void paint(Graphics g){
 		g.setColor(new Color(244, 231, 129));
@@ -41,5 +42,6 @@ public class PlayScreenHorde {
 		g.drawString("HP: " + HP, Wizards.compareToWidth(212), Wizards.compareToHeight(375));
 		g.drawString("MP: " + MP, Wizards.compareToWidth(212), Wizards.compareToHeight(405));
 		g.drawString("MP Reg: " + MPRegen, Wizards.compareToWidth(210), Wizards.compareToHeight(435));
+		g.drawString("Aff: " + affinity, Wizards.compareToWidth(207), Wizards.compareToHeight(465));
 	}
 }
