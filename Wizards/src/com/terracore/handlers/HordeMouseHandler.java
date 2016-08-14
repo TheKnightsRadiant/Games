@@ -9,51 +9,62 @@ import com.terracore.storages.Textures;
 import com.terracore.wizards.Wizards;
 
 public class HordeMouseHandler implements MouseListener, MouseMotionListener {
-	
-	String currentButton;
+
+	public String currentButton = "null";
+
+	public int overlayX = 2000;
+	public int overlayY = 2000;
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (Wizards.showPlayScreenHorde) {
-			
-			if(e.getX() >= Wizards.centerToWidth(640) && e.getX() <= Wizards.centerToWidth(640) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
+
+			if (e.getX() >= Wizards.compareToWidth(640) && e.getX() <= Wizards.compareToWidth(640) + 151
+					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card1";
 			}
-			if(e.getX() >= Wizards.centerToWidth(485) && e.getX() <= Wizards.centerToWidth(485) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
+			if (e.getX() >= Wizards.compareToWidth(485) && e.getX() <= Wizards.compareToWidth(485) + 151
+					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card2";
 			}
-			if(e.getX() >= Wizards.centerToWidth(330) && e.getX() <= Wizards.centerToWidth(330) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
+			if (e.getX() >= Wizards.compareToWidth(330) && e.getX() <= Wizards.compareToWidth(330) + 151
+					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card3";
 			}
-			if(e.getX() >= Wizards.centerToWidth(175) && e.getX() <= Wizards.centerToWidth(175) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
+			if (e.getX() >= Wizards.compareToWidth(175) && e.getX() <= Wizards.compareToWidth(175) + 151
+					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card4";
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (Wizards.showPlayScreenHorde) {
-			if (currentButton == "card1" && e.getX() >= Wizards.centerToWidth(640) && e.getX() <= Wizards.centerToWidth(640) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
-				
+			if (currentButton == "card1" && e.getX() >= Wizards.compareToWidth(640)
+					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
+				overlayX = Wizards.compareToWidth(638);
+				overlayY = Wizards.compareToHeight(318);
 			}
-			if (currentButton == "card2" && e.getX() >= Wizards.centerToWidth(485) && e.getX() <= Wizards.centerToWidth(485) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
-				
+			if (currentButton == "card2" && e.getX() >= Wizards.compareToWidth(485)
+					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
+				overlayX = Wizards.compareToWidth(483);
+				overlayY = Wizards.compareToHeight(318);
 			}
-			if (currentButton == "card3" && e.getX() >= Wizards.centerToWidth(330) && e.getX() <= Wizards.centerToWidth(330) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
-				
+			if (currentButton == "card3" && e.getX() >= Wizards.compareToWidth(330)
+					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
+				overlayX = Wizards.compareToWidth(328);
+				overlayY = Wizards.compareToHeight(318);
 			}
-			if (currentButton == "card4" && e.getX() >= Wizards.centerToWidth(175) && e.getX() <= Wizards.centerToWidth(175) + 151
-					&& e.getY() >=Wizards.centerToHeight(320) && e.getY() <= Wizards.centerToHeight(320) + 201) {
-				
+			if (currentButton == "card4" && e.getX() >= Wizards.compareToWidth(175)
+					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
+				overlayX = Wizards.compareToWidth(173);
+				overlayY = Wizards.compareToHeight(318);
 			}
 		}
 	}

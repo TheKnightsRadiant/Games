@@ -9,6 +9,7 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import com.terracore.handlers.AudioHandler;
+import com.terracore.handlers.HordeMouseHandler;
 import com.terracore.handlers.MouseHandler;
 
 public class Wizards extends Canvas implements Runnable {
@@ -46,6 +47,7 @@ public class Wizards extends Canvas implements Runnable {
 
 	private AudioHandler audioHandler = new AudioHandler();
 	static MouseHandler mouseHandler = new MouseHandler();
+	static HordeMouseHandler mouseHandlerHorde = new HordeMouseHandler();
 
 	static JFrame frame = new JFrame(TITLE);
 
@@ -270,6 +272,8 @@ public class Wizards extends Canvas implements Runnable {
 
 		game.addMouseListener(mouseHandler);
 		game.addMouseMotionListener(mouseHandler);
+		game.addMouseListener(mouseHandlerHorde);
+		game.addMouseMotionListener(mouseHandlerHorde);
 
 		game.start();
 	}

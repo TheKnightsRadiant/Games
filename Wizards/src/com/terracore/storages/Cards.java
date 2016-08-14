@@ -2,32 +2,42 @@ package com.terracore.storages;
 
 import java.util.Random;
 
-import com.terracore.cards.Card;
-import com.terracore.cards.Card.CreatureCard;
-import com.terracore.cards.Card.SpellCard;
+import com.terracore.cards.CreatureCard;
+import com.terracore.cards.SpellCard;
 
 public class Cards {
 
-	private static int CardNum = 2;
+	private static final int CreatureCardNum = 1;
+	private static final int SpellCardNum = 1;
 
 	static Random r = new Random();
 
-	static Card Firetruck = new Card();
-	static CreatureCard FiretruckCard = Firetruck.new CreatureCard(0, 100, 10, 10, 10, 10, 9, 7, "Fire", "Fire",
-			"Firetruck", Textures.creatureCardFireTruck);
+	static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, "Soak", "Water", "Firetruck",
+			Textures.creatureCardFireTruck);
 
-	static Card Fireball = new Card();
-	static SpellCard FireballCard = Fireball.new SpellCard(1, 8, 10, 10, 8, 10, 9, 3, "Fire", "Fire", "Fireball",
+	static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, "Fire", "Fire", "Fireball",
 			Textures.spellCardFireball);
 
-	public static Card getCard() {
-		switch (r.nextInt(CardNum)) {
+	public static CreatureCard getCardCreature() {
+		switch (r.nextInt(CreatureCardNum)) {
 		case (0):
 			return Firetruck;
 		case (1):
-			return Fireball;
+			return Firetruck;
+		default:
+			return null;
 		}
-		return null;
+	}
+	
+	public static SpellCard getCardSpell() {
+		switch (r.nextInt(SpellCardNum)) {
+		case (0):
+			return Fireball;
+		case (1):
+			return Fireball;
+		default:
+			return null;
+		}
 	}
 
 }
