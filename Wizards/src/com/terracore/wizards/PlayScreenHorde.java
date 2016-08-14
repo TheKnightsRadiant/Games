@@ -3,8 +3,6 @@ package com.terracore.wizards;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-
 import com.terracore.storages.Textures;
 
 public class PlayScreenHorde {
@@ -23,7 +21,7 @@ public class PlayScreenHorde {
 		Textures.spellCardFireball.render(g, Wizards.compareToWidth(480), Wizards.compareToHeight(320));
 		
 		Textures.creatureCardFireTruck.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
-	
+		
 		g.setColor(new Color(28, 28, 22));
 		g.drawLine(0, 300, 800, 300);
 		//Horizontal Deck Line
