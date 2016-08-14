@@ -31,13 +31,16 @@ public class PlayScreenHorde {
 		while (Textures.cardSlot4 == null){
 			Textures.cardSlot4 = Cards.getCard().getTexture();
 		}
+		while (Textures.cardSlot5 == null){
+			Textures.cardSlot5 = Cards.getCard().getTexture();
+		}
 		
 		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));
 		Textures.cardSlot2.render(g, Wizards.compareToWidth(485), Wizards.compareToHeight(320));
 		Textures.cardSlot3.render(g, Wizards.compareToWidth(330), Wizards.compareToHeight(320));
 		Textures.cardSlot4.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
 		
-		Textures.creatureCardFireTruck.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
+		Textures.cardSlot5.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
 		
 		g.setColor(new Color(28, 28, 22));
 		g.drawLine(0, 300, 800, 300);
