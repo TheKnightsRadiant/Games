@@ -46,7 +46,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				currentButton = "card4";
 				cancelOption = true;
 			}
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+			if (cancelOption == true && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50) {
 				cancel = true;
 			}
@@ -84,12 +84,13 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
 			}
-			if (cancel && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+			if (cancel == true && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50)) {
 				overlayX = 2000;
 				overlayY = 2000;
 				audioHandler.playButtonClickSound();
 				cancelOption = false;
+				cancel = false;
 				Textures.btnCancelState = Textures.btnCancelPress;
 			}
 		}
