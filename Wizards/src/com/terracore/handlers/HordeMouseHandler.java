@@ -59,28 +59,28 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "card1" && e.getX() >= Wizards.compareToWidth(640)
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
-				Textures.btnHelpState = Textures.btnHelpDef;
+				Textures.btnCancelState = Textures.btnCancelDef;
 				overlayX = Wizards.compareToWidth(638);
 				overlayY = Wizards.compareToHeight(318);
 			}
 			if (currentButton == "card2" && e.getX() >= Wizards.compareToWidth(485)
 					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
-				Textures.btnHelpState = Textures.btnHelpDef;
+				Textures.btnCancelState = Textures.btnCancelDef;
 				overlayX = Wizards.compareToWidth(483);
 				overlayY = Wizards.compareToHeight(318);
 			}
 			if (currentButton == "card3" && e.getX() >= Wizards.compareToWidth(330)
 					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
-				Textures.btnHelpState = Textures.btnHelpDef;
+				Textures.btnCancelState = Textures.btnCancelDef;
 				overlayX = Wizards.compareToWidth(328);
 				overlayY = Wizards.compareToHeight(318);
 			}
 			if (currentButton == "card4" && e.getX() >= Wizards.compareToWidth(175)
 					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
-				Textures.btnHelpState = Textures.btnHelpDef;
+				Textures.btnCancelState = Textures.btnCancelDef;
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
 			}
@@ -90,7 +90,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				overlayY = 2000;
 				audioHandler.playButtonClickSound();
 				cancelOption = false;
-				Textures.btnHelpState = Textures.btnHelpPress;
+				Textures.btnCancelState = Textures.btnCancelPress;
 			}
 		}
 	}
@@ -100,16 +100,16 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 		if (Wizards.showPlayScreenHorde) {
 			if (cancelOption && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50)) {
-				Textures.btnHelpState = Textures.btnHelpHov;
+				Textures.btnCancelState = Textures.btnCancelHov;
 				if (!btnCancelHover) {
 					audioHandler.playButtonHoverSound();
 					btnCancelHover = true;
 				}
 			} else {
 				if (cancelOption) {
-					Textures.btnHelpState = Textures.btnHelpDef;
+					Textures.btnCancelState = Textures.btnCancelDef;
 				} else {
-					Textures.btnHelpState = Textures.btnHelpPress;
+					Textures.btnCancelState = Textures.btnCancelPress;
 				}
 				btnCancelHover = false;
 			}

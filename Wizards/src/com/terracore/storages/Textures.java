@@ -18,6 +18,7 @@ public class Textures {
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
 	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
+	public static Texture btnCancelDef, btnCancelPress, btnCancelHov, btnCancelState;
 
 	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
 	
@@ -35,63 +36,68 @@ public class Textures {
 		// Create Textures
 		TitleImage = new Texture("WizardTitle");
 
-		btnBeginDef = new Texture("buttonbegin/ButtonBeginDefault");
-		btnBeginPress = new Texture("buttonbegin/ButtonBeginPressed");
-		btnBeginHov = new Texture("buttonbegin/ButtonBeginHovered");
+		btnBeginDef = new Texture("buttons/buttonbegin/ButtonBeginDefault");
+		btnBeginPress = new Texture("buttons/buttonbegin/ButtonBeginPressed");
+		btnBeginHov = new Texture("buttons/buttonbegin/ButtonBeginHovered");
 		btnBeginState = btnBeginDef;
 
-		btnBuildDef = new Texture("buttonbuild/ButtonBuildDefault");
-		btnBuildPress = new Texture("buttonbuild/ButtonBuildPressed");
-		btnBuildHov = new Texture("buttonbuild/ButtonBuildHovered");
+		btnBuildDef = new Texture("buttons/buttonbuild/ButtonBuildDefault");
+		btnBuildPress = new Texture("buttons/buttonbuild/ButtonBuildPressed");
+		btnBuildHov = new Texture("buttons/buttonbuild/ButtonBuildHovered");
 		btnBuildState = btnBuildDef;
 
-		btnHelpDef = new Texture("buttonhelp/ButtonHelpDefault");
-		btnHelpPress = new Texture("buttonhelp/ButtonHelpPressed");
-		btnHelpHov = new Texture("buttonhelp/ButtonHelpHovered");
+		btnHelpDef = new Texture("buttons/buttonhelp/ButtonHelpDefault");
+		btnHelpPress = new Texture("buttons/buttonhelp/ButtonHelpPressed");
+		btnHelpHov = new Texture("buttons/buttonhelp/ButtonHelpHovered");
 		btnHelpState = btnHelpDef;
 
-		btnCreditDef = new Texture("buttonCredits/ButtonCreditsDefault");
-		btnCreditPress = new Texture("buttonCredits/ButtonCreditsPressed");
-		btnCreditHov = new Texture("buttonCredits/ButtonCreditsHovered");
+		btnCreditDef = new Texture("buttons/buttonCredits/ButtonCreditsDefault");
+		btnCreditPress = new Texture("buttons/buttonCredits/ButtonCreditsPressed");
+		btnCreditHov = new Texture("buttons/buttonCredits/ButtonCreditsHovered");
 		btnCreditState = btnCreditDef;
 
-		btnExitDef = new Texture("buttonexit/ButtonExitDefault");
-		btnExitPress = new Texture("buttonexit/ButtonExitPressed");
-		btnExitHov = new Texture("buttonexit/ButtonExitHovered");
+		btnExitDef = new Texture("buttons/buttonexit/ButtonExitDefault");
+		btnExitPress = new Texture("buttons/buttonexit/ButtonExitPressed");
+		btnExitHov = new Texture("buttons/buttonexit/ButtonExitHovered");
 		btnExitState = btnExitDef;
 
-		btnSettingsDef = new Texture("buttonsettings/ButtonSettingsDefault");
-		btnSettingsPress = new Texture("buttonsettings/ButtonSettingsPressed");
-		btnSettingsHov = new Texture("buttonsettings/ButtonSettingsHovered");
-		btnSettingsPressHov = new Texture("buttonsettings/ButtonSettingsPressedHovered");
+		btnSettingsDef = new Texture("buttons/buttonsettings/ButtonSettingsDefault");
+		btnSettingsPress = new Texture("buttons/buttonsettings/ButtonSettingsPressed");
+		btnSettingsHov = new Texture("buttons/buttonsettings/ButtonSettingsHovered");
+		btnSettingsPressHov = new Texture("buttons/buttonsettings/ButtonSettingsPressedHovered");
 		btnSettingsState = btnSettingsDef;
 
-		btnVolumeDef = new Texture("buttonvolume/ButtonVolumeDefault");
-		btnVolumeMute = new Texture("buttonvolume/ButtonVolumeMuted");
-		btnVolumeHov = new Texture("buttonvolume/ButtonVolumeHovered");
-		btnVolumeMuteHov = new Texture("buttonvolume/ButtonVolumeMutedHovered");
+		btnVolumeDef = new Texture("buttons/buttonvolume/ButtonVolumeDefault");
+		btnVolumeMute = new Texture("buttons/buttonvolume/ButtonVolumeMuted");
+		btnVolumeHov = new Texture("buttons/buttonvolume/ButtonVolumeHovered");
+		btnVolumeMuteHov = new Texture("buttons/buttonvolume/ButtonVolumeMutedHovered");
 		btnVolumeState = btnVolumeDef;
 
-		btnMusicDef = new Texture("buttonmusic/ButtonMusicDefault");
-		btnMusicMute = new Texture("buttonmusic/ButtonMusicMuted");
-		btnMusicHov = new Texture("buttonmusic/ButtonMusicHovered");
-		btnMusicMuteHov = new Texture("buttonmusic/ButtonMusicMutedHovered");
+		btnMusicDef = new Texture("buttons/buttonmusic/ButtonMusicDefault");
+		btnMusicMute = new Texture("buttons/buttonmusic/ButtonMusicMuted");
+		btnMusicHov = new Texture("buttons/buttonmusic/ButtonMusicHovered");
+		btnMusicMuteHov = new Texture("buttons/buttonmusic/ButtonMusicMutedHovered");
 		btnMusicState = btnMusicDef;
 
-		btnBackDef = new Texture("buttonback/ButtonBackDefault");
-		btnBackPress = new Texture("buttonback/ButtonBackPressed");
-		btnBackHov = new Texture("buttonback/ButtonBackHovered");
+		btnBackDef = new Texture("buttons/buttonback/ButtonBackDefault");
+		btnBackPress = new Texture("buttons/buttonback/ButtonBackPressed");
+		btnBackHov = new Texture("buttons/buttonback/ButtonBackHovered");
 		btnBackState = btnBackDef;
 
-		btnPrevDef = new Texture("buttonprevious/ButtonPreviousDefault");
-		btnPrevPress = new Texture("buttonprevious/ButtonPreviousPressed");
-		btnPrevHov = new Texture("buttonprevious/ButtonPreviousHovered");
+		btnPrevDef = new Texture("buttons/buttonprevious/ButtonPreviousDefault");
+		btnPrevPress = new Texture("buttons/buttonprevious/ButtonPreviousPressed");
+		btnPrevHov = new Texture("buttons/buttonprevious/ButtonPreviousHovered");
 		btnPrevState = btnPrevPress;
 
-		btnNextDef = new Texture("buttonnext/ButtonNextDefault");
-		btnNextPress = new Texture("buttonnext/ButtonNextPressed");
-		btnNextHov = new Texture("buttonnext/ButtonNextHovered");
+		btnNextDef = new Texture("buttons/buttonnext/ButtonNextDefault");
+		btnNextPress = new Texture("buttons/buttonnext/ButtonNextPressed");
+		btnNextHov = new Texture("buttons/buttonnext/ButtonNextHovered");
 		btnNextState = btnNextDef;
+		
+		btnCancelDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
+		btnCancelPress = new Texture("buttons/buttonblank/ButtonBlankPressed");
+		btnCancelHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnCancelState = btnCancelPress;
 		
 		chkBox = new Texture("checkbox/CheckBox");
 		chkBoxChk = new Texture("checkbox/CheckBoxChecked");

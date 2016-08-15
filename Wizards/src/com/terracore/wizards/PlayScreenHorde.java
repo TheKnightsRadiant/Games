@@ -74,7 +74,7 @@ public class PlayScreenHorde {
 		//Attack
 		Textures.btnBuildState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
 		//Use
-		Textures.btnHelpState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
+		Textures.btnCancelState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
 		//Cancel
 
 		g.setColor(new Color(28, 28, 22));
