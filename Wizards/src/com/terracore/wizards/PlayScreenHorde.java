@@ -5,15 +5,15 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Random;
 
-import com.terracore.handlers.HordeMouseHandler;
+import com.terracore.cards.CreatureCard;
 import com.terracore.storages.Cards;
 import com.terracore.storages.Textures;
 
 public class PlayScreenHorde {
 
 	Random r = new Random();
-	
-	
+
+	CreatureCard Enemy1;
 
 	// Move these ints to a separate class later
 	int HP = 100;
@@ -56,10 +56,12 @@ public class PlayScreenHorde {
 			}
 		}
 		while (Textures.cardSlot5 == null) {
-			Textures.cardSlot5 = Cards.getCardCreature().getTexture();
+			Enemy1 = Cards.getCardCreature();
+			Textures.cardSlot5 = Enemy1.getTexture();
+
 		}
-		
-		if(Wizards.mouseHandlerHorde.currentButton != "null"){
+
+		if (Wizards.mouseHandlerHorde.currentButton != "null") {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX, Wizards.mouseHandlerHorde.overlayY);
 		}
 
@@ -69,13 +71,13 @@ public class PlayScreenHorde {
 		Textures.cardSlot4.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
 
 		Textures.cardSlot5.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
-		
+
 		Textures.btnBeginState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
-		//Attack
+		// Attack
 		Textures.btnBuildState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
-		//Use
+		// Use
 		Textures.btnCancelState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
-		//Cancel
+		// Cancel
 
 		g.setColor(new Color(28, 28, 22));
 		g.drawLine(0, 300, 800, 300);
@@ -97,6 +99,6 @@ public class PlayScreenHorde {
 		g.drawString("MP: " + MP, Wizards.compareToWidth(12), Wizards.compareToHeight(405));
 		g.drawString("MP Reg: " + MPRegen, Wizards.compareToWidth(10), Wizards.compareToHeight(435));
 		g.drawString("Aff: " + affinity, Wizards.compareToWidth(7), Wizards.compareToHeight(465));
-		g.drawString("HP: " + enemyHP, Wizards.compareToWidth(601), Wizards.compareToHeight(290));
+		g.drawString("HP: " + Enemy1.getHP(), Wizards.compareToWidth(601), Wizards.compareToHeight(290));
 	}
 }
