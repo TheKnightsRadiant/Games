@@ -109,9 +109,9 @@ public class Textures {
 		btnUseHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
 		btnUseState = btnUsePress;
 
-		btnCancelDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
-		btnCancelPress = new Texture("buttons/buttonblank/ButtonBlankPressed");
-		btnCancelHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnCancelDef = new Texture("buttons/buttoncancel/ButtonCancelDefault");
+		btnCancelPress = new Texture("buttons/buttoncancel/ButtonCancelPressed");
+		btnCancelHov = new Texture("buttons/buttoncancel/ButtonCancelHovered");
 		btnCancelState = btnCancelPress;
 
 		chkBox = new Texture("checkbox/CheckBox");

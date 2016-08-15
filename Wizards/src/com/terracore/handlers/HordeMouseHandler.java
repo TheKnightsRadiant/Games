@@ -1,6 +1,5 @@
 package com.terracore.handlers;
 
-import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -26,7 +25,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
-	
+
 	public String cardType;
 
 	private AudioHandler audioHandler = new AudioHandler();
@@ -35,32 +34,36 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 	public void mousePressed(MouseEvent e) {
 		if (Wizards.showPlayScreenHorde) {
 
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(640) && e.getX() <= Wizards.compareToWidth(640) + 151
-					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(640)
+					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card1";
 				cancelOption = true;
 				useOption = true;
 				attackAvailable = false;
 				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(485) && e.getX() <= Wizards.compareToWidth(485) + 151
-					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(485)
+					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card2";
 				cancelOption = true;
 				useOption = true;
 				attackAvailable = false;
 				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(330) && e.getX() <= Wizards.compareToWidth(330) + 151
-					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(330)
+					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card3";
 				cancelOption = true;
 				useOption = true;
 				attackAvailable = false;
 				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(175) && e.getX() <= Wizards.compareToWidth(175) + 151
-					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(175)
+					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
+					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card4";
 				cancelOption = true;
 				useOption = true;
@@ -73,12 +76,13 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				Textures.btnCancelState = Textures.btnCancelPress;
 				cancel = true;
 			}
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20)
+					&& e.getX() <= Wizards.compareToWidth(20) + 150 && e.getY() >= Wizards.compareToHeight(50)
+					&& e.getY() <= Wizards.compareToHeight(50) + 50) {
 				Textures.btnAttackState = Textures.btnAttackPress;
 				attack = true;
 			}
-			if (useOption && e.getX() >= Wizards.compareToWidth(20) && e.getX() <=Wizards.compareToWidth(20) + 150
+			if (useOption && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(120) && e.getY() <= Wizards.compareToHeight(120) + 50) {
 				Textures.btnUseState = Textures.btnUsePress;
 				use = true;
@@ -144,7 +148,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				Textures.btnAttackState = Textures.btnAttackPress;
 				Textures.btnCancelState = Textures.btnCancelDef;
 			}
-			if (use && e.getX() >= Wizards.compareToWidth(20) && e.getX() <=Wizards.compareToWidth(20) + 150
+			if (use && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(120) && e.getY() <= Wizards.compareToHeight(120) + 50) {
 				cancelOption = true;
 				useOption = false;
@@ -156,7 +160,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					summonSpot = true;
 				}
 			}
-			
+
 		}
 	}
 
@@ -179,8 +183,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				btnCancelHover = false;
 			}
 
-			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20)
+					&& e.getX() <= Wizards.compareToWidth(20) + 150 && e.getY() >= Wizards.compareToHeight(50)
+					&& e.getY() <= Wizards.compareToHeight(50) + 50) {
 				Textures.btnAttackState = Textures.btnAttackHov;
 				if (!btnAttackHover) {
 					audioHandler.playButtonHoverSound();
@@ -189,9 +194,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 			} else {
 				if (attackAvailable) {
 					Textures.btnAttackState = Textures.btnAttackDef;
-					btnAttackHover = true;
+					btnAttackHover = false;
 				}
-				
+
 			}
 
 			if (useOption && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
@@ -207,8 +212,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				} else {
 					Textures.btnUseState = Textures.btnUsePress;
 				}
-
-				btnUseHover = true;
+				btnUseHover = false;
 			}
 		}
 	}
