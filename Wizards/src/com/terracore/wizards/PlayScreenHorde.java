@@ -72,9 +72,9 @@ public class PlayScreenHorde {
 
 		Textures.cardSlot5.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
 
-		Textures.btnBeginState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
+		Textures.btnAttackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
 		// Attack
-		Textures.btnBuildState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
+		Textures.btnUseState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
 		// Use
 		Textures.btnCancelState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
 		// Cancel
