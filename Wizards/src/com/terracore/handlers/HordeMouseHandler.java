@@ -132,6 +132,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				useOption = false;
 				use = false;
 				attackAvailable = true;
+				currentButton = "null";
 				Textures.btnUseState = Textures.btnUsePress;
 				Textures.btnAttackState = Textures.btnAttackDef;
 			}
