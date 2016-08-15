@@ -16,20 +16,25 @@ public class Textures {
 	public static Texture btnVolumeDef, btnVolumeMute, btnVolumeHov, btnVolumeMuteHov, btnVolumeState;
 	public static Texture btnMusicDef, btnMusicMute, btnMusicHov, btnMusicMuteHov, btnMusicState;
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
+
 	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
+
+	public static Texture btnAttackDef, btnAttackPress, btnAttackHov, btnAttackState;
+	public static Texture btnUseDef,btnUsePress,btnUseHov,btnUseState;
 	public static Texture btnCancelDef, btnCancelPress, btnCancelHov, btnCancelState;
 
-	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3, chkBoxState4;
-	
+	public static Texture chkBox, chkBoxChk, chkBoxHov, chkBoxChkHov, chkBoxState1, chkBoxState2, chkBoxState3,
+			chkBoxState4;
+
 	public static Texture cardSlot1, cardSlot2, cardSlot3, cardSlot4, cardSlot5;
-	
+
 	public static Texture blankSpellCard, blankCreatureCard;
-	
+
 	public static Texture cardOverlay;
-	
+
 	public static Texture spellCardFireball, spellCardLightning;
-	
+
 	public static Texture creatureCardFireTruck;
 
 	public Textures() {
@@ -94,11 +99,21 @@ public class Textures {
 		btnNextHov = new Texture("buttons/buttonnext/ButtonNextHovered");
 		btnNextState = btnNextDef;
 		
+		btnAttackDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
+		btnAttackPress = new Texture("buttons/buttonblank/ButtonBlankPressed");
+		btnAttackHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnAttackState = btnAttackPress;
+		
+		btnUseDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
+		btnUsePress = new Texture("buttons/buttonblank/ButtonBlankPressed");
+		btnUseHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnUseState = btnUsePress;
+
 		btnCancelDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
 		btnCancelPress = new Texture("buttons/buttonblank/ButtonBlankPressed");
 		btnCancelHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
 		btnCancelState = btnCancelPress;
-		
+
 		chkBox = new Texture("checkbox/CheckBox");
 		chkBoxChk = new Texture("checkbox/CheckBoxChecked");
 		chkBoxHov = new Texture("checkbox/CheckBoxHovered");
@@ -107,15 +122,15 @@ public class Textures {
 		chkBoxState2 = chkBox;
 		chkBoxState3 = chkBoxChk;
 		chkBoxState4 = chkBox;
-		
+
 		blankSpellCard = new Texture("cards/BlankSpellCard");
 		blankCreatureCard = new Texture("cards/BlankCreatureCard");
-		
+
 		cardOverlay = new Texture("cards/CardOverlay");
-		
+
 		spellCardFireball = new Texture("cards/spells/SpellFireball");
 		spellCardLightning = new Texture("cards/spells/SpellLightning");
-		
+
 		creatureCardFireTruck = new Texture("cards/creatures/CreatureFiretruck");
 
 		LoadingScreen.isDone = true;
