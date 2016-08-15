@@ -14,8 +14,11 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 	public boolean cardIsSelected = false;
 	public boolean cancelOption = false;
 	public boolean cancel = false;
+	public boolean useOption = false;
+	public boolean attackAvailable = true;
 	private boolean btnAttackHover = false;
 	private boolean btnCancelHover = false;
+	private boolean btnUseHover = false;
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
@@ -117,14 +120,25 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
-				Textures.btnBeginState = Textures.btnBeginHov;
+				Textures.btnAttackState = Textures.btnAttackHov;
 				if (!btnAttackHover) {
 					audioHandler.playButtonHoverSound();
 					btnAttackHover = true;
 				}
 			} else {
-				Textures.btnBeginState = Textures.btnBeginDef;
-				btnAttackHover = false;
+				Textures.btnAttackState = Textures.btnAttackDef;
+				btnAttackHover = true;
+			}
+			if (useOption && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+					&& e.getY() >= Wizards.compareToHeight(120) && e.getY() <=Wizards.compareToHeight(120) + 50)) {
+				Textures.btnUseState = Textures.btnUseHov;
+				if (!btnUseHover) {
+					audioHandler.playButtonHoverSound();
+					btnUseHover = true;
+				}
+			} else {
+				Textures.btnUseState = Textures.btnUseDef;
+				btnUseHover = true;
 			}
 		}
 	}
