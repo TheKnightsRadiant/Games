@@ -15,13 +15,19 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 	public boolean cancelOption = false;
 	public boolean cancel = false;
 	public boolean useOption = false;
+	public boolean use = false;
 	public boolean attackAvailable = true;
+	public boolean attack = false;
+	public boolean targetSelectable = false;
+	public boolean summonSpot = false;
 	private boolean btnAttackHover = false;
 	private boolean btnCancelHover = false;
 	private boolean btnUseHover = false;
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
+	
+	public String cardType;
 
 	private AudioHandler audioHandler = new AudioHandler();
 
@@ -29,30 +35,53 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 	public void mousePressed(MouseEvent e) {
 		if (Wizards.showPlayScreenHorde) {
 
-			if (e.getX() >= Wizards.compareToWidth(640) && e.getX() <= Wizards.compareToWidth(640) + 151
+			if (attackAvailable&& e.getX() >= Wizards.compareToWidth(640) && e.getX() <= Wizards.compareToWidth(640) + 151
 					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card1";
 				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (e.getX() >= Wizards.compareToWidth(485) && e.getX() <= Wizards.compareToWidth(485) + 151
+			if (attackAvailable&& e.getX() >= Wizards.compareToWidth(485) && e.getX() <= Wizards.compareToWidth(485) + 151
 					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card2";
 				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (e.getX() >= Wizards.compareToWidth(330) && e.getX() <= Wizards.compareToWidth(330) + 151
+			if (attackAvailable&& e.getX() >= Wizards.compareToWidth(330) && e.getX() <= Wizards.compareToWidth(330) + 151
 					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card3";
 				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				Textures.btnAttackState = Textures.btnAttackPress;
 			}
-			if (e.getX() >= Wizards.compareToWidth(175) && e.getX() <= Wizards.compareToWidth(175) + 151
+			if (attackAvailable&& e.getX() >= Wizards.compareToWidth(175) && e.getX() <= Wizards.compareToWidth(175) + 151
 					&& e.getY() >= Wizards.compareToHeight(320) && e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card4";
 				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				Textures.btnAttackState = Textures.btnAttackPress;
 			}
 			if (cancelOption == true && e.getX() >= Wizards.compareToWidth(20)
 					&& e.getX() <= Wizards.compareToWidth(20) + 150 && e.getY() >= Wizards.compareToHeight(190)
 					&& e.getY() <= Wizards.compareToHeight(190) + 50) {
+				Textures.btnCancelState = Textures.btnCancelPress;
 				cancel = true;
+			}
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
+				Textures.btnAttackState = Textures.btnAttackPress;
+				attack = true;
+			}
+			if (useOption && e.getX() >= Wizards.compareToWidth(20) && e.getX() <=Wizards.compareToWidth(20) + 150
+					&& e.getY() >= Wizards.compareToHeight(120) && e.getY() <= Wizards.compareToHeight(120) + 50) {
+				Textures.btnUseState = Textures.btnUsePress;
+				use = true;
 			}
 		}
 	}
@@ -100,9 +129,32 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				audioHandler.playButtonClickSound();
 				cancelOption = false;
 				cancel = false;
-				Textures.btnCancelState = Textures.btnCancelPress;
+				useOption = false;
+				use = false;
+				attackAvailable = true;
 				Textures.btnUseState = Textures.btnUsePress;
+				Textures.btnAttackState = Textures.btnAttackDef;
 			}
+			if (attack && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
+				cancelOption = true;
+				attackAvailable = false;
+				targetSelectable = true;
+				Textures.btnAttackState = Textures.btnAttackPress;
+			}
+			if (use && e.getX() >= Wizards.compareToWidth(20) && e.getX() <=Wizards.compareToWidth(20) + 150
+					&& e.getY() >= Wizards.compareToHeight(120) && e.getY() <= Wizards.compareToHeight(120) + 50) {
+				cancelOption = true;
+				useOption = false;
+				Textures.btnUseState = Textures.btnUsePress;
+				if (cardType == "Spell") {
+					targetSelectable = true;
+				}
+				if (cardType == "Creature") {
+					summonSpot = true;
+				}
+			}
+			
 		}
 	}
 
@@ -125,7 +177,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				btnCancelHover = false;
 			}
 
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+			if (attackAvailable && e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 50) {
 				Textures.btnAttackState = Textures.btnAttackHov;
 				if (!btnAttackHover) {
@@ -133,8 +185,11 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					btnAttackHover = true;
 				}
 			} else {
-				Textures.btnAttackState = Textures.btnAttackDef;
-				btnAttackHover = true;
+				if (attackAvailable) {
+					Textures.btnAttackState = Textures.btnAttackDef;
+					btnAttackHover = true;
+				}
+				
 			}
 
 			if (useOption && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
@@ -145,7 +200,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					btnUseHover = true;
 				}
 			} else {
-				if (cancelOption) {
+				if (useOption) {
 					Textures.btnUseState = Textures.btnUseDef;
 				} else {
 					Textures.btnUseState = Textures.btnUsePress;
