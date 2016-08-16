@@ -26,10 +26,12 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
-	public int overlayX2 = 200;
-	public int overlayY2 = 300;
+	public int overlayX2 = 2000;
+	public int overlayY2 = 2000;
 	public int overlayX3 = 2000;
 	public int overlayY3 = 2000;
+	public int overlayX4 = 2000;
+	public int overlayY4 = 2000;
 
 	public String cardType;
 
@@ -139,6 +141,8 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(190) + 50)) {
 				overlayX = 2000;
 				overlayY = 2000;
+				overlayX2 = 2000;
+				overlayY2 = 2000;
 				audioHandler.playButtonClickSound();
 				cancelOption = false;
 				cancel = false;
@@ -157,6 +161,8 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				attackAvailable = false;
 				targetSelectable = true;
 				canChooseCard = false;
+				overlayX2 = 598;
+				overlayY2 = 58;
 				Textures.btnAttackState = Textures.btnAttackPress;
 				Textures.btnCancelState = Textures.btnCancelDef;
 			}
@@ -165,9 +171,12 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				cancelOption = true;
 				useOption = false;
 				canChooseCard = false;
+				
 				Textures.btnUseState = Textures.btnUsePress;
 				if (cardType == "Spell") {
 					targetSelectable = true;
+					overlayX2 = 598;
+					overlayY2 = 58;
 				}
 				if (cardType == "Creature") {
 					summonSpot = true;
