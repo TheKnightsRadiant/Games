@@ -26,6 +26,10 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	public int overlayX = 2000;
 	public int overlayY = 2000;
+	public int overlayX2 = 200;
+	public int overlayY2 = 300;
+	public int overlayX3 = 2000;
+	public int overlayY3 = 2000;
 
 	public String cardType;
 

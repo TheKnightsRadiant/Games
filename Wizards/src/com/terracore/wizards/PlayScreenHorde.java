@@ -64,6 +64,9 @@ public class PlayScreenHorde {
 		if (Wizards.mouseHandlerHorde.currentButton != "null") {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX, Wizards.mouseHandlerHorde.overlayY);
 		}
+		if (Wizards.mouseHandlerHorde.targetSelectable = true) {
+			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX2, Wizards.mouseHandlerHorde.overlayY);
+		}
 
 		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));
 		Textures.cardSlot2.render(g, Wizards.compareToWidth(485), Wizards.compareToHeight(320));
