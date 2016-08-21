@@ -20,11 +20,12 @@ public class SpellCard {
 	private Texture Texture;
 	private int SRMaxNum;
 	private int SRMinSuccess;
+	private boolean AOE;
 
 	Random r = new Random();
 
 	public SpellCard(int CardID, int DMGMin, int DMGMax, int HRMaxNum, int HRMinHit, int SRMaxNum, int SRMinSuccess,
-			int MPCost, int CardLevel, String Effect, String Element, String CardType, String Name, Texture Texture) {
+			int MPCost, int CardLevel, boolean AOE, String Effect, String Element, String CardType, String Name, Texture Texture) {
 		this.CardID = CardID;
 		this.DMGMin = DMGMin;
 		this.DMGMax = DMGMax;
@@ -32,6 +33,7 @@ public class SpellCard {
 		this.HRMinHit = HRMinHit;
 		this.MPCost = MPCost;
 		this.CardLevel = CardLevel;
+		this.AOE = AOE;
 		this.Effect = Effect;
 		this.Element = Element;
 		this.CardType = CardType;
@@ -65,6 +67,10 @@ public class SpellCard {
 		return CardLevel;
 	}
 
+	public boolean getAOE(){
+		return AOE;
+	}
+	
 	public String getEffect() {
 		return Effect;
 	}

@@ -8,7 +8,7 @@ import com.terracore.cards.SpellCard;
 public class Cards {
 
 	private static final int CreatureCardNum = 2;
-	private static final int SpellCardNum = 2;
+	private static final int SpellCardNum = 4;
 
 	public static CreatureCard CCard1;
 	public static CreatureCard CCard2;
@@ -30,14 +30,20 @@ public class Cards {
 	private static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, 4, "Soak", "Water",
 			"CreatureCard", "Firetruck", Textures.creatureCardFireTruck);
 
-	private static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, 2, "Fire", "Fire", "SpellCard",
+	private static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, 2, false, "Fire", "Fire", "SpellCard",
 			"Fireball", Textures.spellCardFireball);
 
-	private static SpellCard Lightning = new SpellCard(2, 15, 17, 10, 8, 10, 5, 7, 3, "Paralyze", "Dark", "SpellCard",
-			"Lightning", Textures.spellCardLightning);
+	private static SpellCard Lightning = new SpellCard(2, 15, 17, 10, 8, 10, 5, 7, 3, false, "Paralyze", "Dark",
+			"SpellCard", "Lightning", Textures.spellCardLightning);
 
 	private static CreatureCard Watermelon = new CreatureCard(3, 50, 0, 0, 0, 0, 0, 13, 3, "Draw Focus", "Physical",
 			"CreatureCard", "Watermelon", Textures.creatureCardWatermelon);
+
+	private static SpellCard Blind = new SpellCard(4, 1, 1, 1, 1, 100, 75, 2, 1, false, "Blind", "Light", "SpellCard",
+			"Blind", Textures.spellCardBlind);
+
+	private static SpellCard MassBlind = new SpellCard(5, 1, 1, 1, 1, 100, 75, 10, 4, true, "Blind", "Light",
+			"SpellCard", "MassBlind", Textures.spellCardMassBlind);
 
 	public static CreatureCard getCardCreature() {
 		switch (r.nextInt(CreatureCardNum)) {
@@ -56,6 +62,10 @@ public class Cards {
 			return Fireball;
 		case (1):
 			return Lightning;
+		case (2):
+			return Blind;
+		case (3):
+			return MassBlind;
 		default:
 			return null;
 		}
