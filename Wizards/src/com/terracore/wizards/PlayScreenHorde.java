@@ -28,31 +28,54 @@ public class PlayScreenHorde {
 
 		while (Textures.cardSlot1 == null) {
 			if (r.nextBoolean()) {
-				Textures.cardSlot1 = Cards.getCardCreature().getTexture();
+				Cards.CCard1 = Cards.getCardCreature();
+				Textures.cardSlot1 = Cards.CCard1.getTexture();
+				
+				Cards.Card1IsC = true;
 			} else {
-				Textures.cardSlot1 = Cards.getCardSpell().getTexture();
+				Cards.SCard1 = Cards.getCardSpell();
+				Textures.cardSlot1 = Cards.SCard1.getTexture();
+				
+				Cards.Card1IsC = false;
 			}
 		}
 		while (Textures.cardSlot2 == null) {
 			if (r.nextBoolean()) {
-				Textures.cardSlot2 = Cards.getCardCreature().getTexture();
+				Cards.CCard2 = Cards.getCardCreature();
+				Textures.cardSlot2 = Cards.CCard2.getTexture();
+				
+				Cards.Card2IsC = true;
 			} else {
-				Textures.cardSlot2 = Cards.getCardSpell().getTexture();
+				Cards.SCard2 = Cards.getCardSpell();
+				Textures.cardSlot2 = Cards.SCard2.getTexture();
+				
+				Cards.Card2IsC = false;
 			}
 		}
 		while (Textures.cardSlot3 == null) {
 			if (r.nextBoolean()) {
-				Textures.cardSlot3 = Cards.getCardCreature().getTexture();
+				Cards.CCard3 = Cards.getCardCreature();
+				Textures.cardSlot3 = Cards.CCard3.getTexture();
+				
+				Cards.Card3IsC = true;
 			} else {
-				Textures.cardSlot3 = Cards.getCardSpell().getTexture();
+				Cards.SCard3 = Cards.getCardSpell();
+				Textures.cardSlot3 = Cards.SCard3.getTexture();
+				
+				Cards.Card3IsC = false;
 			}
 		}
 		while (Textures.cardSlot4 == null) {
-
 			if (r.nextBoolean()) {
-				Textures.cardSlot4 = Cards.getCardCreature().getTexture();
+				Cards.CCard4 = Cards.getCardCreature();
+				Textures.cardSlot4 = Cards.CCard4.getTexture();
+				
+				Cards.Card4IsC = true;
 			} else {
-				Textures.cardSlot4 = Cards.getCardSpell().getTexture();
+				Cards.SCard4 = Cards.getCardSpell();
+				Textures.cardSlot4 = Cards.SCard4.getTexture();
+				
+				Cards.Card4IsC = false;
 			}
 		}
 		while (Textures.cardSlot5 == null) {
