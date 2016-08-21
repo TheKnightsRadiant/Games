@@ -35,7 +35,7 @@ public class Textures {
 
 	public static Texture spellCardFireball, spellCardLightning;
 
-	public static Texture creatureCardFireTruck;
+	public static Texture creatureCardFireTruck, creatureCardWatermelon;
 
 	public Textures() {
 		// Create Textures
@@ -132,6 +132,7 @@ public class Textures {
 		spellCardLightning = new Texture("cards/spells/SpellLightning");
 
 		creatureCardFireTruck = new Texture("cards/creatures/CreatureFiretruck");
+		creatureCardWatermelon = new Texture("cards/creatures/CreatureWatermelon");
 
 		LoadingScreen.isDone = true;
 	}
