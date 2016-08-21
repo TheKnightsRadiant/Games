@@ -12,14 +12,14 @@ public class Cards {
 
 	static Random r = new Random();
 
-	static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, 4, "Soak", "Water", "Firetruck",
-			Textures.creatureCardFireTruck);
+	static CreatureCard Firetruck = new CreatureCard(0, 100, 10, 10, 5, 10, 9, 7, 4, "Soak", "Water", "CreatureCard",
+			"Firetruck", Textures.creatureCardFireTruck);
 
-	static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, 2, "Fire", "Fire", "Fireball",
+	static SpellCard Fireball = new SpellCard(1, 8, 12, 10, 9, 10, 8, 3, 2, "Fire", "Fire", "SpellCard", "Fireball",
 			Textures.spellCardFireball);
 
-	static SpellCard Lightning = new SpellCard(2, 15, 17, 10, 8, 10, 5, 7, 3, "Paralyze", "Dark", "Lightning",
-			Textures.spellCardLightning);
+	static SpellCard Lightning = new SpellCard(2, 15, 17, 10, 8, 10, 5, 7, 3, "Paralyze", "Dark", "SpellCard",
+			"Lightning", Textures.spellCardLightning);
 
 	public static CreatureCard getCardCreature() {
 		switch (r.nextInt(CreatureCardNum)) {

@@ -15,6 +15,7 @@ public class SpellCard {
 	private int CardLevel;
 	private String Effect;
 	private String Element;
+	private String CardType;
 	private String Name;
 	private Texture Texture;
 	private int SRMaxNum;
@@ -23,7 +24,7 @@ public class SpellCard {
 	Random r = new Random();
 
 	public SpellCard(int CardID, int DMGMin, int DMGMax, int HRMaxNum, int HRMinHit, int SRMaxNum, int SRMinSuccess,
-			int MPCost, int CardLevel, String Effect, String Element, String Name, Texture Texture) {
+			int MPCost, int CardLevel, String Effect, String Element, String CardType, String Name, Texture Texture) {
 		this.CardID = CardID;
 		this.DMGMin = DMGMin;
 		this.DMGMax = DMGMax;
@@ -33,6 +34,7 @@ public class SpellCard {
 		this.CardLevel = CardLevel;
 		this.Effect = Effect;
 		this.Element = Element;
+		this.CardType = CardType;
 		this.Name = Name;
 		this.Texture = Texture;
 		this.SRMaxNum = SRMaxNum;
@@ -69,6 +71,10 @@ public class SpellCard {
 
 	public String getElement() {
 		return Element;
+	}
+	
+	public String getCardType() {
+		return CardType;
 	}
 
 	public String getName() {

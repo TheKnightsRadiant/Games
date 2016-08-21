@@ -15,6 +15,7 @@ public class CreatureCard {
 	private int CardLevel;
 	private String Effect;
 	private String Element;
+	private String CardType;
 	private String Name;
 	private Texture Texture;
 	private int HP;
@@ -24,7 +25,7 @@ public class CreatureCard {
 	Random r = new Random();
 
 	public CreatureCard(int CardID, int HP, int DMGMin, int DMGMax, int AG, int HRMaxNum, int HRMinHit, int MPCost,
-			int CardLevel, String Effect, String Element, String Name, Texture Texture) {
+			int CardLevel, String Effect, String Element, String CardType, String Name, Texture Texture) {
 		this.CardID = CardID;
 		this.DMGMin = DMGMin;
 		this.DMGMax = DMGMax;
@@ -34,6 +35,7 @@ public class CreatureCard {
 		this.CardLevel = CardLevel;
 		this.Effect = Effect;
 		this.Element = Element;
+		this.CardType = CardType;
 		this.Name = Name;
 		this.Texture = Texture;
 		this.AG = AG;
@@ -74,6 +76,10 @@ public class CreatureCard {
 
 	public String getElement() {
 		return Element;
+	}
+
+	public String getCardType() {
+		return CardType;
 	}
 
 	public String getName() {
