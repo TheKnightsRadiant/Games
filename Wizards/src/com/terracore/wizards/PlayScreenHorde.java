@@ -81,7 +81,6 @@ public class PlayScreenHorde {
 		while (Textures.cardSlot5 == null) {
 			Enemy1 = Cards.getCardCreature();
 			Textures.cardSlot5 = Enemy1.getTexture();
-
 		}
 
 		if (Wizards.mouseHandlerHorde.currentButton != "null") {
