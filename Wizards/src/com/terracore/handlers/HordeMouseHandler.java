@@ -108,7 +108,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
+				if(useOption){
 				Textures.btnUseState = Textures.btnUseDef;
+				}
 				overlayX = Wizards.compareToWidth(638);
 				overlayY = Wizards.compareToHeight(318);
 			}
@@ -116,7 +118,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
-				Textures.btnUseState = Textures.btnUseDef;
+				if(useOption){
+					Textures.btnUseState = Textures.btnUseDef;
+					}
 				overlayX = Wizards.compareToWidth(483);
 				overlayY = Wizards.compareToHeight(318);
 			}
@@ -124,7 +128,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
-				Textures.btnUseState = Textures.btnUseDef;
+				if(useOption){
+					Textures.btnUseState = Textures.btnUseDef;
+					}
 				overlayX = Wizards.compareToWidth(328);
 				overlayY = Wizards.compareToHeight(318);
 			}
@@ -132,7 +138,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
-				Textures.btnUseState = Textures.btnUseDef;
+				if(useOption){
+					Textures.btnUseState = Textures.btnUseDef;
+					}
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
 			}
