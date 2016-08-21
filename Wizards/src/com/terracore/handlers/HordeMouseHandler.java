@@ -47,21 +47,38 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card1";
+				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				canChooseCard = true;
+				
 			}
 			if (canChooseCard && e.getX() >= Wizards.compareToWidth(485)
 					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card2";
+				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				canChooseCard = true;
 			}
 			if (canChooseCard && e.getX() >= Wizards.compareToWidth(330)
 					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card3";
+				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				canChooseCard = true;
 			}
 			if (canChooseCard && e.getX() >= Wizards.compareToWidth(175)
 					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				currentButton = "card4";
+				cancelOption = true;
+				useOption = true;
+				attackAvailable = false;
+				canChooseCard = true;
 			}
 			if (cancelOption == true && e.getX() >= Wizards.compareToWidth(20)
 					&& e.getX() <= Wizards.compareToWidth(20) + 150 && e.getY() >= Wizards.compareToHeight(190)
@@ -95,12 +112,6 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				if (useOption) {
 					Textures.btnUseState = Textures.btnUseDef;
 				}
-				
-				cancelOption = true;
-				useOption = true;
-				attackAvailable = false;
-				canChooseCard = true;
-				
 				currentCard = "card1";
 				overlayX = Wizards.compareToWidth(638);
 				overlayY = Wizards.compareToHeight(318);
@@ -113,12 +124,6 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				if (useOption) {
 					Textures.btnUseState = Textures.btnUseDef;
 				}
-				
-				cancelOption = true;
-				useOption = true;
-				attackAvailable = false;
-				canChooseCard = true;
-				
 				currentCard = "card2";
 				overlayX = Wizards.compareToWidth(483);
 				overlayY = Wizards.compareToHeight(318);
@@ -128,15 +133,9 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
 				Textures.btnAttackState = Textures.btnAttackPress;
-				if (use) {
+				if (useOption) {
 					Textures.btnUseState = Textures.btnUseDef;
 				}
-				
-				cancelOption = true;
-				useOption = true;
-				attackAvailable = false;
-				canChooseCard = true;
-				
 				currentCard = "card3";
 				overlayX = Wizards.compareToWidth(328);
 				overlayY = Wizards.compareToHeight(318);
@@ -149,12 +148,6 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				if (useOption) {
 					Textures.btnUseState = Textures.btnUseDef;
 				}
-				
-				cancelOption = true;
-				useOption = true;
-				attackAvailable = false;
-				canChooseCard = true;
-				
 				currentCard = "card4";
 				overlayX = Wizards.compareToWidth(173);
 				overlayY = Wizards.compareToHeight(318);
