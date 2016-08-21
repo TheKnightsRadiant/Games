@@ -91,6 +91,7 @@ public class PlayScreenHorde {
 		}
 		if (Wizards.mouseHandlerHorde.summonSpot == true) {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX3, Wizards.mouseHandlerHorde.overlayY3);
+			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX4, Wizards.mouseHandlerHorde.overlayY4);
 		}
 
 		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));

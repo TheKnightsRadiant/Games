@@ -159,6 +159,10 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				overlayY = 2000;
 				overlayX2 = 2000;
 				overlayY2 = 2000;
+				overlayX3 = 2000;
+				overlayY3 = 2000;
+				overlayX4 = 2000;
+				overlayY4 = 2000;
 				audioHandler.playButtonClickSound();
 				cancelOption = false;
 				cancel = false;
@@ -167,6 +171,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				attackAvailable = true;
 				attack = false;
 				canChooseCard = true;
+				summonSpot = false;
 				currentButton = "null";
 				Textures.btnUseState = Textures.btnUsePress;
 				Textures.btnAttackState = Textures.btnAttackDef;
@@ -194,10 +199,49 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					overlayX2 = 598;
 					overlayY2 = 58;
 				}
+				if (currentCard == "card2" && Cards.Card2IsC == false) {
+					targetSelectable = true;
+					overlayX2 = 598;
+					overlayY2 = 58;
+				}
+				if (currentCard == "card3" && Cards.Card3IsC == false) {
+					targetSelectable = true;
+					overlayX2 = 598;
+					overlayY2 = 58;
+				}
+				if (currentCard == "card4" && Cards.Card4IsC == false) {
+					targetSelectable = true;
+					overlayX2 = 598;
+					overlayY2 = 58;
+				}
+				
 				if (currentCard == "card1" && Cards.Card1IsC == true) {
 					summonSpot = true;
-					overlayX3 = 200;
-					overlayY3 = 50;
+					overlayX3 = 220;
+					overlayY3 = 60;
+					overlayX4 = 400;
+					overlayY4 = 60;
+				}
+				if (currentCard == "card2" && Cards.Card2IsC) {
+					summonSpot = true;
+					overlayX3 = 220;
+					overlayY3 = 60;
+					overlayX4 = 400;
+					overlayY4 = 60;
+				}
+				if (currentCard == "card3" && Cards.Card3IsC) {
+					summonSpot = true;
+					overlayX3 = 220;
+					overlayY3 = 60;
+					overlayX4 = 400;
+					overlayY4 = 60;
+				}
+				if (currentCard == "card4" && Cards.Card4IsC) {
+					summonSpot = true;
+					overlayX3 = 220;
+					overlayY3 = 60;
+					overlayX4 = 400;
+					overlayY4 = 60;
 				}
 			}
 
