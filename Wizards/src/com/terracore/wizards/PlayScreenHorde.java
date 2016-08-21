@@ -87,8 +87,11 @@ public class PlayScreenHorde {
 		if (Wizards.mouseHandlerHorde.currentButton != "null") {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX, Wizards.mouseHandlerHorde.overlayY);
 		}
-		if (Wizards.mouseHandlerHorde.targetSelectable = true) {
+		if (Wizards.mouseHandlerHorde.targetSelectable == true) {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX2, Wizards.mouseHandlerHorde.overlayY2);
+		}
+		if (Wizards.mouseHandlerHorde.summonSpot == true) {
+			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX3, Wizards.mouseHandlerHorde.overlayY3);
 		}
 
 		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));

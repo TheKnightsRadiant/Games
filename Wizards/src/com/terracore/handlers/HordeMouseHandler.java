@@ -4,12 +4,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import com.terracore.storages.Cards;
 import com.terracore.storages.Textures;
 import com.terracore.wizards.Wizards;
 
 public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	public String currentButton = "null";
+	public String currentCard = "null";
 	public boolean cardIsSelected = false;
 	public boolean cancelOption = false;
 	public boolean cancel = false;
@@ -108,6 +110,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
+				currentCard = "card1";
 				if(useOption){
 				Textures.btnUseState = Textures.btnUseDef;
 				}
@@ -118,6 +121,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(485) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
+				currentCard = "card2";
 				if(useOption){
 					Textures.btnUseState = Textures.btnUseDef;
 					}
@@ -128,6 +132,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(330) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
+				currentCard = "card3";
 				if(useOption){
 					Textures.btnUseState = Textures.btnUseDef;
 					}
@@ -138,6 +143,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getX() <= Wizards.compareToWidth(175) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
 				Textures.btnCancelState = Textures.btnCancelDef;
+				currentCard = "card4";
 				if(useOption){
 					Textures.btnUseState = Textures.btnUseDef;
 					}
@@ -181,13 +187,15 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 				canChooseCard = false;
 				
 				Textures.btnUseState = Textures.btnUsePress;
-				if (cardType == "Spell") {
+				if (currentCard == "card1" && Cards.Card1IsC == false) {
 					targetSelectable = true;
 					overlayX2 = 598;
 					overlayY2 = 58;
 				}
-				if (cardType == "Creature") {
+				if (currentCard == "card1" && Cards.Card1IsC == true) {
 					summonSpot = true;
+					overlayX3 = 200;
+					overlayY3 = 50;
 				}
 			}
 
