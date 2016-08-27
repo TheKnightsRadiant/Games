@@ -94,19 +94,24 @@ public class PlayScreenHorde {
 			Textures.cardOverlay.render(g, Wizards.mouseHandlerHorde.overlayX4, Wizards.mouseHandlerHorde.overlayY4);
 		}
 
+		//Player Cards
 		Textures.cardSlot1.render(g, Wizards.compareToWidth(640), Wizards.compareToHeight(320));
 		Textures.cardSlot2.render(g, Wizards.compareToWidth(485), Wizards.compareToHeight(320));
 		Textures.cardSlot3.render(g, Wizards.compareToWidth(330), Wizards.compareToHeight(320));
 		Textures.cardSlot4.render(g, Wizards.compareToWidth(175), Wizards.compareToHeight(320));
 
+		//Enemy Card
 		Textures.cardSlot5.render(g, Wizards.compareToWidth(600), Wizards.compareToHeight(60));
 
-		Textures.btnAttackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
 		// Attack
-		Textures.btnUseState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
+		Textures.btnAttackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(50));
+		
 		// Use
-		Textures.btnCancelState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
+		Textures.btnUseState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(120));
+		
 		// Cancel
+		Textures.btnCancelState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(190));
+		
 
 		g.setColor(new Color(28, 28, 22));
 		g.drawLine(0, 300, 800, 300);
