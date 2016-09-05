@@ -33,7 +33,7 @@ public class Textures {
 
 	public static Texture cardOverlay;
 
-	public static Texture spellCardFireball, spellCardLightning, spellCardBlind, spellCardMassBlind;
+	public static Texture spellCardFireball, spellCardLightning, spellCardBlind, spellCardMassBlind, spellCardWind;
 
 	public static Texture creatureCardFireTruck, creatureCardWatermelon;
 
@@ -132,6 +132,7 @@ public class Textures {
 		spellCardLightning = new Texture("cards/spells/SpellLightning");
 		spellCardBlind = new Texture("cards/spells/SpellBlind");
 		spellCardMassBlind = new Texture("cards/spells/SpellMassBlind");
+		spellCardWind = new Texture("cards/spells/SpellWind");
 
 		creatureCardFireTruck = new Texture("cards/creatures/CreatureFiretruck");
 		creatureCardWatermelon = new Texture("cards/creatures/CreatureWatermelon");

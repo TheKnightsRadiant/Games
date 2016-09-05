@@ -8,7 +8,7 @@ import com.terracore.cards.SpellCard;
 public class Cards {
 
 	private static final int CreatureCardNum = 2;
-	private static final int SpellCardNum = 4;
+	private static final int SpellCardNum = 5;
 
 	public static CreatureCard CCard1;
 	public static CreatureCard CCard2;
@@ -45,6 +45,9 @@ public class Cards {
 	private static SpellCard MassBlind = new SpellCard(5, 1, 1, 1, 1, 100, 75, 10, 4, true, "Blind", "Light",
 			"SpellCard", "MassBlind", Textures.spellCardMassBlind);
 
+	private static SpellCard Wind = new SpellCard(6, 17, 17, 10, 10, 10, 9, 9, 3, true, "None", "Ethereal", "SpellCard",
+			"Wind", Textures.spellCardWind);
+
 	public static CreatureCard getCardCreature() {
 		switch (r.nextInt(CreatureCardNum)) {
 		case (0):
@@ -66,6 +69,8 @@ public class Cards {
 			return Blind;
 		case (3):
 			return MassBlind;
+		case (4):
+			return Wind;
 		default:
 			return null;
 		}

@@ -10,6 +10,8 @@ public class LoadingScreen {
 	
 	public static boolean isDone = false;
 	
+	public static String LoadingMessage = "";
+	
 	public void paint(Graphics g) {
 		// Wizards.preLoad = false;
 		g.setColor(Colorer.Tan0);
@@ -28,6 +30,10 @@ public class LoadingScreen {
 				Wizards.loadCounter = 80;
 			}
 		}
+		
+		g.setFont(new Font("ZapfDingbats", Font.BOLD, 30));
+		g.drawString(LoadingMessage, Wizards.centerToWidth(200), Wizards.centerToHeight(-200));
+		
 		Wizards.loadCounter--;
 
 		if(!isDone){

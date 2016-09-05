@@ -8,6 +8,8 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
+import com.terracore.wizards.LoadingScreen;
+
 public class Texture {
 	
 	private final static Map<String, TextureHandler> textMap = new HashMap<String, TextureHandler>();
@@ -22,6 +24,7 @@ public class Texture {
 			manager.addReference();
 		} else {
 			try {
+				//LoadingScreen.LoadingMessage = "Loading texture:" + fileName;
 				System.out.println("Loading texture: " + fileName);
 				manager = new TextureHandler(ImageIO.read(new File("resources/images/" + fileName + ".png")));
 				textMap.put(fileName, manager);
