@@ -5,12 +5,17 @@ import java.awt.event.*;
 import com.terracore.wizards.*;
 
 public class HordeKeyHandler implements KeyListener{
-
+	
+	public static boolean menuScreen;
+	
+	public HordeKeyHandler() {
+		menuScreen = false;
+		PauseMenuScreen.startY = Wizards.compareToHeight(-400);
+		PauseMenuScreen.y = PauseMenuScreen.startY;
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		if (Wizards.showPlayScreenHorde) {
-			
-		}
 		
 	}
 
@@ -22,8 +27,15 @@ public class HordeKeyHandler implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (Wizards.showPlayScreenHorde) {
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && menuScreen == false) {
+				PauseMenuScreen.scrollVel = 20;
+				Wizards.showPauseMenuScreen = true;
+			}
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && menuScreen == true) {
+				PauseMenuScreen.scrollVel = -20;
+			}
+		}
 	}
 
 }

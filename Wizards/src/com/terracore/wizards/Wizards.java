@@ -25,6 +25,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static boolean showTitleScreen = false;
 	public static boolean showBeginScreen = false;
 	public static boolean showPlayScreenHorde = false;
+	public static boolean showPauseMenuScreen = false;
 	public static boolean showBuildScreen = false;
 	public static boolean showHelpScreen = false;
 	public static boolean showCreditsScreen = false;
@@ -38,6 +39,7 @@ public class Wizards extends Canvas implements Runnable {
 	private TitleScreen titleScreen = new TitleScreen();
 	private BeginScreen beginScreen = new BeginScreen();
 	private PlayScreenHorde playScreen = new PlayScreenHorde();
+	private PauseMenuScreen pauseMenuScreen = new PauseMenuScreen();
 	private BuildScreen buildScreen = new BuildScreen();
 	private HelpScreen helpScreen = new HelpScreen();
 	private CreditsScreen creditsScreen = new CreditsScreen();
@@ -47,7 +49,7 @@ public class Wizards extends Canvas implements Runnable {
 	static MouseHandler mouseHandler = new MouseHandler();
 	static HordeMouseHandler mouseHandlerHorde = new HordeMouseHandler();
 	static HordeKeyHandler keyHandlerHorde = new HordeKeyHandler();
-
+	
 	static JFrame frame = new JFrame(TITLE);
 
 	private void preRender() {
@@ -106,6 +108,12 @@ public class Wizards extends Canvas implements Runnable {
 		if (showPlayScreenHorde) {
 			currentScreen = "Play";
 			playScreen.paint(g);
+		}
+		
+		//Pause Menu Screen
+		if (showPauseMenuScreen) {
+			currentScreen = "Pause";
+			pauseMenuScreen.paint(g);
 		}
 
 		// BUILD SCREEN
