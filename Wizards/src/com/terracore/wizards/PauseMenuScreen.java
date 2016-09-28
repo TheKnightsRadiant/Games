@@ -3,6 +3,7 @@ package com.terracore.wizards;
 import java.awt.*;
 
 import com.terracore.handlers.*;
+import com.terracore.storages.*;
 
 public class PauseMenuScreen {
 
@@ -31,11 +32,18 @@ public class PauseMenuScreen {
 			Wizards.showPauseMenuScreen = false;
 		}
 		
-		g.setColor(Color.black);
+		//Outline background
+		g.setColor(Colorer.LightBrown);
 		g.fillRect(Wizards.centerToWidth(600), y, 600, 400);
-		g.setColor(Color.white);
+		
+		//Light Background
+		g.setColor(Colorer.Tan1);
+		g.fillRect(Wizards.centerToWidth(580), y + 10, 580, 380);
+		
+		//Text
+		g.setColor(Colorer.MediumBrown);
 		g.drawString("PAUSE", Wizards.centerToWidth(125), y + 50);
-		drawString(g, "Note: Make the game actually pause\nso that buttons won't work.", Wizards.centerToWidth(580), y + 100);
+		drawString(g, "Note: This does actually prevent\nthe player from hitting the buttons\nin the game.", Wizards.centerToWidth(570), y + 100);
 		
 	}
 	
