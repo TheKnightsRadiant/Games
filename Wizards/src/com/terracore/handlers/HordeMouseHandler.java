@@ -41,7 +41,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (Wizards.showPlayScreenHorde) {
+		if (Wizards.showPlayScreenHorde && HordeKeyHandler.menuScreen == false) {
 
 			if (canChooseCard && e.getX() >= Wizards.compareToWidth(640)
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
@@ -102,7 +102,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (Wizards.showPlayScreenHorde) {
+		if (Wizards.showPlayScreenHorde && HordeKeyHandler.menuScreen == false) {
 			if (currentButton == "card1" && e.getX() >= Wizards.compareToWidth(640)
 					&& e.getX() <= Wizards.compareToWidth(640) + 151 && e.getY() >= Wizards.compareToHeight(320)
 					&& e.getY() <= Wizards.compareToHeight(320) + 201) {
@@ -250,7 +250,7 @@ public class HordeMouseHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		if (Wizards.showPlayScreenHorde) {
+		if (Wizards.showPlayScreenHorde && HordeKeyHandler.menuScreen == false) {
 			if (cancelOption && (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
 					&& e.getY() >= Wizards.compareToHeight(190) && e.getY() <= Wizards.compareToHeight(190) + 50)) {
 				Textures.btnCancelState = Textures.btnCancelHov;
