@@ -99,14 +99,14 @@ public class Textures {
 		btnNextHov = new Texture("buttons/buttonnext/ButtonNextHovered");
 		btnNextState = btnNextDef;
 		
-		btnAttackDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
-		btnAttackPress = new Texture("buttons/buttonblank/ButtonBlankPressed");
-		btnAttackHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnAttackDef = new Texture("buttons/buttonattack/ButtonAttackDefault");
+		btnAttackPress = new Texture("buttons/buttonattack/ButtonAttackPressed");
+		btnAttackHov = new Texture("buttons/buttonattack/ButtonAttackHovered");
 		btnAttackState = btnAttackDef;
 		
-		btnUseDef = new Texture("buttons/buttonblank/ButtonBlankDefault");
-		btnUsePress = new Texture("buttons/buttonblank/ButtonBlankPressed");
-		btnUseHov = new Texture("buttons/buttonblank/ButtonBlankHovered");
+		btnUseDef = new Texture("buttons/buttonuse/ButtonUseDefault");
+		btnUsePress = new Texture("buttons/buttonuse/ButtonUsePressed");
+		btnUseHov = new Texture("buttons/buttonuse/ButtonUseHovered");
 		btnUseState = btnUsePress;
 
 		btnCancelDef = new Texture("buttons/buttoncancel/ButtonCancelDefault");
