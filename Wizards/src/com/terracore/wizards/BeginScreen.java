@@ -19,6 +19,8 @@ public class BeginScreen {
 		// Background
 		g.setColor(new Color(255, 250, 150));
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
+		
+		Textures.HordeBackground.render(g, 275, 100);
 
 		// Top Bar
 		g.setColor(new Color(244, 231, 129));

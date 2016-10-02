@@ -2,6 +2,7 @@ package com.terracore.handlers;
 
 import java.awt.event.*;
 
+import com.terracore.storages.Textures;
 import com.terracore.wizards.*;
 
 public class HordeKeyHandler implements KeyListener {
@@ -32,6 +33,7 @@ public class HordeKeyHandler implements KeyListener {
 			}
 			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showMenuScreen == true) {
 				PauseMenuScreen.scrollVel = -20;
+				Textures.btnExitState = Textures.btnExitDef;
 			}
 		}
 	}

@@ -6,6 +6,8 @@ import com.terracore.wizards.LoadingScreen;
 public class Textures {
 
 	public static Texture TitleImage;
+	
+	public static Texture HordeBackground;
 
 	public static Texture btnBeginDef, btnBeginPress, btnBeginHov, btnBeginState;
 	public static Texture btnBuildDef, btnBuildPress, btnBuildHov, btnBuildState;
@@ -41,6 +43,8 @@ public class Textures {
 	public Textures() {
 		// Create Textures
 		TitleImage = new Texture("WizardTitle");
+		
+		HordeBackground = new Texture("HordeBackground");
 
 		btnBeginDef = new Texture("buttons/buttonbegin/ButtonBeginDefault");
 		btnBeginPress = new Texture("buttons/buttonbegin/ButtonBeginPressed");
