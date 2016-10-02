@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-import com.terracore.wizards.LoadingScreen;
 
 public class Texture {
 	

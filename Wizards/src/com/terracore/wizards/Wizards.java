@@ -81,11 +81,7 @@ public class Wizards extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		///////////////////////////////////////////
 
-		// LOADING SCREEN
-		if (showLoadingScreen) {
-			currentScreen = "Loading";
-			loadingScreen.paint(g);
-		}
+	
 
 		// TITLE SCREEN
 		if (showTitleScreen) {
