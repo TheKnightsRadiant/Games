@@ -17,7 +17,7 @@ public class Wizards extends Canvas implements Runnable {
 	public static int HEIGHT = WIDTH / 4 * 3;
 
 	public static int Gamemode = 3;
-	
+
 	public static boolean loading;
 	private static boolean running;
 
@@ -30,7 +30,9 @@ public class Wizards extends Canvas implements Runnable {
 	public static boolean showHelpScreen = false;
 	public static boolean showCreditsScreen = false;
 	public static boolean showSettingsScreen = false;
+	public static boolean showMenuScreen = false;
 	public static boolean showLoadingScreen = true;
+
 	public static int loadCounter = 80;
 
 	public static boolean volumeOn = true;
@@ -48,8 +50,9 @@ public class Wizards extends Canvas implements Runnable {
 	private AudioHandler audioHandler = new AudioHandler();
 	static MouseHandler mouseHandler = new MouseHandler();
 	static HordeMouseHandler mouseHandlerHorde = new HordeMouseHandler();
+	static PauseMenuMouseHandler mouseHandlerPauseMenu = new PauseMenuMouseHandler();
 	static HordeKeyHandler keyHandlerHorde = new HordeKeyHandler();
-	
+
 	static JFrame frame = new JFrame(TITLE);
 
 	private void preRender() {
@@ -81,8 +84,6 @@ public class Wizards extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		///////////////////////////////////////////
 
-	
-
 		// TITLE SCREEN
 		if (showTitleScreen) {
 			if (showSettingsScreen) {
@@ -105,8 +106,8 @@ public class Wizards extends Canvas implements Runnable {
 			currentScreen = "Play";
 			playScreen.paint(g);
 		}
-		
-		//Pause Menu Screen
+
+		// Pause Menu Screen
 		if (showPauseMenuScreen) {
 			currentScreen = "Pause";
 			pauseMenuScreen.paint(g);
@@ -202,6 +203,10 @@ public class Wizards extends Canvas implements Runnable {
 		frame.setLocationRelativeTo(null);
 	}
 
+	public static String getScreen() {
+		return currentScreen;
+	}
+
 	@Override
 	public void run() {
 		double targetFPS = 60.0;
@@ -277,6 +282,8 @@ public class Wizards extends Canvas implements Runnable {
 		game.addMouseMotionListener(mouseHandler);
 		game.addMouseListener(mouseHandlerHorde);
 		game.addMouseMotionListener(mouseHandlerHorde);
+		game.addMouseListener(mouseHandlerPauseMenu);
+		game.addMouseMotionListener(mouseHandlerPauseMenu);
 		game.addKeyListener(keyHandlerHorde);
 
 		game.start();

@@ -13,9 +13,9 @@ public class BeginScreen {
 	private int fontSizeChkBox = fontSizeChkBoxDef;
 
 	public void paint(Graphics g) {
-		
+
 		fontSizeChkBox = Wizards.compareToWidth(fontSizeChkBoxDef);
-		
+
 		// Background
 		g.setColor(new Color(255, 250, 150));
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.HEIGHT);
@@ -23,6 +23,17 @@ public class BeginScreen {
 		// Top Bar
 		g.setColor(new Color(244, 231, 129));
 		g.fillRect(0, 0, Wizards.WIDTH, Wizards.compareToHeight(100));
+
+		g.setColor(Colorer.Tan0);
+		g.fillRect(0, Wizards.compareToWidth(100), 275, Wizards.HEIGHT - Wizards.compareToWidth(100));
+		g.fillRect(0, Wizards.HEIGHT - Wizards.compareToWidth(100), Wizards.WIDTH, Wizards.compareToWidth(100));
+
+		g.setColor(Colorer.LightBrown);
+		g.drawLine(Wizards.compareToWidth(275), Wizards.compareToWidth(100), Wizards.WIDTH,
+				Wizards.compareToWidth(100));
+		g.drawLine(275, Wizards.compareToHeight(100), 275, Wizards.HEIGHT - Wizards.compareToWidth(100));
+		g.drawLine(Wizards.compareToWidth(275), Wizards.HEIGHT - Wizards.compareToWidth(100), Wizards.WIDTH,
+				Wizards.HEIGHT - Wizards.compareToWidth(100));
 
 		// Buttons
 		Textures.btnBackState.render(g, Wizards.compareToWidth(20), Wizards.compareToHeight(40));
@@ -37,11 +48,12 @@ public class BeginScreen {
 		// Check Box Text
 		g.setColor(Colorer.MediumBrown);
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeChkBox));
-		
+
 		g.drawString("Free For All", Wizards.compareToWidth(50), Wizards.compareToHeight(165));
 		g.drawString("Team Deathmatch", Wizards.compareToWidth(50), Wizards.compareToHeight(200));
 		g.drawString("Horde", Wizards.compareToWidth(50), Wizards.compareToHeight(235));
 		g.drawString("Endless Horde", Wizards.compareToWidth(50), Wizards.compareToHeight(270));
+
 	}
 
 }

@@ -16,6 +16,7 @@ public class Textures {
 	public static Texture btnVolumeDef, btnVolumeMute, btnVolumeHov, btnVolumeMuteHov, btnVolumeState;
 	public static Texture btnMusicDef, btnMusicMute, btnMusicHov, btnMusicMuteHov, btnMusicState;
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
+	
 
 	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
