@@ -30,7 +30,6 @@ public class Wizards extends Canvas implements Runnable {
 	public static boolean showHelpScreen = false;
 	public static boolean showCreditsScreen = false;
 	public static boolean showSettingsScreen = false;
-	public static boolean showMenuScreen = false;
 	public static boolean showLoadingScreen = true;
 
 	public static int loadCounter = 80;

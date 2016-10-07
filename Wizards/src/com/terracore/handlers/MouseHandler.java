@@ -36,182 +36,185 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (Wizards.showTitleScreen) {
+		if (e.getButton() == MouseEvent.BUTTON1) {
+			if (Wizards.showTitleScreen) {
 
-			// TITLESCREEN BUTTONS
-			// Button Begin
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToHeight(225) && e.getY() <= Wizards.compareToHeight(225) + 50) {
-				Textures.btnBeginState = Textures.btnBeginPress;
-				currentButton = "Begin";
-			}
+				// TITLESCREEN BUTTONS
+				// Button Begin
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToHeight(225) && e.getY() <= Wizards.compareToHeight(225) + 50) {
+					Textures.btnBeginState = Textures.btnBeginPress;
+					currentButton = "Begin";
+				}
 
-			// Button Build
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
-				Textures.btnBuildState = Textures.btnBuildPress;
-				currentButton = "Build";
-			}
+				// Button Build
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToHeight(280) && e.getY() <= Wizards.compareToHeight(280) + 50) {
+					Textures.btnBuildState = Textures.btnBuildPress;
+					currentButton = "Build";
+				}
 
-			// Button Help
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
-				Textures.btnHelpState = Textures.btnHelpPress;
-				currentButton = "Help";
-			}
+				// Button Help
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToWidth(335) && e.getY() <= Wizards.compareToWidth(335) + 50) {
+					Textures.btnHelpState = Textures.btnHelpPress;
+					currentButton = "Help";
+				}
 
-			// Button Credits
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToHeight(390) && e.getY() <= Wizards.compareToHeight(390) + 50) {
-				Textures.btnCreditState = Textures.btnCreditPress;
-				currentButton = "Credits";
-			}
+				// Button Credits
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToHeight(390) && e.getY() <= Wizards.compareToHeight(390) + 50) {
+					Textures.btnCreditState = Textures.btnCreditPress;
+					currentButton = "Credits";
+				}
 
-			// Button Exit
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToHeight(445) && e.getY() <= Wizards.compareToHeight(445) + 50) {
-				Textures.btnExitState = Textures.btnExitPress;
-				currentButton = "Exit";
-			}
+				// Button Exit
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToHeight(445) && e.getY() <= Wizards.compareToHeight(445) + 50) {
+					Textures.btnExitState = Textures.btnExitPress;
+					currentButton = "Exit";
+				}
 
-			// TITLE SETTING BUTTONS
-			// Button Settings
-			if (e.getX() >= Wizards.compareToWidth(730) && e.getX() <= Wizards.compareToWidth(730) + 40
-					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
-				Textures.btnSettingsState = Textures.btnSettingsPress;
-				currentButton = "Settings";
-			}
+				// TITLE SETTING BUTTONS
+				// Button Settings
+				if (e.getX() >= Wizards.compareToWidth(730) && e.getX() <= Wizards.compareToWidth(730) + 40
+						&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
+					Textures.btnSettingsState = Textures.btnSettingsPress;
+					currentButton = "Settings";
+				}
 
-			// SETTINGSSCREEN
-			if (Wizards.showSettingsScreen) {
+				// SETTINGSSCREEN
+				if (Wizards.showSettingsScreen) {
 
-				// Resolution
+					// Resolution
 
-				if (e.getX() >= Wizards.compareToWidth(655)
-						&& e.getX() <= Wizards.compareToWidth(655) + Wizards.compareToWidth(110)
-						&& e.getY() >= Wizards.compareToHeight(260)
-						&& e.getY() <= Wizards.compareToHeight(260) + Wizards.compareToHeight(20)) {
-					if (currentResolution == 700) {
-						currentResolution = 800;
-					} else if (currentResolution == 800) {
-						currentResolution = 900;
-					} else if (currentResolution == 900) {
-						currentResolution = 1000;
-					} else if (currentResolution == 1000) {
-						currentResolution = 700;
+					if (e.getX() >= Wizards.compareToWidth(655)
+							&& e.getX() <= Wizards.compareToWidth(655) + Wizards.compareToWidth(110)
+							&& e.getY() >= Wizards.compareToHeight(260)
+							&& e.getY() <= Wizards.compareToHeight(260) + Wizards.compareToHeight(20)) {
+						if (currentResolution == 700) {
+							currentResolution = 800;
+						} else if (currentResolution == 800) {
+							currentResolution = 900;
+						} else if (currentResolution == 900) {
+							currentResolution = 1000;
+						} else if (currentResolution == 1000) {
+							currentResolution = 700;
+						}
+
+						Wizards.changeSize(currentResolution);
+
 					}
 
-					Wizards.changeSize(currentResolution);
-
 				}
 
-			}
-
-			// Button Volume
-			if (e.getX() >= Wizards.compareToWidth(680) && e.getX() <= Wizards.compareToWidth(680) + 40
-					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
-				currentButton = "Volume";
-			}
-
-			// Button Music
-			if (e.getX() >= Wizards.compareToWidth(630) && e.getX() <= Wizards.compareToWidth(630) + 40
-					&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
-				currentButton = "Music";
-			}
-
-			// HELPSCREEN BUTTONS
-		} else if (Wizards.showHelpScreen) {
-
-			// Button Back
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				Textures.btnBackState = Textures.btnBackPress;
-				currentButton = "Back";
-			}
-
-			// Button Previous
-			if (e.getX() >= Wizards.compareToWidth(550) && e.getX() <= Wizards.compareToWidth(550) + 40
-					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
-				if (HelpScreen.pageNumber > 1) {
-					Textures.btnPrevState = Textures.btnPrevPress;
-				} else {
-					Textures.btnPrevState = Textures.btnPrevPress;
+				// Button Volume
+				if (e.getX() >= Wizards.compareToWidth(680) && e.getX() <= Wizards.compareToWidth(680) + 40
+						&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
+					currentButton = "Volume";
 				}
-				currentButton = "Previous";
-			}
 
-			// Button Next
-			if (e.getX() >= Wizards.compareToWidth(650) && e.getX() <= Wizards.compareToWidth(650) + 40
-					&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
-				if (HelpScreen.pageNumber < HelpScreen.maxPages) {
-					Textures.btnNextState = Textures.btnNextPress;
-				} else {
-					Textures.btnNextState = Textures.btnNextPress;
+				// Button Music
+				if (e.getX() >= Wizards.compareToWidth(630) && e.getX() <= Wizards.compareToWidth(630) + 40
+						&& e.getY() >= Wizards.compareToHeight(510) && e.getY() <= Wizards.compareToHeight(510) + 40) {
+					currentButton = "Music";
 				}
-				currentButton = "Next";
-			}
 
-			// CREDITSSCREEN BUTTONS
-		} else if (Wizards.showCreditsScreen) {
+				// HELPSCREEN BUTTONS
+			} else if (Wizards.showHelpScreen) {
 
-			// Button Back
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				Textures.btnBackState = Textures.btnBackPress;
-				currentButton = "Back";
-			}
+				// Button Back
+				if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+						&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
+					Textures.btnBackState = Textures.btnBackPress;
+					currentButton = "Back";
+				}
 
-			// BEGINSCREEN BUTTONS
-		} else if (Wizards.showBeginScreen) {
+				// Button Previous
+				if (e.getX() >= Wizards.compareToWidth(550) && e.getX() <= Wizards.compareToWidth(550) + 40
+						&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
+					if (HelpScreen.pageNumber > 1) {
+						Textures.btnPrevState = Textures.btnPrevPress;
+					} else {
+						Textures.btnPrevState = Textures.btnPrevPress;
+					}
+					currentButton = "Previous";
+				}
 
-			// Button Back
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				Textures.btnBackState = Textures.btnBackPress;
-				currentButton = "Back";
-			}
+				// Button Next
+				if (e.getX() >= Wizards.compareToWidth(650) && e.getX() <= Wizards.compareToWidth(650) + 40
+						&& e.getY() >= Wizards.compareToHeight(50) && e.getY() <= Wizards.compareToHeight(50) + 40) {
+					if (HelpScreen.pageNumber < HelpScreen.maxPages) {
+						Textures.btnNextState = Textures.btnNextPress;
+					} else {
+						Textures.btnNextState = Textures.btnNextPress;
+					}
+					currentButton = "Next";
+				}
 
-			// Button Begin
-			if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
-					&& e.getY() >= Wizards.compareToHeight(520) && e.getY() <= Wizards.compareToHeight(520) + 50) {
-				Textures.btnBeginState = Textures.btnBeginPress;
-				currentButton = "Begin";
-			}
+				// CREDITSSCREEN BUTTONS
+			} else if (Wizards.showCreditsScreen) {
 
-			// Check Box 1
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 150 + 28
-					&& e.getY() >= Wizards.compareToHeight(140) && e.getY() <= Wizards.compareToHeight(140) + 28) {
-				currentButton = "ChkBox1";
-			}
+				// Button Back
+				if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+						&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
+					Textures.btnBackState = Textures.btnBackPress;
+					currentButton = "Back";
+				}
 
-			// Check Box 2
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 225 + 28
-					&& e.getY() >= Wizards.compareToHeight(175) && e.getY() <= Wizards.compareToHeight(175) + 28) {
-				currentButton = "ChkBox2";
-			}
+				// BEGINSCREEN BUTTONS
+			} else if (Wizards.showBeginScreen) {
 
-			// Check Box 3
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 85 + 28
-					&& e.getY() >= Wizards.compareToHeight(210) && e.getY() <= Wizards.compareToHeight(210) + 28) {
-				currentButton = "ChkBox3";
-			}
+				// Button Back
+				if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+						&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
+					Textures.btnBackState = Textures.btnBackPress;
+					currentButton = "Back";
+				}
 
-			// Check Box 4
-			if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 190 + 28
-					&& e.getY() >= Wizards.compareToHeight(245) && e.getY() <= Wizards.compareToHeight(245) + 28) {
-				currentButton = "ChkBox4";
-			}
+				// Button Begin
+				if (e.getX() >= Wizards.centerToWidth(150) && e.getX() <= Wizards.centerToWidth(150) + 150
+						&& e.getY() >= Wizards.compareToHeight(520) && e.getY() <= Wizards.compareToHeight(520) + 50) {
+					Textures.btnBeginState = Textures.btnBeginPress;
+					currentButton = "Begin";
+				}
 
-			// BUILDSCREEN BUTTONS
-		} else if (Wizards.showBuildScreen) {
+				// Check Box 1
+				if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 150 + 28
+						&& e.getY() >= Wizards.compareToHeight(140) && e.getY() <= Wizards.compareToHeight(140) + 28) {
+					currentButton = "ChkBox1";
+				}
 
-			// Button Back
-			if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
-					&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
-				Textures.btnBackState = Textures.btnBackPress;
-				currentButton = "Back";
+				// Check Box 2
+				if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 225 + 28
+						&& e.getY() >= Wizards.compareToHeight(175) && e.getY() <= Wizards.compareToHeight(175) + 28) {
+					currentButton = "ChkBox2";
+				}
+
+				// Check Box 3
+				if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 85 + 28
+						&& e.getY() >= Wizards.compareToHeight(210) && e.getY() <= Wizards.compareToHeight(210) + 28) {
+					currentButton = "ChkBox3";
+				}
+
+				// Check Box 4
+				if (e.getX() >= Wizards.compareToWidth(10) && e.getX() <= Wizards.compareToWidth(10) + 190 + 28
+						&& e.getY() >= Wizards.compareToHeight(245) && e.getY() <= Wizards.compareToHeight(245) + 28) {
+					currentButton = "ChkBox4";
+				}
+
+				// BUILDSCREEN BUTTONS
+			} else if (Wizards.showBuildScreen) {
+
+				// Button Back
+				if (e.getX() >= Wizards.compareToWidth(20) && e.getX() <= Wizards.compareToWidth(20) + 150
+						&& e.getY() >= Wizards.compareToHeight(40) && e.getY() <= Wizards.compareToHeight(40) + 50) {
+					Textures.btnBackState = Textures.btnBackPress;
+					currentButton = "Back";
+				}
 			}
 		}
+
 	}
 
 	@Override

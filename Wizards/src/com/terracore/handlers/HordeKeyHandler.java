@@ -27,11 +27,11 @@ public class HordeKeyHandler implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (Wizards.showPlayScreenHorde) {
-			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showMenuScreen == false) {
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showPauseMenuScreen == false) {
 				PauseMenuScreen.scrollVel = 20;
 				Wizards.showPauseMenuScreen = true;
 			}
-			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showMenuScreen == true) {
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showPauseMenuScreen == true) {
 				PauseMenuScreen.scrollVel = -20;
 				Textures.btnExitState = Textures.btnExitDef;
 			}

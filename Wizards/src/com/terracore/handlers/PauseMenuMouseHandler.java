@@ -46,7 +46,6 @@ public class PauseMenuMouseHandler implements MouseListener, MouseMotionListener
 				Wizards.showHelpScreen = false;
 				Wizards.showCreditsScreen = false;
 				Wizards.showSettingsScreen = false;
-				Wizards.showMenuScreen = false;
 				Wizards.showLoadingScreen = false;
 				Wizards.showTitleScreen = true;
 				Textures.btnExitState = Textures.btnExitDef;

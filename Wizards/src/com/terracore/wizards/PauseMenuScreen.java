@@ -24,11 +24,11 @@ public class PauseMenuScreen {
 		y += scrollVel;
 		if (y >= 10) {
 			scrollVel = 0;
-			Wizards.showMenuScreen = true;
+			Wizards.showPauseMenuScreen = true;
 		}
 		if (y <= -400) {
 			scrollVel = 0;
-			Wizards.showMenuScreen = false;
+			Wizards.showPauseMenuScreen = false;
 			Wizards.showPauseMenuScreen = false;
 		}
 
