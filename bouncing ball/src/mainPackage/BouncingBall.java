@@ -8,7 +8,7 @@ public class BouncingBall extends JComponent implements ActionListener{
 	
 	//VARIABLES
 	int ballX = 400;
-	int ballY = 300;
+	int ballY = 100;
 	double ballYSpeed = 7;
 	double gravity = 1;
 	
@@ -47,7 +47,7 @@ public class BouncingBall extends JComponent implements ActionListener{
 		ballYSpeed += gravity;
 		
 		if (ballY >= 600-30){
-			ballYSpeed = -0.9 * ballYSpeed;
+			ballYSpeed = -0.8 * ballYSpeed;
 		}
 		repaint();
 	}
