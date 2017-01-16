@@ -14,6 +14,9 @@ public class TitleScreen {
 		g.fillRect(0, 0, Template.WIDTH, Template.HEIGHT);
 		Textures.titleScreenBackground.render(g, Template.compareToWidth(11), Template.compareToHeight(0));
 		Textures.titleScreenLogo.render(g, Template.compareToWidth(125), 95);
+		
+		g.setColor(Color.black);
+		g.drawString("Made by Tyler Eldred", 585, 515);
 
 		// Title Screen Buttons
 		Textures.btnAgendaState.render(g, Template.compareToWidth(95), Template.compareToHeight(85));
