@@ -19,8 +19,8 @@ public class TitleScreen {
 		g.fillRect(0, 0, Template.WIDTH, Template.HEIGHT);
 
 		// Title Screen Buttons
-		Textures.btnAgendaState.render(g, Template.centerToWidth(150), Template.compareToHeight(225));
-		Textures.btnMembersState.render(g, Template.centerToWidth(150), Template.compareToHeight(280));
+		Textures.btnAgendaState.render(g, Template.compareToWidth(5), Template.compareToHeight(150));
+		Textures.btnMembersState.render(g, Template.compareToWidth(5), Template.compareToHeight(201));
 
 	}
 }

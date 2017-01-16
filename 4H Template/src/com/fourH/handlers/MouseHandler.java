@@ -2,48 +2,36 @@ package com.fourH.handlers;
 
 import java.awt.event.*;
 
+import com.fourH.storages.*;
+import com.fourH.template.*;
+
 public class MouseHandler implements MouseListener, MouseMotionListener{
 
-	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (Template.showTitleScreen = true){
+			
+			if (e.getX() >= Template.compareToWidth(5) && e.getX() <= Template.compareToWidth(5) + 150
+					&& e.getY() >= Template.compareToHeight(150) && e.getY() <= Template.compareToHeight(150) + 50) {
+				Textures.btnAgendaState = Textures.btnAgendaHov;
+			}
+			
+		}
 	}
-
-	@Override
+	
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseDragged(MouseEvent e) {}
+	public void mouseMoved(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {}
 
 }
