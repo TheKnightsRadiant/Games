@@ -60,7 +60,7 @@ public class Template extends Canvas implements Runnable {
 		}
 		Graphics g = bs.getDrawGraphics();
 		///////////////////////////////////////////
-
+			showLoadingScreen = false;
 		// TITLE SCREEN
 				if (showTitleScreen) {
 					

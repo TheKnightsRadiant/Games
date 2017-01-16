@@ -8,10 +8,8 @@ import com.fourH.storages.*;
 
 public class MouseHandler implements MouseListener, MouseMotionListener {
 
-	private boolean btnAgendaHover = false;
-
 	public void mousePressed(MouseEvent e) {
-
+		
 	}
 
 	public void mouseReleased(MouseEvent e) {
@@ -21,17 +19,28 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	public void mouseMoved(MouseEvent e) {
 
 		if (Template.showTitleScreen = true) {
-			if (e.getX() >= Template.compareToWidth(5) && e.getX() <= Template.compareToWidth(5) + 150
-					&& e.getY() >= Template.compareToHeight(150) && e.getY() <= Template.compareToHeight(150) + 50) {
-
-				// Button Agenda
+			// Button Agenda
+			if (e.getX() >= Template.compareToWidth(95) && e.getX() <= Template.compareToWidth(95) + 150
+					&& e.getY() >= Template.compareToHeight(85) && e.getY() <= Template.compareToHeight(85) + 50) {
 				Textures.btnAgendaState = Textures.btnAgendaHov;
-				if (!btnAgendaHover) {
-					btnAgendaHover = true;
-				}
 			} else {
 				Textures.btnAgendaState = Textures.btnAgendaDef;
-				btnAgendaHover = false;
+			}
+			
+			// Button Pledge
+			if (e.getX() >= Template.compareToWidth(95) && e.getX() <= Template.compareToWidth(95) + 150
+					&& e.getY() >= Template.compareToHeight(136) && e.getY() <= Template.compareToHeight(136) + 50) {
+				Textures.btnPledgeState = Textures.btnPledgeHov;
+			} else {
+				Textures.btnPledgeState = Textures.btnPledgeDef;
+			}
+			
+			// Button Exit
+			if (e.getX() >= Template.compareToWidth(95) && e.getX() <= Template.compareToWidth(95) + 150
+					&& e.getY() >= Template.compareToHeight(187) && e.getY() <= Template.compareToHeight(187) + 50) {
+				Textures.btnExitState = Textures.btnExitHov;
+			} else {
+				Textures.btnExitState = Textures.btnExitDef;
 			}
 
 		}
