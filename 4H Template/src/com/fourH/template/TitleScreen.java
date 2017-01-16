@@ -7,13 +7,6 @@ import com.fourH.storages.Textures;
 
 public class TitleScreen {
 
-	private int fontSizeSettingsTitleDef = 18;
-	private int fontSizeSettingsTextDef = 195;
-	private int fontSizeSettingsTitle = fontSizeSettingsTitleDef;
-	private int fontSizeSettingsText = fontSizeSettingsTextDef;
-	
-	public static String agendaColor = "white";
-
 	public void paint(Graphics g) {
 		
 		// Background
