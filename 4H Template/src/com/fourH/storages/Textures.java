@@ -5,8 +5,6 @@ import com.fourH.template.LoadingScreen;
 
 public class Textures {
 
-	public static Texture TitleImage;
-
 	public static Texture btnAgendaDef, btnAgendaPress, btnAgendaHov, btnAgendaState;
 	public static Texture btnMembersDef, btnMembersPress, btnMembersHov, btnMembersState;
 	
