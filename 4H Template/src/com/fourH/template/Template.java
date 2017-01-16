@@ -61,7 +61,12 @@ public class Template extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		///////////////////////////////////////////
 
-		
+		// TITLE SCREEN
+				if (showTitleScreen) {
+					
+					currentScreen = "Title";
+					titleScreen.paint(g);
+				}
 
 		///////////////////////////////////////////
 		g.dispose();
