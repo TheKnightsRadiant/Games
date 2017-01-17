@@ -22,16 +22,19 @@ public class Template extends Canvas implements Runnable {
 	public static String currentScreen = "";
 	public static boolean showTitleScreen = false;
 	public static boolean showPledgeScreen = false;
+	public static boolean showAgendaScreen = false;
 	public static boolean showLoadingScreen = true;
 
 	private TitleScreen titleScreen = new TitleScreen();
 	private PledgeScreen pledgeScreen = new PledgeScreen();
+	private AgendaScreen agendaScreen = new AgendaScreen();
 	private LoadingScreen loadingScreen = new LoadingScreen();
 	
 	public static int loadCounter = 80;
 
 	static MouseHandler mouseHandler = new MouseHandler();
 	static PledgeMouseHandler pledgeMouseHandler = new PledgeMouseHandler();
+	static AgendaMouseHandler agendaMouseHandler = new AgendaMouseHandler();
 
 	static JFrame frame = new JFrame(TITLE);
 
@@ -74,6 +77,12 @@ public class Template extends Canvas implements Runnable {
 				if (showPledgeScreen) {
 					currentScreen = "Pledge";
 					pledgeScreen.paint(g);
+				}
+				
+		// Agenda Screen
+				if (showAgendaScreen) {
+					currentScreen = "Agenda";
+					agendaScreen.paint(g);
 				}
 
 		///////////////////////////////////////////
@@ -224,8 +233,12 @@ public class Template extends Canvas implements Runnable {
 
 		game.addMouseListener(mouseHandler);
 		game.addMouseMotionListener(mouseHandler);
+		
 		game.addMouseListener(pledgeMouseHandler);
 		game.addMouseMotionListener(pledgeMouseHandler);
+		
+		game.addMouseListener(agendaMouseHandler);
+		game.addMouseMotionListener(agendaMouseHandler);
 
 		game.start();
 	}

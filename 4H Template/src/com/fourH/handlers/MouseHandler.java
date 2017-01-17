@@ -43,6 +43,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 			if (currentButton == "Agenda" && e.getX() >= Template.compareToWidth(95) 
 					&& e.getX() <= Template.compareToWidth(95) + 150 && e.getY() >= Template.compareToHeight(85) 
 					&& e.getY() <= Template.compareToHeight(85) + 50) {
+				Template.showTitleScreen = false;
+				Template.showAgendaScreen = true;
 				Textures.btnAgendaState = Textures.btnAgendaDef;
 			}
 			

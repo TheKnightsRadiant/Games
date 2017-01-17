@@ -17,6 +17,9 @@ public class TitleScreen {
 		
 		g.setColor(Color.black);
 		g.drawString("Made by Tyler Eldred", 585, 515);
+		g.setColor(Colorer.DarkGreen);
+		g.setFont(new Font("Serif", Font.BOLD, 50));
+		g.drawString("January 16th, 2017", 275, 175);
 
 		// Title Screen Buttons
 		Textures.btnAgendaState.render(g, Template.compareToWidth(95), Template.compareToHeight(85));
