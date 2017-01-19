@@ -13,6 +13,8 @@ public class Textures {
 	public static Texture btnPledgeDef, btnPledgePress, btnPledgeHov, btnPledgeState;
 	public static Texture btnExitDef, btnExitPress, btnExitHov, btnExitState;
 	public static Texture btnBackDef, btnBackPress, btnBackHov, btnBackState;
+	public static Texture btnNextDef, btnNextPress, btnNextHov, btnNextState;
+	public static Texture btnPrevDef, btnPrevPress, btnPrevHov, btnPrevState;
 	
 	public static Texture btnNewBDef, btnNewBPress, btnNewBHov, btnNewBState;
 	public static Texture btnOldBDef, btnOldBPress, btnOldBHov, btnOldBState;
@@ -55,6 +57,16 @@ public class Textures {
 		btnOldBPress = new Texture("buttons/buttonoldb/OldBClicked");
 		btnOldBHov = new Texture("buttons/buttonoldb/OldBHovered");
 		btnOldBState = btnOldBDef;
+		
+		btnNextDef = new Texture("buttons/buttonnext/NextDef");
+		btnNextPress = new Texture("buttons/buttonnext/NextClicked");
+		btnNextHov = new Texture("buttons/buttonnext/NextHovered");
+		btnNextState = btnNextDef;
+		
+		btnPrevDef = new Texture("buttons/buttonprev/PrevDef");
+		btnPrevPress = new Texture("buttons/buttonprev/PrevClicked");
+		btnPrevHov = new Texture("buttons/buttonprev/PrevHovered");
+		btnPrevState = btnPrevPress;
 		
 		btnAnnounceDef = new Texture("buttons/buttonannouncements/AnnouncementsDefault");
 		btnAnnouncePress = new Texture("buttons/buttonannouncements/AnnouncementsClicked");

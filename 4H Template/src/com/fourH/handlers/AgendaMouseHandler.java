@@ -19,6 +19,20 @@ public class AgendaMouseHandler implements MouseListener, MouseMotionListener {
 				currentButton = "Back";
 			}
 
+			// Old Business Button
+			if (e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(125) && e.getY() <= Template.compareToHeight(125) + 50) {
+				Textures.btnOldBState = Textures.btnOldBPress;
+				currentButton = "Old Business";
+			}
+			
+			// New Business Button
+			if (e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(176) && e.getY() <= Template.compareToHeight(176) + 50) {
+				Textures.btnNewBState = Textures.btnNewBPress;
+				currentButton = "New Business";
+			}
+			
 		}
 	}
 
@@ -34,6 +48,22 @@ public class AgendaMouseHandler implements MouseListener, MouseMotionListener {
 				Textures.btnBackState = Textures.btnBackDef;
 			}
 
+			// Old Business Button
+			if (currentButton == "Old Business" && e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(125) && e.getY() <= Template.compareToHeight(125) + 50) {
+				Template.showAgendaScreen = false;
+				Template.showOldBScreen = true;
+				Textures.btnOldBState = Textures.btnOldBDef;
+			}
+			
+			// New Business Button
+			if (currentButton == "New Business" && e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(176) && e.getY() <= Template.compareToHeight(176) + 50) {
+				Template.showAgendaScreen = false;
+				Template.showNewBScreen = true;
+				Textures.btnOldBState = Textures.btnOldBDef;
+			}
+			
 		}
 	}
 
@@ -44,16 +74,25 @@ public class AgendaMouseHandler implements MouseListener, MouseMotionListener {
 			if (e.getX() >= Template.compareToWidth(10) && e.getX() <= Template.compareToWidth(10) + 150
 					&& e.getY() >= Template.compareToHeight(10) && e.getY() <= Template.compareToHeight(10) + 50) {
 				Textures.btnBackState = Textures.btnBackHov;
-
 			} else {
 				Textures.btnBackState = Textures.btnBackDef;
 			}
-			
+
 			// Old Business Button
-			
+			if (e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(125) && e.getY() <= Template.compareToHeight(125) + 50) {
+				Textures.btnOldBState = Textures.btnOldBHov;
+			} else {
+				Textures.btnOldBState = Textures.btnOldBDef;
+			}
 			
 			// New Business Button
-			
+			if (e.getX() >= Template.compareToWidth(325) && e.getX() <= Template.compareToWidth(325) + 150
+					&& e.getY() >= Template.compareToHeight(176) && e.getY() <= Template.compareToHeight(176) + 50) {
+				Textures.btnNewBState = Textures.btnNewBHov;
+			} else {
+				Textures.btnNewBState = Textures.btnNewBDef;
+			}
 			
 			// Announcements Button
 

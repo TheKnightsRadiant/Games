@@ -23,11 +23,15 @@ public class Template extends Canvas implements Runnable {
 	public static boolean showTitleScreen = false;
 	public static boolean showPledgeScreen = false;
 	public static boolean showAgendaScreen = false;
+	public static boolean showOldBScreen = false;
+	public static boolean showNewBScreen = false;
 	public static boolean showLoadingScreen = true;
 
 	private TitleScreen titleScreen = new TitleScreen();
 	private PledgeScreen pledgeScreen = new PledgeScreen();
 	private AgendaScreen agendaScreen = new AgendaScreen();
+	private OldBusinessScreen oldBScreen = new OldBusinessScreen();
+	private NewBusinessScreen newBScreen = new NewBusinessScreen();
 	private LoadingScreen loadingScreen = new LoadingScreen();
 	
 	public static int loadCounter = 80;
@@ -35,6 +39,8 @@ public class Template extends Canvas implements Runnable {
 	static MouseHandler mouseHandler = new MouseHandler();
 	static PledgeMouseHandler pledgeMouseHandler = new PledgeMouseHandler();
 	static AgendaMouseHandler agendaMouseHandler = new AgendaMouseHandler();
+	static OldBMouseHandler oldBMouseHandler = new OldBMouseHandler();
+	static NewBMouseHandler newBMouseHandler = new NewBMouseHandler();
 
 	static JFrame frame = new JFrame(TITLE);
 
@@ -83,6 +89,18 @@ public class Template extends Canvas implements Runnable {
 				if (showAgendaScreen) {
 					currentScreen = "Agenda";
 					agendaScreen.paint(g);
+				}
+				
+		// Old Business Screen
+				if (showOldBScreen) {
+					currentScreen = "Old Business";
+					oldBScreen.paint(g);
+				}
+				
+		// New Business Screen
+				if (showNewBScreen) {
+					currentScreen = "New Business";
+					newBScreen.paint(g);
 				}
 
 		///////////////////////////////////////////
@@ -239,6 +257,12 @@ public class Template extends Canvas implements Runnable {
 		
 		game.addMouseListener(agendaMouseHandler);
 		game.addMouseMotionListener(agendaMouseHandler);
+		
+		game.addMouseListener(oldBMouseHandler);
+		game.addMouseMotionListener(oldBMouseHandler);
+		
+		game.addMouseListener(newBMouseHandler);
+		game.addMouseMotionListener(newBMouseHandler);
 
 		game.start();
 	}
