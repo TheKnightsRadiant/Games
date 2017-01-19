@@ -84,7 +84,7 @@ public class OldBusinessScreen {
 		switch (pageNumber) {
 		case 1:
 			this.drawStringMultiLine(g,
-					"This is the first page of Old Business",
+					"This is the First Page of Old Business",
 					textLineWidth, textX, textY);
 			break;
 		case 2:
