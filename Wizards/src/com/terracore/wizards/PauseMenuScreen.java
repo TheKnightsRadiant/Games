@@ -29,7 +29,6 @@ public class PauseMenuScreen {
 		if (y <= -400) {
 			scrollVel = 0;
 			Wizards.showPauseMenuScreen = false;
-			Wizards.showPauseMenuScreen = false;
 		}
 
 		// Outline background
