@@ -24,7 +24,6 @@ public class PauseMenuScreen {
 		y += scrollVel;
 		if (y >= 10) {
 			scrollVel = 0;
-			Wizards.showPauseMenuScreen = true;
 		}
 		if (y <= -400) {
 			scrollVel = 0;
@@ -41,7 +40,7 @@ public class PauseMenuScreen {
 
 		// Text
 		g.setColor(Colorer.MediumBrown);
-		g.drawString("PAUSE", Wizards.centerToWidth(125), y + 50);
+		g.drawString("PAUSE", Wizards.centerToWidth(115), y + 50);
 		drawString(g, "Note: This does actually prevent\nthe player from hitting the buttons\nin the game.",
 				Wizards.centerToWidth(570), y + 100);
 

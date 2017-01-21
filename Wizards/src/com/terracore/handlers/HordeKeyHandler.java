@@ -28,10 +28,10 @@ public class HordeKeyHandler implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		if (Wizards.showPlayScreenHorde) {
 			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showPauseMenuScreen == false) {
-				PauseMenuScreen.scrollVel = 20;
 				Wizards.showPauseMenuScreen = true;
+				PauseMenuScreen.scrollVel = 20;
 			}
-			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showPauseMenuScreen == true) {
+			if (e.getKeyCode() == KeyEvent.VK_ESCAPE && Wizards.showPauseMenuScreen == true && PauseMenuScreen.y >= 10) {
 				PauseMenuScreen.scrollVel = -20;
 				Textures.btnExitState = Textures.btnExitDef;
 			}
