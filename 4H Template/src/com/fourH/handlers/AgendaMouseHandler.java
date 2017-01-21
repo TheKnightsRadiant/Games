@@ -61,7 +61,7 @@ public class AgendaMouseHandler implements MouseListener, MouseMotionListener {
 					&& e.getY() >= Template.compareToHeight(176) && e.getY() <= Template.compareToHeight(176) + 50) {
 				Template.showAgendaScreen = false;
 				Template.showNewBScreen = true;
-				Textures.btnOldBState = Textures.btnOldBDef;
+				Textures.btnNewBState = Textures.btnNewBDef;
 			}
 			
 		}

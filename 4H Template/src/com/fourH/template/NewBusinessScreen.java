@@ -62,7 +62,7 @@ public class NewBusinessScreen {
 		// Top Text
 		g.setColor(Colorer.DarkGreen);
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizeTitle));
-		g.drawString("Old Business", Template.compareToWidth(230), Template.compareToHeight(75));
+		g.drawString("New Business", Template.compareToWidth(230), Template.compareToHeight(75));
 
 		// Page Number
 		g.setFont(new Font("ZapfDingbats", Font.BOLD, fontSizePage));
@@ -83,7 +83,7 @@ public class NewBusinessScreen {
 		switch (pageNumber) {
 		case 1:
 			this.drawStringMultiLine(g,
-					"This is the First Page of New Business",
+					"This is the First Page of New Business.",
 					textLineWidth, textX, textY);
 			break;
 		case 2:
