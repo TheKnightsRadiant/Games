@@ -1,6 +1,7 @@
 package com.terracore.handlers;
 
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.geom.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,6 +44,14 @@ public class Texture {
 
 	public void render(Graphics g, double x, double y) {
 		g.drawImage(manager.getImage(), (int) x, (int) y, null);
+	}
+	
+	public void renderRotated(Graphics g, int x, int y, int width, int height, int rotated) {
+		AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+		at.rotate(Math.toRadians(rotated), width/2, height/2);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.drawImage(manager.getImage(), at, null);
 	}
 
 }
